@@ -1,6 +1,6 @@
 # 1. INTRODUÇÃO
 
-O controle de doenças transmitidas por vetores, como mosquito, é essencial para o planejamento e gestão da saúde pública. Esse tipo de transmissor viral é responsável por 17% das doenças transmissíveis a nível mundial, provocando 700 mil mortes por ano (Neto et al., 2023). A dengue, por sua vez, é uma arbovirose transmitida por fêmeas de mosquitos Aedes aegypty, que se tornou um problema no Brasil a partir da década de 1980, quando foi registrado os primeiros casos e epidemias em diversos estados (Camara, 2024). 
+O controle de doenças transmitidas por vetores, como mosquito, é essencial para o planejamento e gestão da saúde pública. Esse tipo de transmissor viral é responsável por 17% das doenças transmissíveis a nível mundial, provocando 700 mil mortes por ano (Neto _et al_., 2023). A dengue, por sua vez, é uma arbovirose transmitida por fêmeas de mosquitos Aedes aegypty, que se tornou um problema no Brasil a partir da década de 1980, quando foi registrado os primeiros casos e epidemias em diversos estados (Camara, 2024). 
 
 Segundo Messina et al. (2019), o vetor transmissor da dengue prolifera-se em locais com temperaturas mais altas e em ambientes com alta urbanização. Para eles, a projeção é de que os lugares favoráveis para o desenvolvimento do mosquito tendam a aumentar. A dengue já é uma doença endêmica em países tropicais e subtropicais das Américas, África, Ásia, Oriente Médio, Ilhas do Pacífico e Região do Pacífico Ocidental, onde quase metade da população global estão suscetíveis à doença por viverem nessas regiões (Camara, 2024; Seixas; Luz; Junior, 2024). 
 
@@ -29,7 +29,15 @@ Isso posto, os objetivos específicos deste trabalho são:
 
 ## 1.3. Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+É notório que há uma lacuna na satisfação das necessidades de informação sobre saúde pública em diversas esferas, seja por acesso desigual à informação, desatualização de dados, desinformação e fake news ou falta de compreensão pela população. Essa questão torna-se ainda mais grave devido ao, já abordado, aumento expressivo de casos de dengue no Brasil. Segundo Latorre et al. (2024), a utilização das Tecnologias da Informação e Comunicação (TICs) têm potencial de transformar a saúde pública e proporcionar gestões públicas mais eficientes e acessíveis. 
+
+Em resposta a problemática da dengue, surge a iniciativa de criar uma ferramenta web de livre acesso para que o público (cidadãos e setor público) possuam um meio de acesso rápido e prático a informações relacionadas a dengue, além de poderem colaborar ativamente com a atualização de dados. 
+
+De acordo com o estudo de Duncombe et al. (2012) sobre as diretrizes sobre dengue da World Health Organization (2009) para diagnóstico, tratamento, prevenção e controle, os Sistemas de Informação Geográfica (SIG), em particular, permitem uma investigação mais aprofundada das informações de vigilância por meio de análises de dados espaciais e relações entre a doença e o ambiente.  
+
+Rezende et al. (2024) mostraram que mapas de calor são meios de identificar as necessidades de estratégias locais, como campanhas de conscientização, eliminação de criadouros do mosquito da dengue e melhorias no saneamento. Segundo eles, a análise integrada de dados geográficos e epidemiológicos permite intervenções mais eficazes, direcionando recursos às áreas de maior vulnerabilidade. Já Capara et al. (2015), por exemplo, observaram que o engajamento da comunidade local em ações participativas colaborou para a redução da proliferação do vetor da dengue. 
+
+Dessa maneira, ao disponibilizar dados mais acessíveis e precisos sobre a incidência da dengue, é possível colaborar com a conscientização da população sobre os riscos da doença e com a adoção de medidas preventivas. A visualização geográfica dos casos facilita a interpretação da situação atual de cada região. Além disso, estimular uma participação social mais ativa tem potencial de motivar os cidadãos a se precaverem contra a doença no dia a dia. 
 
 ## 1.4. Público alvo
 
