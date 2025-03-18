@@ -10,8 +10,9 @@ As notificações de casos prováveis de dengue desde 2022 revelaram um crescime
 
 ## 1.1. Problema
 
-Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. 
-Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
+A dengue é um problema de saúde pública que demanda estratégias eficazes de monitoramento e combate tendo em vista o aumento alarmante de casos. No entanto, a subnotificação de casos, a dificuldade de acesso a informações e a ausência de mecanismos eficientes para denúncias de focos do vetor transmissor e o registro de casos de dengue por parte da população dificultam a atuação dos órgãos responsáveis. Atualmente, a obtenção de informações sobre a incidência da doença depende, em grande parte, de canais institucionais que podem apresentar defasagem nos dados e dificultar o engajamento da população no combate ao mosquito Aedes aegypti. 
+
+ Para mitigar esses desafios, surge a necessidade do desenvolvimento de uma plataforma digital que centraliza dados sobre a endemia, possibilitando as denúncias e os registros. Tal plataforma pode ser usada tanto por cidadãos comuns quanto por profissionais da saúde e gestores públicos. 
 
 ## 1.2. Objetivos do trabalho
 
