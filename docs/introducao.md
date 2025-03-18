@@ -1,6 +1,12 @@
 # 1. INTRODUÇÃO
 
-Contextualizar a área de pesquisa do trabalho, apresentando conceitos e dados relacionados antes de apresentar a problemática a ser investigada.
+O controle de doenças transmitidas por vetores, como mosquito, é essencial para o planejamento e gestão da saúde pública. Esse tipo de transmissor viral é responsável por 17% das doenças transmissíveis a nível mundial, provocando 700 mil mortes por ano (Neto et al., 2023). A dengue, por sua vez, é uma arbovirose transmitida por fêmeas de mosquitos Aedes aegypty, que se tornou um problema no Brasil a partir da década de 1980, quando foi registrado os primeiros casos e epidemias em diversos estados (Camara, 2024). 
+
+Segundo Messina et al. (2019), o vetor transmissor da dengue prolifera-se em locais com temperaturas mais altas e em ambientes com alta urbanização. Para eles, a projeção é de que os lugares favoráveis para o desenvolvimento do mosquito tendam a aumentar. A dengue já é uma doença endêmica em países tropicais e subtropicais das Américas, África, Ásia, Oriente Médio, Ilhas do Pacífico e Região do Pacífico Ocidental, onde quase metade da população global estão suscetíveis à doença por viverem nessas regiões (Camara, 2024; Seixas; Luz; Junior, 2024). 
+
+De acordo com o Ministério da Saúde (2024), apenas no primeiro semestre de 2024, foram notificados mais de 6 milhões de casos prováveis de dengue com incidência de cerca de 3060 casos para cada 100 mil habitantes, representando um aumento de 344,5% quando comparado com o mesmo período do ano anterior. Os Estados de Minas Gerais, Rio de Janeiro, São Paulo, Paraná, Santa Catarina, Goiás e Distrito Federal juntos concentraram 87,5% dos casos prováveis do Brasil em 2024. A partir desses dados, o Ministério da Saúde afirmou que novos patamares de transmissão se tornarão padrão nos próximos anos devido aos novos padrões climáticos e que ações de prevenção devem ser planejadas e executadas de forma integrada para mitigar os impactos dessa doença à saúde pública do país. 
+
+As notificações de casos prováveis de dengue desde 2022 revelaram um crescimento alarmante no número de casos em relação aos anos anteriores (Ferreira et al., 2023). Com o enfrentamento do aumento histórico no número de internações e óbitos em 2024, a dengue se torna um importante e preocupante desafio para o Sistema Único de Saúde (SUS) (Ferreira et al., 2023; Medeiros, 2024). Logo, destaca-se a necessidade de ações preventivas pelas autoridades sanitárias do país para controlar a disseminação da doença e de acompanhamento epidemiológico de forma ágil e realista para traçar melhores estratégias de combate à propagação da doença. 
 
 ## 1.1. Problema
 
