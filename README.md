@@ -6,8 +6,6 @@
 
 `SEMESTRE: 3º`
 
-<img src="./src/assets/dengue_banner.png" alt="Texto Dengue Status ao lado de mosquito" width="100%">
-
 ## Sobre
 
 O projeto fornece uma aplicação Web para suprir a demanda por informações acessíveis e mais detalhadas sobre a incidência de dengue nos estados do Brasil. Dada a gravidade da situação epidemiológica e a alta taxa de infecções e óbitos, especialmente em 2024, que atingiu números recordes, a aplicação permitirá que os usuários visualizem dados de casos de dengue, registrem seus próprios casos e de seus familiares, denunciem focos de dengue em sua cidade, solicitem visita de agente de saúde e obtenham informações sobre prevenção e tratamento da doença. Além disso, agentes de saúde poderão acessar registros completos de denuncias de foco, casos de dengue e visitas solicitadas.
