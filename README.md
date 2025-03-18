@@ -13,7 +13,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Ádria Tavares Leite Silva
 * Arthur Ribeiro Dias Guimarães
 * Daniel Caruso de Sá Teixeira
-* Guilherme
+* Guilherme Cortez de Carvalho
 * Jhonata Augusto Silva
 * Maria Laura Cardoso Bastos
 
