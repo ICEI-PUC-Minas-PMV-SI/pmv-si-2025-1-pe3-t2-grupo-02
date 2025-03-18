@@ -16,7 +16,16 @@ A dengue é um problema de saúde pública que demanda estratégias eficazes de 
 
 ## 1.2. Objetivos do trabalho
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. O objetivo geral deve resumir e apresentar a ideia central de um trabalho, descrevendo também a sua finalidade. Os objetivos específicos darão uma maior delimitação ao tema, além de detalhar os processos necessários para a realização do trabalho.
+Este projeto tem como objetivo geral desenvolver uma aplicação Web onde seus usuários possam acessar, com facilidade, informações relacionadas aos casos de dengue no Brasil.  
+
+Isso posto, os objetivos específicos deste trabalho são:  
+ - Disponibilizar um mapa de calor para visualizar a incidência de casos por cidade, utilizando dados públicos da API Infodengue;
+ - Permitir o cadastro de usuários para registro de casos de dengue próprios ou de familiares;
+ - Oferecer a funcionalidade de solicitação de visita de um agente de saúde;
+ - Possibilitar a denúncia de focos de dengue;
+ - Permitir que agentes de saúde tenham acesso a registros completos dos casos e denúncias;
+ - Permitir que agentes de saúde vejam visitas solicitas;
+ - Fornecer informações educativas sobre prevenção, sintomas e tratamento da dengue, auxiliando no combate à proliferação do mosquito Aedes aegypti. 
 
 ## 1.3. Justificativa
 
