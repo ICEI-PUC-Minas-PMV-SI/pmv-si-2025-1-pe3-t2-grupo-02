@@ -1,0 +1,111 @@
+/* Estilo para esconder o modal por padrão */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+}
+
+.modal-header {
+  padding: 10px 10px 10px 6px;
+  border-bottom: 1px solid #ddd;
+  justify-content: center;
+  align-items: left;
+}
+
+.header-title {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: var(--primary-40);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.modal-body {
+  width: 90%;
+  padding: 20px;
+  margin-top: 18px;
+  background-color: var(--primary-40);
+  border-radius: 8px;
+  align-self: center;
+  align-content: center;
+}
+
+.modal-body p {
+  color: var(--neutral-0);
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center; 
+  padding: 10px;
+  text-align: right;
+  width: 35%;
+}
+
+.close-button {
+  border: 1px solid var(--primary-40);
+  background-color: var(--neutral-0);
+  color: var(--primary-40);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button button {
+  width: 300px;
+}
+
+.close-button:hover {
+  background-color: var(--primary-40);
+  color: var(--neutral-0);
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal-content {
+    width: 80%;
+  }
+}
+
+.modal-body {
+  width: 100%;
+}
+
+.modal-footer {
+  width: 100%;
+}
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página de componentes input</title>
+  <!-- Importando a fonte Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Importando folhas de estilo -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./inputs.css">
+  <!-- Importando scripts do cabeçalho e rodapé -->
+  <script src="../header/header.js" defer></script>
+  <script src="../footer/footer.js" defer></script>
+</head>
+
+<body>
+  <!-- Incluindo o cabeçalho da aplicação -->
+  <app-header></app-header>
+  <!-- Container principal para inputs -->
+  <div class="column-inputs-container">
+    <h1>Exemplos componentes</h1>
+    <!-- Container para input de nome -->
+    <div class="row-inputs-container">
+      <div class="input-full-container">
+        <label for="nome">Input 100% de comprimento <span class="required">*</span></label>
+        <input type="text" id="nome" name="nome">
+      </div>
+    </div>
+
+    <div class="row-inputs-container">
+      <div class="input-full-container">
+        <label id="label_cidade" for="cidade">Input de busca 100% de comprimento <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <input type="text" id="cidade" name="cidade">
+          <span class="search-icon"></span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Container select de gênero -->
+    <div class="row-inputs-container">
+
+      <div class="select gener-input-container">
+        <div class="custom-select-wrapper">
+          <label>Gênero <span class="required">*</span></label>
+          <select id="genero" name="genero">
+            <option value="masculino">Escolha uma opção</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="nao_responder">Prefiro não responder</option>
+          </select>
+          <div class="custom-arrow"></div>
+        </div>
+      </div>
+    </div>
+      
+    <!-- Container para input de data de nascimento -->
+    <div class="row-inputs-container">
+      <div class="input-date-container"> <!-- class="input-date container left-identation" -->
+        <label for="data_nascimento">Input data <span class="required">*</span></label>
+        <input type="date" id="data_nascimento" name="data_nascimento">
+      </div>
+    </div>
+
+    <div class="row-inputs-container">
+      <div class="mid-input-container">
+        <label id="label_cidade" for="cidade">Input 50% de comprimento <span class="required">*</span></label>
+        <input type="text" id="cidade" name="cidade">
+      </div>
+    </div>
+
+    <div class="row-inputs-container">
+      <div class="mid-input-container">
+        <label id="label_cidade" for="cidade">Input de busca 50% de comprimento <span class="required">*</span></label>
+        <div class="input-with-icon">
+          <input type="text" id="cidade" name="cidade">
+          <span class="search-icon"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container para input checkbox saúde -->
+    <div class="row-inputs-container">
+      <div class="trated-health-unit-container" id="trated-health-unit">
+        <div class="checkbox-line">
+          <input type="checkbox" id="checkbox-health-unit" class="checkbox-input">
+          <label for="checkbox-health-unit" class="checkbox-button">
+            <img src="../../assets/check.svg" alt="check">
+          </label>
+        </div>
+        <label for="registering-for">Checkbox <span class="required">*</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluindo o rodapé da aplicação -->
+  <app-footer></app-footer>
+</body>
+
+</html>

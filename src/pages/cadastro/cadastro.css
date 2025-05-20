@@ -1,0 +1,267 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.cadastrar-conta-container {
+  width: 100%;  
+  margin-top: 2rem;
+  margin-bottom: 12rem;
+  position: relative;
+}
+
+.header-criar-conta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-direction: column;
+}
+
+.header-criar-conta h1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--primary-40);
+  text-align: left;
+  align-self: left;
+}
+
+.header-criar-conta img {
+  width: 233px;
+  height: 214px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+form {
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: 1px solid var(--neutral-50); 
+  border-radius: 8px;
+  width: 52vw;
+  margin-bottom: 1rem;
+}
+
+.submit-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 12px;
+  width: 200px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.entrar-conta-content p{
+  color: var(--neutral-100);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  height: 20px;
+  border-radius: 12px;
+  margin-top: 2%;
+}
+
+.entrar-conta-content p a {
+  text-decoration: none;
+  color: var(--primary-40);
+  font-weight: 700;
+  font-family: Poppins;
+  font-size: 14px;
+}
+
+.row-inputs-container, .column-inputs-container {
+  width: 100%;
+  margin: 12px 0px;
+}
+
+/* Media query para telas menores que 1200px */
+
+@media screen and (max-width: 1200px) {
+  .cadastrar-conta-container {
+    margin: 0 auto;
+    width: 65vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form {
+    padding: 32px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
+
+  .input-full-container input {
+    padding: 14px;
+  }
+
+  .footer {
+    bottom: auto;
+  }
+}
+
+/* Media query para telas menores que 769px */
+@media screen and (max-width: 768px) {
+  .cadastrar-conta-container {
+    width: 75vw;
+    margin-top: 2rem;
+  }
+
+  .column-inputs-container {
+    margin: 0px;
+  }
+
+  .input-date-container,
+  .gener-input-container { 
+    width: 100%;
+  }
+
+  .custom-select-wrapper {
+    margin-top: 12px;
+  }
+}
+
+/* Media query para telas menores que 620px */
+@media screen and (max-width: 620px) {
+  .cadastrar-conta-container {
+    width: 90vw;
+  }
+
+  form {
+    width: 100%;
+    margin: 4px;
+  }
+
+  .row-inputs-container {
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 100%;
+    gap: 12px;
+  }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+}
+
+.modal-header {
+  padding: 10px 10px 10px 6px;
+  border-bottom: 1px solid #ddd;
+  justify-content: center;
+  align-items: left;
+}
+
+.header-title {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: var(--primary-40);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.modal-body {
+  width: 90%;
+  padding: 20px;
+  margin-top: 18px;
+  background-color: var(--primary-40);
+  border-radius: 8px;
+  align-self: center;
+  align-content: center;
+}
+
+.modal-body p {
+  color: var(--neutral-0);
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center; 
+  padding: 10px;
+  text-align: right;
+  width: 35%;
+}
+
+.close-button {
+  border: 1px solid var(--primary-40);
+  background-color: var(--neutral-0);
+  color: var(--primary-40);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button button {
+  width: 300px;
+}
+
+.close-button:hover {
+  background-color: var(--primary-40);
+  color: var(--neutral-0);
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .modal-content {
+    width: 80%;
+  }
+}
+
+.modal-body {
+  width: 100%;
+}
+
+.modal-footer {
+  width: 100%;
+}

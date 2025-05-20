@@ -1,0 +1,581 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.report-case-container {
+  width: 100%;  
+  margin-top: 2rem;
+  margin-bottom: 12rem;
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 8px;
+  border-bottom: 1px solid var(--var-color-text-red);
+  width: 100%;
+}
+
+.header-container img {
+  margin-left: 64px;
+  width: 114px;
+  height: 76px;
+}
+
+.header-container h1 {
+  padding: 2px;
+  color: var(--var-color-text-red);
+}
+
+.header-report-case {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-direction: column;
+}
+
+.header-report-case img {
+  width: 233px;
+  height: 214px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.header-report-case h1{
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--primary-40);
+  text-align: left;
+  align-self: left;
+}
+
+form {
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--neutral-50); 
+  border-radius: 8px;
+  width: 52vw;
+  margin-bottom: 1rem;
+}
+
+.modal #dynamic-text {
+  margin: 24px 0;
+  text-align: center;
+}
+
+/* Classe para indicar elementos obrigatórios */
+.required {
+  color: var(--primary-40);                                 /* Cor vermelha para indicar elementos obrigatórios */
+}
+
+/* Classe para espaçar as inputs no formulário */
+.left-identation {
+  margin-right: 10px;
+}
+
+/* Container para inputs em coluna */
+.column-inputs-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 12px;
+  align-items: center;
+}
+
+/* Container para inputs em linha */
+.row-inputs-container {
+  width: 100%;                                               /* Ajustável conforme necessidade do comprimento */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 12px;
+  align-items: center;
+}
+
+/* Container para input de largura total */
+.input-full-container {
+  width: 100%;
+}
+
+/* Inputs de largura total */
+.input-full-container input {
+  height: 45px;                                             /* Altura padrão para inputs */
+}
+
+/* Containers de inputs */
+.input-date-container,
+.select-input-container,
+.mid-input-container {
+  width: 50%;                                               /* Largura padrão para containers de inputs */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Selects */
+select {
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--neutral-50);                     
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.custom-select-wrapper {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  right: 18px; 
+  transform: translateY(140%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--neutral-100); 
+  pointer-events: none; 
+}
+/* Inputs de texto */
+.input-full-container input,
+.input-date-container input,
+.mid-input-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--neutral-50);                      /* Cor da borda padrão */
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Estilo para inputs de texto e data dentro dos containers */
+.input-date-container input,
+.mid-input-container input,
+.select-input-container select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--neutral-50);                      /* Cor da borda padrão */
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  height: 45px;                                             /* Altura padrão para inputs */
+  flex-wrap: wrap;
+}
+
+/* Container para inputs com ícone */
+.input-with-icon {
+  position: relative;
+  width: 100%;
+  height: 45px;                                             /* Altura padrão para inputs */
+}
+
+/* Inputs dentro de containers com ícone */
+.input-with-icon input {
+  width: calc(100% - 30px);                                 /* Largura da entrada menos a largura do ícone */
+  height: 100%;                                             /* Altura padrão para inputs */
+}
+
+/* Ícone de pesquisa */
+.search-icon {
+  width: 24px;                                              /* Largura do ícone */
+  height: 24px;                                             /* Altura do ícone */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>');
+  background-size: contain;                                 /* Ajustar o tamanho do ícone */
+  background-repeat: no-repeat;                             /* Não repetir o ícone */
+  position: absolute;
+  top: 45%;                                                 /* Centraliza verticalmente */
+  right: 40px;                                              /* Posiciona à direita */
+}
+
+/* Efeito de hover nos inputs */
+.input-full-container input:hover,
+.input-date-container input:hover,
+.mid-input-container input:hover,
+.select select:hover {
+  border-color: var(--primary-40);                          /* Muda a cor da borda no hover */
+  cursor: pointer;                                          /* Muda o cursor para um indicador de interatividade */
+}
+
+/* Estilo para inputs focados */
+.input-full-container input:focus,
+.input-date-container input:focus,
+.mid-input-container input:focus,
+.select select:focus {
+  border-color: var(--primary-40);                          /* Muda a cor da borda quando o input está focado */
+}
+
+/* Estilo para labels */
+label {
+  width: 100%;                                              /* Garante que a label ocupe a largura total */
+  font-weight: 700;                                         /* Peso da fonte */
+}
+
+/* Estilo para checkboxes e radios */
+.checkbox-line label {
+  font-weight: 500;                                         /* Peso da fonte para checkboxes e radios */
+}
+
+/* Estilos para linhas de checkboxes e radios */
+.checkbox-line,
+.radio-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;                                                 /* Espaço entre os elementos */
+  padding-top: 4px;                                         /* Espaçamento superior */
+}
+
+/* Estilo para inputs de checkbox e radio */
+.checkbox-input,
+.radio-input {
+  display: none;                                            /* Esconde os inputs de checkbox e radio */
+}
+
+/* Estilos para botões de checkbox e radio */
+.checkbox-button,
+.radio-button {
+  width: 14px;                                              /* Largura do botão */
+  height: 14px;                                             /* Altura do botão */
+  border-radius: 4px;                                       /* Borda arredondada */
+  background-color: var(--var-color-background-white);      /* Cor de fundo padrão */
+  border: 1px solid var(--neutral-50);                      /* Cor da borda padrão */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Estilos para botões de checkbox pequenos */
+.small-checkbox-button {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--var-color-background-white); 
+  border: 1px solid var(--neutral-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Hover sobre botões de checkbox */
+.checkbox-button:hover,
+.small-checkbox-button:hover {
+  filter: brightness(0.8);                                  /* Reduz a luminosidade ao passar o mouse */
+}
+
+/* Estilos para botões de checkbox marcados */
+.checkbox-input:checked + .checkbox-button:active,
+.checkbox-input:checked + .checkbox-button,
+.checkbox-input:checked + .small-checkbox-button:active,
+.checkbox-input:checked + .small-checkbox-button,
+.small-checkbox-button:checked + .checkbox-button,
+.small-checkbox-button:checked + .small-checkbox-button:active {
+  background-color: var(--primary-40);                      /* Altera a cor de fundo quando o botão é clicado e está marcado */
+  border: 1px solid var(--neutral-50);                      /* Mantém a borda inalterada */
+}
+
+/* Estilo para imagem dentro de botão de checkbox */
+.checkbox-button img {
+  width: 12px;                                              /* Largura da imagem */
+  height: 12px;                                             /* Altura da imagem */
+  justify-items: center;                                    /* Alinha a imagem horizontalmente */
+  align-self: center;                                       /* Alinha a imagem verticalmente */
+}
+
+/* Estilo para labels com texto longo */
+.case-yourself-container label,
+.trated-health-unit-container label {
+  overflow: hidden;                                         /* Esconde o conteúdo que excede o tamanho do container */
+  text-overflow: ellipsis;                                  /* Adiciona reticências quando o texto é muito longo */
+  white-space: wrap;                                        /* Quebra de linha quando necessário */
+  max-width: 100%;                                          /* Largura máxima */
+}
+
+/* Estilo para container de checkbox e texto associado */
+.case-yourself-container,
+.trated-health-unit-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 8px;                                                 /* Espaço entre os elementos */
+}
+
+#case-yourself-healht-unit {
+  align-self: flex-start;
+  gap: 14px
+}
+
+div#list-sintomas {
+  display: flex;
+  flex-direction: column;
+  gap:  12px
+}
+
+.small-checkbox-button {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--var-color-background-white); 
+  border: 1px solid var(--neutral-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.small-checkbox-button img {
+  width: 12px;
+  height: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sintomas-container input.sintomas-img  {
+  width: 12px;
+  height: 12px;
+}
+
+.report-case-button {
+  color: var(--neutral-0);
+  background-color: var(--primary-40);
+  border-radius: 16px;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 800;
+  width: 200px;
+  height: 52px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.find-health-button {
+  color: var(--neutral-0);
+  background-color: var(--primary-40);
+  border-radius: 16px;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 800;
+  width: 500px;
+  height: 52px;
+  font-size: 22px;
+  font-weight: 600;
+  flex-wrap: nowrap;
+}
+
+.suspect-dengue-container {
+  width: 100%;  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 12rem;
+  padding: 8px;
+}
+
+.suspect-dengue-container a {
+  text-decoration: none;
+  color: var(--neutral-0);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.suspect-dengue-content {
+  width: 100%;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Media query para telas entre 769px e 1200px */
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .report-case-container {
+    margin: 0 auto;
+    width: 65vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  form {
+    padding: 32px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
+
+  .input-full-container input {
+    padding: 14px;
+  }
+
+  .suspect-dengue-content {
+    width: 70%;  
+    gap: 14px;
+  }
+
+  .find-health-button {
+    width: 100%;
+    max-width: 400px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+/* Media query para telas menores que 769px */
+@media screen and (max-width: 768px) {  
+  .report-case-container {
+    width: 75vw;
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  form {
+    padding: 32px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input-full-container input {
+    padding: 14px;
+  }
+
+  .report-case-button {
+    padding: 8px 16px;
+    font-size: 20px;
+  }
+
+  .find-health-button {
+    width: 100%;
+    max-width: 400px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+/* Media query para telas entre 260px e 500px */
+@media screen and (min-width: 260px) and (max-width: 620px) {
+  .report-case-container {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+  
+  form {
+    width: 100%;
+    padding: 32px;
+    margin: 4px;
+  }
+
+  .row-inputs-container {
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 100%;
+    gap: 12px;
+  }
+
+  .input-date-container,
+  .select-input-container,
+  .mid-input-container { 
+    width: 100%;
+  }
+
+  .input-full-container input {
+    padding: 14px;
+  }
+
+  .report-case-button {
+    padding: 8px 16px;
+    font-size: 20px;
+    height: 42px;
+    width: 162px;
+    font-size: 18px;
+  }
+  
+  .find-health-button {
+    width: 100%;
+    max-width: 282px;
+    height: 60px;
+    font-size: 20px;
+    margin-bottom: 60%;
+  }
+}
+
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  background-color: var(--neutral-0);
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 250px;
+  overflow: auto;
+}
+.autocomplete-items::-webkit-scrollbar {
+  width: 8px;
+  height: 100%;
+}
+.autocomplete-items::-webkit-scrollbar-track {
+  /* background: var(--neutral-50); */
+  background: #D5D6D5;
+  border-radius: 8px;
+}
+.autocomplete-items::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-50);
+  border-radius: 20px;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dengue Status</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="components/header/header.js" defer></script>
+    <script src="components/footer/footer.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <div class="content">
+      <div class="content-container">
+        <div class="content-title">
+          <span class="content-text">
+            Veja informações atualizadas em tempo real sobre
+            <span class="red-40">casos de dengue</span> na sua região.
+          </span>
+        </div>
+        <div class="content-image desktop-content-image">
+          <img src="assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+        </div>
+      </div>
+
+      <div class="row info-row">
+        <div class="col-lg-4 col-md-6 info-col">
+          <div class="content-info">
+            <div class="info-container">
+              <h5 class="red-40 info-text" id="newCasesLast24Hours"></h5>
+              <span class="grey-100 info-text desktop-info-text">
+                novos casos <br />
+                nas últimas 24h
+              </span>
+              <span class="grey-100 info-text mobile-info-text">
+                novos casos nas últimas 24h
+              </span>
+            </div>
+            <div>
+              <div class="vertical-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 info-col">
+          <div class="content-info">
+            <div class="info-container">
+              <h5 class="red-40 info-text" id="newOutbreakReportsLastWeek"></h5>
+              <span class="grey-100 info-text desktop-info-text">
+                focos registrados <br />
+                na última semana
+              </span>
+              <span class="grey-100 info-text mobile-info-text">
+                focos registrados na última semana
+              </span>
+            </div>
+            <div>
+              <div class="vertical-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 info-col">
+          <div class="content-info">
+            <div>
+              <h5 class="red-40 info-text" id="registeredMedicalCareLastMonth"></h5>
+              <span class="grey-100 info-text desktop-info-text">
+                novos atendimentos <br />
+                no último mês
+              </span>
+              <span class="grey-100 info-text mobile-info-text">
+                novos atendimentos no último mês
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row cta-row">
+        <div class="col-lg-6 col-md-12">
+          <div>
+            <div class="primary-cta" onclick="redirectToPage('dengueCasesMap/dengueCasesMap.html')">
+              <div>
+                <img src="assets/aedes (1).png" alt="Aedes" />
+              </div>
+              <div class="cta-text-container">
+                <span class="cta-text"
+                  >Mapa com casos e focos na minha região</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div>
+            <div class="primary-cta secondary-cta" onclick="redirectToPage('healthPostsMap/healthPostsMap.html')">
+              <div>
+                <img src="assets/hospital (1).png" alt="Hospital" />
+              </div>
+              <div class="cta-text-container">
+                <span class="cta-text">
+                  Mapa com postos de saúde na minha região
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row red-section">
+        <div class="row">
+          <h5 class="section-title">Sintomas & Combate a Dengue</h5>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-12">
+            <div class="section-card">
+              <div>
+                <img
+                  src="assets/sintomas.png"
+                  alt="Sintomas"
+                  class="card-image"
+                />
+              </div>
+              <div class="row card-content">
+                <span class="card-title red-40">Principais Sintomas</span>
+                <span class="card-text"
+                  >Dentre os principais sintomas da dengue estão: Febre alta,
+                  dores musculares, mal estar</span
+                >
+                <div class="card-footer">
+                  <button class="highlighted-button card-button" onclick="redirectToPage('informacoes/informacoes.html')">
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="section-card">
+              <div>
+                <img
+                  src="assets/prevencao.png"
+                  alt="Prevenção"
+                  class="card-image"
+                />
+              </div>
+              <div class="row card-content">
+                <span class="card-title red-40">Prevenção</span>
+                <span class="card-text"
+                  >A melhor forma de prevenção da dengue é evitar a proliferação
+                  do mosquito Aedes Aegypti</span
+                >
+                <div class="card-footer">
+                  <button class="highlighted-button card-button" onclick="redirectToPage('informacoes/informacoes.html')">
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="section-card">
+              <div>
+                <img
+                  src="assets/tratamento.png"
+                  alt="Tratamento"
+                  class="card-image"
+                />
+              </div>
+              <div class="row card-content">
+                <span class="card-title red-40">Tratamento</span>
+                <span class="card-text"
+                  >O tratamento é feito por meio do uso de fluidos e de
+                  medicamentos para a dor O tratamento inclui</span
+                >
+                <div class="card-footer">
+                  <button class="highlighted-button card-button" onclick="redirectToPage('informacoes/informacoes.html')">
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row about-us-section">
+        <div class="col">
+          <div class="row">
+            <h5 class="section-title">Sobre Nós</h5>
+          </div>
+          <div class="row">
+            <span class="section-text">
+              Conheça um pouco sobre as pessoas que fizeram todo esse sistema
+              sólido, informativo, interativo e atualizado ser possível!
+            </span>
+          </div>
+          <div class="row section-button">
+            <button
+              style="height: 45px;"
+              class="highlighted-button"
+              onclick="redirectToPage('sobreNos/sobreNos.html')"
+            >
+              Ver mais
+            </button>
+          </div>
+        </div>
+        <div class="col about-us-image-col">
+          <img src="assets/sobre-nos.png" alt="Equipe" />
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO DA PÁGINA -->
+
+    <app-footer></app-footer>    
+    <script src="services/dynamicData/dynamicData.js"></script>
+  </body>
+</html>

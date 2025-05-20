@@ -1,0 +1,314 @@
+{
+  "usuarios": [
+    {
+      "id": "5fdbf978-245a-448-886-e2bffbe7f70d",
+      "userName": "Jhonata",
+      "userNascentDate": "2004-10-30T00:00:00.000Z",
+      "userGender": "masculino",
+      "userEmail": "jhon.augustosilva@gmail.com",
+      "hashedPassword": "0adb6d1e470bf371716b9bff0733bf46:75e0ae7d1d88147da9bd49b2d65494e4d881fa7317fbf64428870ccde53756fb",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFxYWl4Y1Q4QkxWalFJN0g2bWx3bkZXMW9qa1FtVUY2MlhmdDRIRDdFR01ZeXo0ZVVIQkoySW5kd0NFalptaElkYmFqOXVGT3Z1d3NIN2NpeTl0cHh6WkpOdVFmbnlGK2loZmZrRFFQNzcxd054NDFpdUVMdi94eG1GR2xPT1ZDeFlYazVBSnFObXVtZmVFMjZSdzgzcXlIb3g2dDRQeTltZ0FkRldRRTFhUDRJMmZybHhEOEdmUnBxWWlTbHhKMEo4dVB6VSthc3BiVVJuKzFEUUxZcHdQbVVtbHRYeTVyYTArMjd4dG9EbzFGVFlrK1gyTjIyYTduK001UXZnZnNqNmN0clR4MnlwY2JsdjBiUmhYTjFxckJZRkZXd0FZNldUL1FXZnpoWHFSQlVHUzUwa2x4Q0JxVTRNekdXanBrQXY2OGh2RXJqVnNRRnhISjJvSHl3alFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
+    },
+    {
+      "id": "292954fb-c60f-4dd-867-9f079a499ece",
+      "userName": "alan tavares",
+      "userNascentDate": "1980-03-03T00:00:00.000Z",
+      "userGender": "masculino",
+      "userEmail": "alan.tavares@gmail.com",
+      "hashedPassword": "721cfa4da2d23d1dc244b7170d07a074:7098aee18d798fa9e11152097fb3e7b62f848416d491fcdb6db99e3dc1a188df",
+      "keys": {
+        "publicKey": ""
+      }
+    },
+    {
+      "id": "a79933e5-477e-431-a74-3f62731e0574",
+      "userName": "Meu Teste ",
+      "userNascentDate": "2024-06-03T00:00:00.000Z",
+      "userGender": "feminino",
+      "userEmail": "teste123456@gmail.com",
+      "hashedPassword": "c7ba46e41009686d21f1f60db16e37c3:1c814bb57ec1269ea55f362a10e1f5929e0ec44f8fc94296b5f70b2aa1c6d3ca",
+      "keys": {
+        "publicKey": ""
+      }
+    },
+    {
+      "id": "02d551a8-4ce8-44f-bc2-8eef66c6badb",
+      "userName": "Ádria Tavares",
+      "userNascentDate": "1995-12-28T00:00:00.000Z",
+      "userGender": "feminino",
+      "userEmail": "adria.tavares28@gmail.com",
+      "hashedPassword": "271d57f7127387af005f109aaac09c53:5b78be972b762574c34f4b75eef442836fba230fd8d081a3b1ed2f219c18ea71",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF5WXNtWXgrZHhxUFJjVE95anlxT084UFpKaGduZmh2VzVEY2dKQmFQT0dWY3Bsa3FTdE82c2dMb00wWlllby9HS3NMMVdGUjlUekxrbXBLbU1FaUJGcy9tSnIyeVdWVU9Vcm9FVldGM1NLMkN3WFFWL05zTTlTUGVKMWttclUxQ24zVHpWZmQ1Q0o3L2ZTeWxXU1A0S1NiaGlucHNZSCt6TUVmNGxSUXR0ZU4yWW5kSWZjRE8yQk1QMzEzMll5TGFmUHlYa0hDc1NlWGhqNFBiNmdJYWhDMkJpY2c5STRBNmZGYXArYTZodUJMKzN3dXBWZFpoc1hTTnNtTVJvdG9pN0hnelVQYXV0cGtSRHJTOS9mcCtXRzBSTzZWcC9VSzBpbS9lRUowV2dmYk1zNkkxRmtpSjNNU0FrTWlTUmNnRDNYUlJZSjZ6RFhOYWpNU2VQZVp4QXdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
+    }
+  ],
+  "denuncias-casos": [
+    {
+      "id": "af5e",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Belo Oriente",
+      "autorregistro": false,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "135f",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Belo Oriente",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "dor_abdominal"
+      ]
+    },
+    {
+      "id": "3d76",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Vargem Bonita",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "e70f",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Cabo Verde",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "5d60",
+      "nome": "asd",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Cabeceira Grande",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "mal_estar"
+      ]
+    },
+    {
+      "id": "706b",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-05-31",
+      "cidade": "Delfinópolis",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "dor_corpo"
+      ]
+    },
+    {
+      "id": "9a80",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Delfinópolis",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "dor_corpo"
+      ]
+    },
+    {
+      "id": "6f00",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Felisburgo",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "4c8a",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Faria Lemos",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "acumulo_liquidos"
+      ]
+    },
+    {
+      "id": "4031",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Felício dos Santos",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "dor_corpo"
+      ]
+    },
+    {
+      "id": "f0ca",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Faria Lemos",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "dor_corpo"
+      ]
+    },
+    {
+      "id": "7022",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Galiléia",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "dor_corpo"
+      ]
+    },
+    {
+      "id": "b538",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Delfinópolis",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "mal_estar"
+      ]
+    },
+    {
+      "id": "b59c",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Gameleiras",
+      "autorregistro": false,
+      "atendido_em_posto": true,
+      "sintomas": [
+        "dor_olhos"
+      ]
+    },
+    {
+      "id": "139b",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Delfim Moreira",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "e2cc",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Felisburgo",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "4d15",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "feminino",
+      "data_sintomas": "2024-06-03",
+      "cidade": "Felisburgo",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "febre_alta"
+      ]
+    },
+    {
+      "id": "e55e",
+      "nome": "Jhonata",
+      "data_nascimento": "2004-10-30",
+      "genero": "masculino",
+      "data_sintomas": "2024-06-06",
+      "cidade": "Faria Lemos",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "dor_corpo"
+      ]
+    },
+    {
+      "id": "b5a2",
+      "data_registro": "2024-06-16",
+      "nome": "Ádria Tavares",
+      "data_nascimento": "1995-12-28",
+      "genero": "feminino",
+      "data_sintomas": "2024-06-10",
+      "cidade": "Fama",
+      "estado": "MG",
+      "autorregistro": true,
+      "atendido_em_posto": false,
+      "sintomas": [
+        "dor_cabeca"
+      ]
+    }
+  ],
+  "denuncias-focos": [
+    {
+      "id": "5641",
+      "data_registro": "2024-06-17",
+      "bairro": "João XXIII",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "calçada",
+      "tipo": [
+        "entulhos_lixos",
+        "garrafas_latas",
+        "pneus"
+      ]
+    }
+  ]
+}

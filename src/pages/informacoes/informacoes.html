@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dengue Status</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="../../style.css" />
+  <link rel="stylesheet" type="text/css" href="./informacoes.css" />
+  <script src="../../components/header/header.js" defer></script>
+  <script src="../../components/footer/footer.js" defer></script>
+</head>
+
+<body>
+  <app-header></app-header>
+  
+  <div class="header-information-section">
+    <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+  </div>
+  
+  <div class="information-container">
+    <section class="info-section">
+
+      <div class="symptoms-wrapper">
+        <h2>Sintomas da Dengue</h2>
+        <div class="symptoms-container">
+          <div class="symptoms-list">
+            <ul>
+              <li>Febre alta > 38.5ºC.</li>
+              <li>Dores musculares intensas.</li>
+              <li>Dor ao movimentar os olhos.</li>
+              <li>Mal estar.</li>
+              <li>Falta de apetite.</li>
+              <li>Dor de cabeça.</li>
+              <li>Manchas vermelhas no corpo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="information-line">
+        <div class="prevention-wrapper">
+          <h2>Prevenção</h2>
+          <div class="prevention-container">
+            <div class="prevention-list">
+              <div class="list">
+                <ul>
+                  <li>uso de telas nas janelas e repelentes em áreas de reconhecida transmissão;</li>
+                  <li>remoção de recipientes nos domicílios que possam se transformar em criadouros de mosquitos;</li>
+                  <li>vedação dos reservatórios e caixas de água;</li>
+                  <li>desobstrução de calhas, lajes e ralos;</li>
+                  <li>participação na fiscalização das ações de prevenção e controle da dengue executadas pelo SUS.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="treatment-wrapper">
+          <h2>Tratamento</h2>
+          <div class="treatment-container">
+            <div class="treatment-list">
+              <ul>
+                <li>Repouso;</li>
+                <li>Ingestão de líquidos;</li>
+                <li>Não se automedicar e procurar imediatamente o serviço de urgência em caso de sangramentos ou
+                  surgimento
+                  de
+                  pelo menos um sinal de alarme;</li>
+                <li>Retorno para reavaliação clínica conforme orientação médica.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="search-health-center">
+    <h2>Suspeita de Dengue?</h2>
+    <button class="find-health-button highlighted-button">Encontrar Posto de Saúde</button>
+  </div>
+  <app-footer></app-footer>
+</body>
+
+</html>

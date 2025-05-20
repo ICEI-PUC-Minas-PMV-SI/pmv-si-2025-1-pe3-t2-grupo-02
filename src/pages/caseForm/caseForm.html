@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reportar de caso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      rel="stylesheet"
+      href="../../components/successModal/successModal.css"
+    />
+    <link rel="stylesheet" href="./caseForm.css" />
+    <script src="./centerSelectArrow.js" defer></script>
+    <script src="../../components/header/header.js" defer></script>
+    <script src="../../components/footer/footer.js" defer></script>
+    <script src="./submitCase.js" type="module"></script>
+  </head>
+
+  <body>
+    <app-header></app-header>
+
+    <div class="modal" id="case-form-modal-success">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <a class="header-title">
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
+              <h1>Dengue Status</h1>
+            </a>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Caso cadastrado com<br />sucesso!</p>
+        </div>
+        <div class="modal-footer">
+          <button class="close-button" id="close-modal-success">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="case-form-modal-error">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <a class="header-title">
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
+              <h1>Dengue Status</h1>
+            </a>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Caso não cadastrado!</p>
+        </div>
+        <p id="dynamic-text"></p>
+        <div class="modal-footer">
+          <button class="close-button" id="close-modal-error">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="case-form-unauthenticated-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <a class="header-title">
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
+              <h1>Dengue Status</h1>
+            </a>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Você precisa fazer login para realizar essa ação</p>
+        </div>
+        <div class="modal-footer">
+          <button class="close-button" id="close-unauthenticated-modal">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="submitCaseForm" class="report-case-container">
+      <form id="caseForm" onsubmit="return handleSubmit(event)" action="">
+        <div class="header-report-case">
+          <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+          <h1 color="red">Reportar Caso</h1>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="mid-input-container left-identation">
+            <label for="nome">Nome <span class="required">*</span></label>
+            <input type="text" id="nome" name="nome" required minlength="3" />
+          </div>
+
+          <div class="select select-input-container">
+            <div class="custom-select-wrapper">
+              <label for="genero">Gênero <span class="required">*</span></label>
+              <select id="genero" name="genero" required>
+                <option value="escolher_opcao">Escolha uma opção</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="nao_responder">Prefiro não responder</option>
+              </select>
+              <div class="custom-arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="input-date-container left-identation">
+            <label for="data_nascimento"
+              >Data de nascimento <span class="required">*</span></label
+            >
+            <input
+              type="date"
+              id="data_nascimento"
+              name="data_nascimento"
+              required
+            />
+          </div>
+
+          <div class="input-date-container">
+            <label for="data_diagnostico"
+              >Início dos sintomas <span class="required">*</span></label
+            >
+            <input
+              type="date"
+              id="data_sintomas"
+              name="data_sintomas"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row-inputs-container" id="date-city">
+          <div class="select select-input-container left-identation">
+            <div class="custom-select-wrapper">
+              <label for="estado">Estado <span class="required">*</span></label>
+              <select required id="estado" name="estado">
+                <option value="escolher_opcao">Escolha uma opção</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mid-input-container autocomplete">
+            <label id="label_cidade" for="cidade"
+              >Cidade <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              id="cidade"
+              name="cidade"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="column-inputs-container" id="case-yourself-healht-unit">
+            <div class="case-yourself-container">
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="checkbox-case-yourself"
+                  class="checkbox-input"
+                  name="autorregistro"
+                />
+                <label for="checkbox-case-yourself" class="checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+              </div>
+              <label for="checkbox-case-yourself"
+                >Está registrando para você mesmo?</label
+              >
+            </div>
+
+            <div class="trated-health-unit-container" id="trated-health-unit">
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="checkbox-health-unit"
+                  class="checkbox-input"
+                  name="atendido_em_posto"
+                />
+                <label for="checkbox-health-unit" class="checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+              </div>
+              <label for="checkbox-health-unit"
+                >Foi atendido em alguma unidade de saúde sobre esse caso?</label
+              >
+            </div>
+          </div>
+
+          <!-- SINTOMAS -->
+          <div class="column-inputs-container">
+            <div class="sintomas-container" id="list-sintomas">
+              <label id="sintomas-selecao"
+                >Selecione os sintomas sentidos:
+                <span class="required">*</span></label
+              >
+
+              <!-- Febre alta -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="febre_alta"
+                  name="sintomas"
+                  value="febre_alta"
+                  class="checkbox-input"
+                />
+                <label for="febre_alta" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="febre_alta">Febre alta</label>
+              </div>
+
+              <!-- Dor no corpo e nas articulações -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="dor_corpo"
+                  name="sintomas"
+                  value="dor_corpo"
+                  class="checkbox-input"
+                />
+                <label for="dor_corpo" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="dor_corpo">Dor no corpo e nas articulações</label>
+              </div>
+
+              <!-- Dor atrás dos olhos -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="dor_olhos"
+                  name="sintomas"
+                  value="dor_olhos"
+                  class="checkbox-input"
+                />
+                <label for="dor_olhos" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="dor_olhos">Dor atrás dos olhos</label>
+              </div>
+
+              <!-- Dor de cabeça -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="dor_cabeca"
+                  name="sintomas"
+                  value="dor_cabeca"
+                  class="checkbox-input"
+                />
+                <label for="dor_cabeca" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="dor_cabeca">Dor de cabeça</label>
+              </div>
+
+              <!-- Manchas vermelhas no corpo -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="manchas_vermelhas"
+                  name="sintomas"
+                  value="manchas_vermelhas"
+                  class="checkbox-input"
+                />
+                <label for="manchas_vermelhas" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="manchas_vermelhas"
+                  >Manchas vermelhas no corpo</label
+                >
+              </div>
+
+              <!-- Mal-estar -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="mal_estar"
+                  name="sintomas"
+                  value="mal_estar"
+                  class="checkbox-input"
+                />
+                <label for="mal_estar" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="mal_estar">Mal-estar</label>
+              </div>
+
+              <!-- Dor abdominal intensa e contínua -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="dor_abdominal"
+                  name="sintomas"
+                  value="dor_abdominal"
+                  class="checkbox-input"
+                />
+                <label for="dor_abdominal" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="dor_abdominal"
+                  >Dor abdominal intensa e contínua</label
+                >
+              </div>
+
+              <!-- Vômitos persistentes -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="vomitos"
+                  name="sintomas"
+                  value="vomitos"
+                  class="checkbox-input"
+                />
+                <label for="vomitos" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="vomitos">Vômitos persistentes</label>
+              </div>
+
+              <!-- Sangramento de mucosa -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="sangramento"
+                  name="sintomas"
+                  value="sangramento"
+                  class="checkbox-input"
+                />
+                <label for="sangramento" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="sangramento">Sangramento de mucosa</label>
+              </div>
+
+              <!-- Acúmulo de líquidos -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="acumulo_liquidos"
+                  name="sintomas"
+                  value="acumulo_liquidos"
+                  class="checkbox-input"
+                />
+                <label for="acumulo_liquidos" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="acumulo_liquidos">Acúmulo de líquidos</label>
+              </div>
+
+              <!-- Irritabilidade -->
+              <div class="checkbox-line">
+                <input
+                  type="checkbox"
+                  id="irritabilidade"
+                  name="sintomas"
+                  value="irritabilidade"
+                  class="checkbox-input"
+                />
+                <label for="irritabilidade" class="small-checkbox-button">
+                  <img src="../../assets/check.svg" alt="check" />
+                </label>
+                <label for="irritabilidade">Irritabilidade</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="report-case-button" type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <div class="suspect-dengue-container">
+      <div class="suspect-dengue-content">
+        <h1>Suspeita de dengue?</h1>
+        <button class="find-health-button">
+          <a href="../healthPostsMap/healthPostsMap.html"
+            >Encontrar posto de saúde</a
+          >
+        </button>
+      </div>
+    </div>
+    <app-footer></app-footer>
+    <script src="./caseForm.js" defer></script>
+  </body>
+</html>

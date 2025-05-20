@@ -1,0 +1,565 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} 
+  
+h2 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.information-container {
+  width: 100%;  
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.header-information-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-direction: column;
+}
+
+.header-information-section img {
+  width: 233px;
+  height: 214px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.info-section {
+  margin: 0 auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 1rem;
+}
+
+.symptoms-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.symptoms-wrapper h2,
+.prevention-list h2, 
+.treatment-container h2 { 
+  align-items: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-40);
+  font-weight: 700;
+}
+
+.symptoms-container {
+  width: 80vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: flex-start;
+  background: rgba(243, 243, 243, 0.1);
+  border: 1px solid #B3B3B3;
+  border-radius: 20px;
+}
+
+.symptoms-list,
+.prevention-list,
+.treatment-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
+  gap: 8px;
+  min-height: 50vh;
+} 
+
+.symptoms-list {
+  min-height: 30vh;
+}
+
+.symptoms-list ul,
+.prevention-list ul,
+.treatment-list ul { 
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-top: 1rem;;
+}
+  
+.symptoms-list li, 
+.prevention-list li,
+.treatment-list li {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 1rem;  
+}
+
+.information-line {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 12px;
+  align-items: center;
+}
+
+.prevention-wrapper,
+.treatment-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  min-height: 50vh; 
+}
+
+.prevention-wrapper h2,
+.treatment-wrapper h2{ 
+  align-items: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 20%;
+  color: var(--primary-40);
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.prevention-container {
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;
+  background: rgba(243, 243, 243, 0.1);
+  border: 1px solid #B3B3B3;
+  border-radius: 20px;
+}
+
+.treatment-container {
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;
+  background: rgba(243, 243, 243, 0.1);
+  border: 1px solid #B3B3B3;
+  border-radius: 20px;
+}
+
+.search-health-center {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 8%;
+  margin-bottom: 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-health-center h2 {
+  margin-bottom: 2rem;
+}
+
+.search-health-center button {
+  height: 50px;
+  width: 35vw;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 998px) {
+  .information-container {
+    margin: 0 auto; 
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .symptoms-container {
+    width: 80vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .information-line {
+    width: 100%;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    margin: 12px;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .prevention-wrapper,
+  .treatment-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50vw;
+    min-height: 20vh;
+    max-height: 25vh; 
+  }
+  
+  .prevention-wrapper h2,
+  .treatment-wrapper h2{ 
+    align-items: flex-start;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left: -0.01%;
+    color: var(--primary-40);
+    font-weight: 700;
+    align-self: flex-start;
+  }
+  
+  .prevention-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .treatment-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .search-health-center {
+    margin-top: calc(15% + 10rem);
+    width: 100%;
+  }
+
+  .search-health-center button {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .find-health-button {
+    width: 100%;
+    max-width: 400px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .information-container {
+    margin: 0 auto; 
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .symptoms-container {
+    width: 60vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .information-line {
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin: 12px;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .prevention-wrapper,
+  .treatment-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60vw;
+    min-height: 20vh;
+  }
+  
+  .prevention-wrapper h2,
+  .treatment-wrapper h2{ 
+    align-items: flex-start;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left: -0.01%;
+    color: var(--primary-40);
+    font-weight: 700;
+    align-self: flex-start;
+  }
+  
+  .prevention-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .treatment-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .search-health-center {
+    margin-top: 90%;
+    width: 100%;
+  }
+
+  .search-health-center button {
+    width: 100%;  
+    height: 76px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .find-health-button {
+    width: 100%;
+    max-width: 400px;
+    height: 62px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .symptoms-list li,
+  .prevention-list li,
+  .treatment-list li {
+    font-size: 18px;
+  }
+
+  .search-health-center {
+    margin-top: calc(60% + 22rem);
+    width: 100%;
+  } 
+
+  .search-health-center button {
+    height: 76px;
+    justify-content: center;
+    align-items: center;  
+  }
+}
+
+@media screen and (max-width: 562px) {
+  .search-health-center {
+    margin-top: calc(70% + 32rem);
+    width: 100%;
+  } 
+
+  .search-health-center button {
+    height: 76px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 462px) {
+  .information-container {
+    margin: 0 auto; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .symptoms-container {
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .information-line {
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin: 12px;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .prevention-wrapper,
+  .treatment-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90vw;
+    min-height: 20vh;
+  }
+  
+  .prevention-wrapper h2,
+  .treatment-wrapper h2{ 
+    align-items: flex-start;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left: -0.01%;
+    color: var(--primary-40);
+    font-weight: 700;
+    align-self: flex-start;
+  }
+  
+  .prevention-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .treatment-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+
+  .search-health-center {
+    margin-top: calc(60% + 42rem);
+    width: 70%;
+  } 
+  
+  .search-health-center button {
+    height: 76px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .search-health-center button,
+  .search-health-center h2 {
+    font-size: 20px;  
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .information-container {
+    margin: 0 auto; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .symptoms-container {
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: flex-start;
+    background: rgba(243, 243, 243, 0.1);
+    border: 1px solid #B3B3B3;
+    border-radius: 20px;
+  }
+  
+  .information-line {
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin: 12px;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .prevention-wrapper,
+  .treatment-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90vw;
+    min-height: 20vh;
+  }
+
+  .search-health-center {
+    margin-top: calc(60% + 48rem);
+    width: 70%;
+  } 
+  
+  .search-health-center button {
+    height: 76px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+  } 
+
+  .search-health-center h2 {
+    margin-top: 4rem;
+  }
+}
