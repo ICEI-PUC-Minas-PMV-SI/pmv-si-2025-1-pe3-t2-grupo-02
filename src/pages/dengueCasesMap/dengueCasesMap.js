@@ -60,10 +60,31 @@ async function initPage() {
 function onSearchButtonClick() {
   const searchButton = document.getElementById('searchButton');
   searchButton.addEventListener('click', () => {
-    if (!selectedRegion) {
-      alert('Selecione uma cidade');
+    const estadoSelect = document.getElementById('estado');
+    const cidadeSelect = document.getElementById('cidade');
+    const bairroSelect = document.getElementById('bairro');
+    
+    if (estadoSelect.value) {
+      selectedRegion = estadoSelect.value;
+      
+      if (cidadeSelect.value) {
+        selectedPlace = {
+          geometry: {
+            location: {
+              lat: () => -15.7801,  
+              lng: () => -47.9292   
+            }
+          },
+          formatted_address: cidadeSelect.value + ', ' + selectedRegion
+        };
+      }
+    } 
+
+    else if (!selectedRegion) {
+      alert('Selecione um estado ou use o campo de pesquisa');
       return;
     }
+    
     const stateGeoJsonUrl = BRAZIL_REGIONS_GEOJSON[selectedRegion];
     if (!stateGeoJsonUrl) {
       alert('Estado não encontrado');
@@ -96,6 +117,12 @@ function onClearFiltersButtonClick() {
     const endDateInput = document.getElementById('endDate');
     startDateInput.value = '';
     endDateInput.value = '';
+    
+    const estadoSelect = document.getElementById('estado');
+    estadoSelect.selectedIndex = 0; 
+    document.getElementById('cidade').innerHTML = '<option value="">Selecione primeiro o estado</option>';
+    document.getElementById('bairro').innerHTML = '<option value="">Selecione primeiro a cidade</option>';
+    
     fetch('../../data/brazil-states.geojson')
       .then((response) => response.json())
       .then((data) => {
@@ -390,4 +417,71 @@ document.addEventListener('DOMContentLoaded', function () {
   document
     .getElementById('geolocateButton')
     .addEventListener('click', setupGeolocation);
+
+  const estadoSelect = document.getElementById('estado');
+  const cidadeSelect = document.getElementById('cidade');
+  const bairroSelect = document.getElementById('bairro');
+  
+  estadoSelect.innerHTML = '<option value="">Selecione o estado</option>';
+  
+  const estadosNomes = {
+    AC: 'Acre',
+    AL: 'Alagoas',
+    AP: 'Amapá',
+    AM: 'Amazonas',
+    BA: 'Bahia',
+    CE: 'Ceará',
+    DF: 'Distrito Federal',
+    ES: 'Espírito Santo',
+    GO: 'Goiás',
+    MA: 'Maranhão',
+    MT: 'Mato Grosso',
+    MS: 'Mato Grosso do Sul',
+    MG: 'Minas Gerais',
+    PA: 'Pará',
+    PB: 'Paraíba',
+    PR: 'Paraná',
+    PE: 'Pernambuco',
+    PI: 'Piauí',
+    RJ: 'Rio de Janeiro',
+    RN: 'Rio Grande do Norte',
+    RS: 'Rio Grande do Sul',
+    RO: 'Rondônia',
+    RR: 'Roraima',
+    SC: 'Santa Catarina',
+    SP: 'São Paulo',
+    SE: 'Sergipe',
+    TO: 'Tocantins'
+  };
+  
+  Object.keys(BRAZIL_REGIONS_GEOJSON).sort().forEach(sigla => {
+    const option = document.createElement('option');
+    option.value = sigla;
+    option.textContent = estadosNomes[sigla] || sigla;
+    estadoSelect.appendChild(option);
+  });
+
+  estadoSelect.addEventListener('change', async function () {
+    const estado = this.value;
+    cidadeSelect.innerHTML = '<option value="">Carregando...</option>';
+    bairroSelect.innerHTML = '<option value="">Selecione primeiro a cidade</option>';
+    if (!estado) {
+      cidadeSelect.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+      return;
+    }
+    const url = BRAZIL_REGIONS_GEOJSON[estado];
+    try {
+      const response = await fetch(url);
+      const geojson = await response.json();
+      const cidades = geojson.features.map(f => f.properties.name).sort();
+      cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>' +
+        cidades.map(cidade => `<option value="${cidade}">${cidade}</option>`).join('');
+    } catch (e) {
+      cidadeSelect.innerHTML = '<option value="">Erro ao carregar cidades</option>';
+    }
+  });
+
+  cidadeSelect.addEventListener('change', function () {
+    bairroSelect.innerHTML = '<option value="">Selecione primeiro a cidade</option>';
+  });
 });

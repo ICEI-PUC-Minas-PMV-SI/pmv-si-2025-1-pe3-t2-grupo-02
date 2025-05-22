@@ -265,6 +265,184 @@ label {
   gap: 14px
 }
 
+/* Estilos específicos para a página de mapa de casos de dengue */
+.filter-row-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  gap: 8px;
+}
+
+.map-filter-container {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: var(--neutral-10);
+}
+
+.map-filter-item {
+  padding: 0;
+  margin-right: 8px;
+  margin-bottom: 0;
+}
+
+.map-filter-item:last-child {
+  margin-right: 0;
+}
+
+.map-search-field {
+  flex: 2;
+}
+
+.map-select-field {
+  flex: 1;
+}
+
+.map-date-field {
+  flex: 1;
+}
+
+.map-button-field {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.map-button-align {
+  margin-bottom: 8px; /* Ajuste este valor conforme necessário */
+  align-self: flex-end;
+}
+
+/* Estilo para botões */
+.simple-button {
+  background-color: var(--primary-40);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.simple-button:hover {
+  background-color: var(--primary-60);
+}
+
+.highlighted-button {
+  background-color: var(--primary-40);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.highlighted-button:hover {
+  background-color: var(--primary-60);
+}
+
+.uniform-button {
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+}
+
+.map-search-button {
+  min-width: 100px;
+  height: 45px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-search-button-container {
+  flex: 0 0 auto;
+  width: auto;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+.map-search-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Estilos para labels na página de mapa */
+.map-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  width: 100%;
+}
+
+/* Estilos para containers de input na página de mapa */
+.map-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-input-container input,
+.map-input-container select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--neutral-50);
+  border-radius: 8px;
+  height: 45px;
+}
+
+.map-input-container input:hover,
+.map-input-container select:hover {
+  border-color: var(--primary-40);
+  cursor: pointer;
+}
+
+.map-input-container input:focus,
+.map-input-container select:focus {
+  border-color: var(--primary-40);
+}
+
+/* Responsividade para mapa de casos */
+@media (max-width: 991px) {
+  .filter-row-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .map-filter-item {
+    width: 100% !important;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  
+  .map-search-field,
+  .map-select-field,
+  .map-date-field,
+  .map-button-field {
+    flex: 1 1 100%;
+  }
+  
+  .map-search-button-container {
+    align-self: center;
+    margin-top: 10px;
+  }
+  
+  .map-search-button {
+    width: 100%;
+  }
+  
+  .uniform-button {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .column-inputs-container {
     width: 90%; 

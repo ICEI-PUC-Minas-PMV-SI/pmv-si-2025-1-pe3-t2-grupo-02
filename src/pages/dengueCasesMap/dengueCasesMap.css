@@ -1,0 +1,136 @@
+body.outdoor-mode {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+body.outdoor-mode .content,
+body.outdoor-mode .header,
+body.outdoor-mode .footer {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+}
+
+body.outdoor-mode .filter-container {
+  background-color: #1A1A1A !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .filter-container label {
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode input,
+body.outdoor-mode select {
+  background-color: #444444 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode input::placeholder {
+  color: #CCCCCC !important;
+}
+
+body.outdoor-mode .red-40 {
+  color: #FF7700 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .highlighted-button {
+  background-color: #FFDD00 !important;
+  color: #000000 !important;
+  font-weight: bold !important;
+  border: none !important;
+  box-shadow: 0 0 10px rgba(255, 221, 0, 0.5) !important;
+}
+
+body.outdoor-mode .simple-button {
+  background-color: #008080 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .content-text span.red-40 {
+  background-color: #FF7700 !important;
+  color: #000000 !important;
+  padding: 0 5px !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .vertical-line {
+  background-color: #FFDD00 !important;
+}
+
+body.outdoor-mode .suspect-dengue-container {
+  background-color: #1A1A1A !important;
+  border: 2px solid #FF7700 !important;
+}
+
+body.outdoor-mode .find-health-button {
+  background-color: #FF7700 !important;
+}
+
+body.outdoor-mode .find-health-button a {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .leaflet-container {
+  filter: saturate(150%) brightness(110%) contrast(120%) !important;
+}
+
+body.outdoor-mode .leaflet-control {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .leaflet-control a {
+  color: #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .leaflet-popup-content-wrapper {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FF7700 !important;
+}
+
+@media (max-width: 991px) {
+  .dengue-cases-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .filter-item-padding {
+    width: 100% !important;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  
+  .search-field,
+  .select-field,
+  .date-field,
+  .button-field {
+    flex: 1 1 100%;
+  }
+  
+  .search-button-container {
+    align-self: center;
+    margin-top: 10px;
+  }
+  
+  .search-button {
+    width: 100%;
+  }
+  
+  .uniform-button {
+    width: 100%;
+  }
+  
+  .button-item {
+    justify-content: center;
+  }
+}
