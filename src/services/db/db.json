@@ -309,6 +309,132 @@
         "garrafas_latas",
         "pneus"
       ]
+    },
+    {
+      "id": "5642",
+      "data_registro": "2024-06-16",
+      "bairro": "Aldeota",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": ["quintal", "jardim"],
+      "tipo": [
+        "vasos_plantas",
+        "piscinas_abandonadas"
+      ]
+    },
+    {
+      "id": "5643",
+      "data_registro": "2024-06-15",
+      "bairro": "Messejana",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "terreno_baldio",
+      "tipo": [
+        "entulhos_lixos",
+        "pneus",
+        "caixas_dagua"
+      ]
+    },
+    {
+      "id": "5644",
+      "data_registro": "2024-06-14",
+      "bairro": "Parangaba",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": ["telhado", "calha"],
+      "tipo": [
+        "calhas_entupidas",
+        "telhados"
+      ]
+    },
+    {
+      "id": "5645",
+      "data_registro": "2024-06-13",
+      "bairro": "Centro",
+      "cidade": "Maracanaú",
+      "estado": "CE",
+      "local": "lixeira",
+      "tipo": [
+        "entulhos_lixos",
+        "garrafas_latas"
+      ]
+    },
+    {
+      "id": "5646",
+      "data_registro": "2024-06-12",
+      "bairro": "Antônio Bezerra",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": ["quintal", "jardim", "piscina"],
+      "tipo": [
+        "piscinas_abandonadas",
+        "vasos_plantas",
+        "caixas_dagua"
+      ]
+    },
+    {
+      "id": "5647",
+      "data_registro": "2024-06-11",
+      "bairro": "Mondubim",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "terreno_baldio",
+      "tipo": [
+        "entulhos_lixos",
+        "pneus",
+        "garrafas_latas"
+      ]
+    },
+    {
+      "id": "5648",
+      "data_registro": "2024-06-10",
+      "bairro": "Barra do Ceará",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": ["calçada", "rua"],
+      "tipo": [
+        "garrafas_latas",
+        "pneus"
+      ]
+    },
+    {
+      "id": "5649",
+      "data_registro": "2024-06-09",
+      "bairro": "Conjunto Ceará",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "caixa_dagua",
+      "tipo": [
+        "caixas_dagua",
+        "piscinas_abandonadas"
+      ]
+    },
+    {
+      "id": "5650",
+      "data_registro": "2024-06-08",
+      "bairro": "São Gerardo",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": ["quintal", "jardim"],
+      "tipo": [
+        "vasos_plantas",
+        "piscinas_abandonadas",
+        "calhas_entupidas"
+      ]
+    },
+    {
+      "id": "5651",
+      "data_registro": "2024-06-07",
+      "bairro": "Caucaia",
+      "cidade": "Caucaia",
+      "estado": "CE",
+      "local": "terreno_baldio",
+      "tipo": [
+        "entulhos_lixos",
+        "pneus",
+        "garrafas_latas",
+        "caixas_dagua"
+      ]
     }
   ]
 }
