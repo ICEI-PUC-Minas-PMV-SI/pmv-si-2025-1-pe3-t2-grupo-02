@@ -292,3 +292,48 @@ div#list {
 .mid-input-container.autocomplete {
   position: relative;
 }
+
+input:disabled,
+select:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.checkbox-input:disabled + .small-checkbox-button {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.checkbox-input:disabled + .small-checkbox-button + label {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.back-button {
+  color: var(--primary-40);
+  background-color: var(--neutral-0);
+  border-radius: 16px;
+  border: 1px solid var(--primary-40);
+  padding: 8px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  width: fit-content;
+  white-space: nowrap;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.back-button:hover {
+  color: var(--primary-60);
+  border-color: var(--primary-60);
+}
+
+.back-button .material-icons {
+  font-size: 20px;
+}
