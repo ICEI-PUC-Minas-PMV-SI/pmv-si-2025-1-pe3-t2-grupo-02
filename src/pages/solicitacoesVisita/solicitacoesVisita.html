@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../../assets/mosquito.svg" type="image/x-icon" />
+  <title>Dengue Status - Solicitações</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./solicitacoesVisita.css" />
+
+  <script src="../../components/header/header-agente.js" defer></script>
+  <script src="../../components/footer/footer.js" defer></script>
+</head>
+
+<body>
+  <app-header></app-header>
+
+  <main class="principal">
+    <h1>Solicitações de visita</h1>
+
+    <div class="busca-box">
+      <input type="text" id="search" placeholder="Pesquisar solicitação" />
+      <div class="busca-icones">
+        <button id="btnBuscar" type="button" aria-label="Buscar">
+          <img src="../assets/icone-lupa.png" alt="Buscar" />
+        </button>
+      </div>
+    </div>
+
+    <div class="tabela-container">
+      <table class="tabela-visitas">
+        <thead>
+          <tr>
+            <th>DATA</th>
+            <th>ENDEREÇO</th>
+            <th>SOLICITANTE</th>
+            <th>STATUS</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+        </tbody>
+      </table>
+
+      <div class="tabela-footer">
+        <span id="resultado-texto">Mostrando 0 de 0 resultados</span>
+        <div class="paginacao">
+          <button>&lt;</button>
+          <button class="active">1</button>
+          <button>&gt;</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+
+  <script src="./solicitacoesVisita.js"></script>
+</body>
+
+</html>
