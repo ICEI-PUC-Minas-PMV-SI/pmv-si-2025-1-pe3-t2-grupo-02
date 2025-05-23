@@ -151,6 +151,11 @@ form {
   gap: 14px;
 }
 
+.modal #dynamic-text {
+  margin: 24px 0;
+  text-align: center;
+}
+
 @media screen and (min-width: 769px) and (max-width: 1200px) {
   .visita-container {
     margin: 0 auto;

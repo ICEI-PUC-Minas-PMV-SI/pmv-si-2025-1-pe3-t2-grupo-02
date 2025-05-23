@@ -310,5 +310,18 @@
         "pneus"
       ]
     }
+  ],
+  "solicitacao-visita": [
+    {
+      "id": "6d09",
+      "data_registro": "2025-05-23",
+      "user": "adria.tavares28@gmail.com",
+      "data_visita": "2025-05-26",
+      "turno": "tarde",
+      "motivo": "Preciso que olhem minha caixa d'agua pois passou umas semanas sem a tampa.",
+      "cep": "60822-104",
+      "endereco": "Rua Vicente Lopes, n° 545, Cidade dos Funcionários.",
+      "status": "EM_ABERTO"
+    }
   ]
 }

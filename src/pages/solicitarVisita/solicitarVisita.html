@@ -12,6 +12,10 @@
     />
     <link rel="stylesheet" href="../../style.css" />
     <link rel="stylesheet" href="../../components/inputs/inputs.css" />
+    <link
+      rel="stylesheet"
+      href="../../components/successModal/successModal.css"
+    />
     <link rel="stylesheet" type="text/css" href="./solicitarVisita.css" />
     <script src="../../components/header/header.js" defer></script>
     <script src="../../components/footer/footer.js" defer></script>
@@ -19,7 +23,7 @@
   <body>
     <app-header></app-header>
 
-    <!-- <div class="modal" id="focus-form-modal-success">
+    <div class="modal" id="solicitar-visita-modal-success">
       <div class="modal-content">
         <div class="modal-header">
           <div>
@@ -41,7 +45,7 @@
       </div>
     </div>
 
-    <div class="modal" id="focus-form-modal-error">
+    <div class="modal" id="solicitar-visita-modal-error">
       <div class="modal-content">
         <div class="modal-header">
           <div>
@@ -62,10 +66,10 @@
           <button class="close-button" id="close-modal-error">OK</button>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <div id="submitVisitaForm" class="visita-container">
-      <form id="visitaForm" onsubmit="return handleSubmit(event)" action="">
+      <form id="visitaForm" onsubmit="return handleSubmit(event)">
         <div class="header-visita">
           <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
           <h1>Solicitar Visita</h1>
@@ -119,7 +123,9 @@
               name="cep"
               required
               pattern="\d{5}-?\d{3}"
+              maxlength="9"
               placeholder="00000-000"
+              onkeyup="handleZipCode(event)"
             />
           </div>
 
@@ -153,5 +159,6 @@
     </div>
 
     <app-footer></app-footer>
+    <script src="./solicitarVisita.js" defer></script>
   </body>
 </html>
