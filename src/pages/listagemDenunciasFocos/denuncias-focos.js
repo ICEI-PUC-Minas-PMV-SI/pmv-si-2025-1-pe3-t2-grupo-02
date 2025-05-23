@@ -43,8 +43,8 @@ let currentPage = 1;
 const itemsPerPage = 10;
 
 let currentSort = {
-  column: null,
-  direction: null
+  column: 'data_registro',
+  direction: 'desc',
 };
 
 function getPaginatedData(data) {
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.selectpicker').selectpicker('refresh');
   });
 
-  document.querySelectorAll('.custom-table th.sortable').forEach(header => {
+  document.querySelectorAll('.custom-table th.sortable').forEach((header) => {
     header.addEventListener('click', () => {
       const column = header.dataset.sort;
       handleSort(column);
@@ -435,21 +435,25 @@ function clearFilters() {
   const searchInput = document.querySelector('.table-search-input');
   searchInput.value = '';
 
+  currentSort = {
+    column: 'data_registro',
+    direction: 'desc',
+  };
+
+  document.querySelectorAll('.custom-table th.sortable').forEach((header) => {
+    header.classList.remove('asc', 'desc');
+    header.querySelector('.sort-icon').textContent = 'unfold_more';
+  });
+
+  const sortHeader = document.querySelector('th[data-sort="data_registro"]');
+  sortHeader.classList.add('desc');
+  sortHeader.querySelector('.sort-icon').textContent = 'expand_more';
+
   renderTable(allDenunciasFocos);
 
   document
     .querySelector('.table-search-btn[title="Filtrar"]')
     .classList.remove('active');
-
-  currentSort = {
-    column: null,
-    direction: null
-  };
-  
-  document.querySelectorAll('.custom-table th.sortable').forEach(header => {
-    header.classList.remove('asc', 'desc');
-    header.querySelector('.sort-icon').textContent = 'unfold_more';
-  });
 }
 
 function formatDate(dateString) {
@@ -469,10 +473,16 @@ function renderTable(denuncias) {
 
   let dataToRender = denuncias;
   if (currentSort.column) {
-    dataToRender = sortData(denuncias, currentSort.column, currentSort.direction);
+    dataToRender = sortData(
+      denuncias,
+      currentSort.column,
+      currentSort.direction
+    );
   }
 
   const paginatedData = getPaginatedData(dataToRender);
+  const loggedWith = localStorage.getItem('loggedWith');
+
   paginatedData.forEach((denuncia) => {
     const row = document.createElement('tr');
     const dataRegistro = formatDate(denuncia.data_registro);
@@ -496,6 +506,16 @@ function renderTable(denuncias) {
           )}</span>`
       )
       .join(' ');
+
+    const actionButtons = `
+      <button class="action-btn" title="Visualizar"><span class="material-icons">visibility</span></button>
+      ${
+        denuncia.email_usuario === loggedWith
+          ? `<button class="action-btn" title="Editar"><span class="material-icons">edit</span></button>
+           <button class="action-btn" title="Excluir"><span class="material-icons">delete</span></button>`
+          : ''
+      }`;
+
     row.innerHTML = `
             <td>${dataRegistro}</td>
             <td>${denuncia.bairro}</td>
@@ -504,8 +524,7 @@ function renderTable(denuncias) {
             <td>${locais}</td>
             <td>${tipos}</td>
             <td class="actions-col">
-                <button class="action-btn" title="Editar"><span class="material-icons">edit</span></button>
-                <button class="action-btn" title="Excluir"><span class="material-icons">delete</span></button>
+                ${actionButtons}
             </td>
         `;
     tableBody.appendChild(row);
@@ -658,8 +677,8 @@ function sortData(data, column, direction) {
 
 function handleSort(column) {
   const headers = document.querySelectorAll('.custom-table th.sortable');
-  
-  headers.forEach(header => {
+
+  headers.forEach((header) => {
     header.classList.remove('asc', 'desc');
     header.querySelector('.sort-icon').textContent = 'unfold_more';
   });
@@ -673,17 +692,20 @@ function handleSort(column) {
 
   const currentHeader = document.querySelector(`th[data-sort="${column}"]`);
   currentHeader.classList.add(currentSort.direction);
-  currentHeader.querySelector('.sort-icon').textContent = 
+  currentHeader.querySelector('.sort-icon').textContent =
     currentSort.direction === 'asc' ? 'expand_less' : 'expand_more';
 
-  const dataToSort = filteredDenunciasFocos.length > 0 ? filteredDenunciasFocos : allDenunciasFocos;
+  const dataToSort =
+    filteredDenunciasFocos.length > 0
+      ? filteredDenunciasFocos
+      : allDenunciasFocos;
   const sortedData = sortData(dataToSort, column, currentSort.direction);
-  
+
   if (filteredDenunciasFocos.length > 0) {
     filteredDenunciasFocos = sortedData;
   } else {
     allDenunciasFocos = sortedData;
   }
-  
+
   renderTable(sortedData);
 }
