@@ -1,0 +1,234 @@
+/* Estilos globais para o modo externo */
+body.outdoor-mode {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+/* Elementos básicos da página */
+bo/* Ajustes para checkboxes no modo externo */
+body.outdoor-mode .checkbox-input:checked + .checkbox-button,
+body.outdoor-mode .checkbox-input:checked + .small-checkbox-button {
+  background-color: #FFDD00 !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .checkbox-input:checked + .checkbox-button img,
+body.outdoor-mode .checkbox-input:checked + .small-checkbox-button img {
+  filter: brightness(0) !important;
+  width: 14px !important;
+  height: 14px !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Checkboxes desmarcados com visual claramente vazio */
+body.outdoor-mode .small-checkbox-button,
+body.outdoor-mode .checkbox-button {
+  border: 2px solid #FFDD00 !important;
+  background-color: #222222 !important;
+}
+
+/* Esconde a imagem de checkmark quando não estiver marcado */
+body.outdoor-mode .small-checkbox-button img,
+body.outdoor-mode .checkbox-button img {
+  display: none !important;
+}
+
+/* Ajustes para elementos de alerta */
+body.outdoor-mode .alert-danger {
+  background-color: #881111 !important;
+  color: #FFFFFF !important;
+  border-color: #FF7700 !important;
+}
+
+body.outdoor-mode .alert-success {
+  background-color: #115511 !important;
+  color: #FFFFFF !important;
+  border-color: #FFDD00 !important;
+}
+
+body.outdoor-mode .alert-info {
+  background-color: #114466 !important;
+  color: #FFFFFF !important;
+  border-color: #FFDD00 !important;
+}ontent,
+body.outdoor-mode .header,
+body.outdoor-mode .footer {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+}
+
+/* Containers e cards */
+body.outdoor-mode .filter-container,
+body.outdoor-mode .card,
+body.outdoor-mode .form-container,
+body.outdoor-mode .info-container,
+body.outdoor-mode .table-container {
+  background-color: #1A1A1A !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+/* Labels e textos */
+body.outdoor-mode label,
+body.outdoor-mode h1,
+body.outdoor-mode h2,
+body.outdoor-mode h3,
+body.outdoor-mode h4,
+body.outdoor-mode h5,
+body.outdoor-mode h6 {
+  color: #FFFFFF !important;
+  font-weight: bold !important;
+}
+
+/* Campos de entrada */
+body.outdoor-mode input,
+body.outdoor-mode select,
+body.outdoor-mode textarea {
+  background-color: #444444 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode input::placeholder,
+body.outdoor-mode textarea::placeholder {
+  color: #CCCCCC !important;
+}
+
+/* Classes de cores */
+body.outdoor-mode .red-40 {
+  color: #FF7700 !important;
+  font-weight: bold !important;
+}
+
+/* Botões */
+body.outdoor-mode .highlighted-button,
+body.outdoor-mode .btn-primary {
+  background-color: #FFDD00 !important;
+  color: #000000 !important;
+  font-weight: bold !important;
+  border: none !important;
+  box-shadow: 0 0 10px rgba(255, 221, 0, 0.5) !important;
+}
+
+body.outdoor-mode .simple-button,
+body.outdoor-mode .btn-secondary {
+  background-color: #008080 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+/* Acentos e destaques */
+body.outdoor-mode .content-text span.red-40 {
+  background-color: #FF7700 !important;
+  color: #000000 !important;
+  padding: 0 5px !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .vertical-line {
+  background-color: #FFDD00 !important;
+}
+
+/* Containers especiais */
+body.outdoor-mode .suspect-dengue-container {
+  background-color: #1A1A1A !important;
+  border: 2px solid #FF7700 !important;
+}
+
+/* Links e âncoras */
+body.outdoor-mode a {
+  color: #FFDD00 !important;
+}
+
+/* Tabelas */
+body.outdoor-mode table {
+  color: #FFFFFF !important;
+  border-color: #FFDD00 !important;
+}
+
+body.outdoor-mode th {
+  background-color: #222222 !important;
+  color: #FFDD00 !important;
+}
+
+body.outdoor-mode td {
+  background-color: #333333 !important;
+}
+
+body.outdoor-mode tr:nth-child(even) td {
+  background-color: #2A2A2A !important;
+}
+
+/* Ajustes para elementos do Leaflet (mapas) */
+body.outdoor-mode .leaflet-container {
+  filter: saturate(150%) brightness(110%) contrast(120%) !important;
+}
+
+body.outdoor-mode .leaflet-control {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .leaflet-control a {
+  color: #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .leaflet-popup-content-wrapper {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FF7700 !important;
+}
+
+/* Ajustes para modais e popups */
+body.outdoor-mode .modal-content {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .modal-header,
+body.outdoor-mode .modal-footer {
+  border-color: #FFDD00 !important;
+}
+
+/* Ajustes para barras de navegação */
+body.outdoor-mode nav {
+  background-color: #222222 !important;
+}
+
+body.outdoor-mode .nav-link {
+  color: #FFFFFF !important;
+}
+
+body.outdoor-mode .nav-link.active {
+  color: #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+/* Ícones */
+body.outdoor-mode .icon {
+  filter: brightness(1.5) !important;
+}
+
+/* Ajustes de legibilidade para elementos de alerta */
+body.outdoor-mode .alert-danger {
+  background-color: #881111 !important;
+  color: #FFFFFF !important;
+  border-color: #FF7700 !important;
+}
+
+body.outdoor-mode .alert-success {
+  background-color: #115511 !important;
+  color: #FFFFFF !important;
+  border-color: #FFDD00 !important;
+}
+
+body.outdoor-mode .alert-info {
+  background-color: #114466 !important;
+  color: #FFFFFF !important;
+  border-color: #FFDD00 !important;
+}

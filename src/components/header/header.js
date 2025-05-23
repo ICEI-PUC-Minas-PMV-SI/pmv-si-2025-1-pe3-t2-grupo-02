@@ -99,6 +99,7 @@ class Header extends HTMLElement {
   render() {
     const path = window.location.pathname;
     let relativePath = path.includes("index.html") ? "./src/" : "../../src/";
+    const outdoorModeActive = localStorage.getItem('outdoorMode') === 'true';
     relativePath += path.includes("src") ? "../../src/" : "";
     const primaryLogo = "assets/mosquito.svg";
     const fallbackLogo = "../../assets/mosquito.svg";
@@ -115,6 +116,7 @@ class Header extends HTMLElement {
         <button class="simple-button" onclick="redirectToPage('caseForm/caseForm.html')">Reportar Caso</button>
         <button class="simple-button" onclick="redirectToPage('denuncia/denuncia.html')">Denunciar Foco</button>
         <button id="visit-request-btn" class="simple-button" style="display: none;" onclick="redirectToPage('solicitarVisita/solicitarVisita.html')">Solicitar Visita</button>
+        <button id="header-outdoor-mode-button" class="simple-button outdoor-mode-button">${outdoorModeActive ? 'Modo padrão' : 'Modo externo'}</button>
         <button id="login-btn" class="highlighted-button" onclick="redirectToPage('login/login.html')">Entrar</button>
       </div>
       <button id="menu-button">
@@ -125,6 +127,7 @@ class Header extends HTMLElement {
         <li class="first"><a onclick="redirectToPage('caseForm/caseForm.html')">Reportar Caso</a></li>
         <li class="middle"><a onclick="redirectToPage('denuncia/denuncia.html')">Denunciar Foco</a></li>
         <li id="visit-menu-option" class="middle" style="display: none;"><a onclick="redirectToPage('solicitarVisita/solicitarVisita.html')">Solicitar Visita</a></li>
+        <li class="middle"><a href="javascript:void(0)" id="menu-outdoor-mode-button" class="outdoor-mode-button">${outdoorModeActive ? 'Modo padrão' : 'Modo externo'}</a></li>
         <li id="login-nav-option"class="last"><a onclick="redirectToPage('login/login.html')">Entrar</a></li>
         <li class="last"><a id="logout-nav-option" href="javascript:void(0)">Sair</a></li>
       </ul>
@@ -157,6 +160,9 @@ class Header extends HTMLElement {
     const loginOptions = this.querySelector("#login-btn");
     if (loginOptions)
       loginOptions.addEventListener("click", () => this.clickLoginOptions());
+    
+    // Removemos os event listeners dos botões de modo externo
+    // Eles serão gerenciados pelo OutdoorModeManager global
   }
 
   clickMenu() {
@@ -189,6 +195,8 @@ class Header extends HTMLElement {
       loginOptions.style.display = "inline";
     }
   }
+
+  // Removemos o método toggleOutdoorMode pois agora ele é gerenciado pelo OutdoorModeManager
 }
 
 customElements.define("app-header", Header);

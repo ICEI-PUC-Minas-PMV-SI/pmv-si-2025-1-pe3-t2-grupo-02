@@ -18,6 +18,7 @@
   <link rel="stylesheet" type="text/css" href="../../index.css" />
   <link rel="stylesheet" type="text/css" href="../../components/inputs/inputs.css" />
   <link rel="stylesheet" type="text/css" href="dengueCasesMap.css" />
+  <link rel="stylesheet" type="text/css" href="../../components/outdoorMode/outdoorMode.css" />
   <script src="../../components/header/header.js" defer></script>
   <script src="../../components/footer/footer.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -27,7 +28,6 @@
     crossorigin="anonymous"></script>
   <script src="dengueCasesMap.js"></script>
   <script src="filterManager.js"></script>
-  <script src="outdoorMode.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -159,11 +159,6 @@
             <button id="clearFilterButton" class="simple-button uniform-button" style="height: 45px">Limpar
               filtros</button>
           </div>
-
-          <div class="map-filter-item button-field map-button-field map-button-align">
-            <button id="outdoorModeButton" class="simple-button uniform-button" style="height: 45px">Modo
-              externo</button>
-          </div>
           <div class="map-filter-item filter-item-padding button-item button-field map-button-field map-button-align">
             <button id="saveFilterButton" class="simple-button uniform-button" style="height: 45px">Salvar
               filtros</button>
@@ -190,6 +185,7 @@
   </div>
   <app-footer></app-footer>
   <script src="../../services/dynamicData/dynamicData.js"></script>
+  <script src="../../components/outdoorMode/outdoorMode.js" defer></script>
 </body>
 
 </html>
