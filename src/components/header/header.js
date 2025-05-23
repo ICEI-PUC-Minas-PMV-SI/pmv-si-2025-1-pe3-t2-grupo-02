@@ -113,11 +113,11 @@ class Header extends HTMLElement {
         </a>
       </div>
       <div class="header-buttons">
-        <button class="simple-button" onclick="redirectToPage('caseForm/caseForm.html')">Reportar Caso</button>
-        <button class="simple-button" onclick="redirectToPage('denuncia/denuncia.html')">Denunciar Foco</button>
-        <button id="visit-request-btn" class="simple-button" style="display: none;" onclick="redirectToPage('solicitarVisita/solicitarVisita.html')">Solicitar Visita</button>
-        <button id="header-outdoor-mode-button" class="simple-button outdoor-mode-button">${outdoorModeActive ? 'Modo padrão' : 'Modo externo'}</button>
-        <button id="login-btn" class="highlighted-button" onclick="redirectToPage('login/login.html')">Entrar</button>
+        <button class="header-button" onclick="redirectToPage('caseForm/caseForm.html')">Reportar Caso</button>
+        <button class="header-button" onclick="redirectToPage('denuncia/denuncia.html')">Denunciar Foco</button>
+        <button id="visit-request-btn" class="header-button" style="display: none;" onclick="redirectToPage('solicitarVisita/solicitarVisita.html')">Solicitar Visita</button>
+        <button id="login-btn" class="highlighted-main-button" onclick="redirectToPage('login/login.html')">Entrar</button>
+        <button id="header-outdoor-mode-button" class="header-button outdoor-mode-button">${outdoorModeActive ? 'Modo padrão' : 'Modo externo'}</button>
       </div>
       <button id="menu-button">
         <img id="image-hamburger" src="assets/hamburger.png" alt="Menu" onerror="this.onerror=null; this.src='../../assets/hamburger.png';"/>

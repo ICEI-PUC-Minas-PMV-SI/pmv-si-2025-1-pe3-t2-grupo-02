@@ -103,7 +103,9 @@ body.outdoor-mode .red-40 {
 
 /* Botões */
 body.outdoor-mode .highlighted-button,
-body.outdoor-mode .btn-primary {
+body.outdoor-mode .btn-primary,
+body.outdoor-mode .header-button, 
+body.outdoor-mode .highlighted-main-button {
   background-color: #FFDD00 !important;
   color: #000000 !important;
   font-weight: bold !important;
@@ -111,7 +113,8 @@ body.outdoor-mode .btn-primary {
   box-shadow: 0 0 10px rgba(255, 221, 0, 0.5) !important;
 }
 
-body.outdoor-mode .simple-button,
+body.outdoor
+body.outdoor-mode -mode .simple-button,
 body.outdoor-mode .btn-secondary {
   background-color: #008080 !important;
   color: #FFFFFF !important;

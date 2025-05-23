@@ -43,9 +43,36 @@ let currentPage = 1;
 const itemsPerPage = 10;
 
 let currentSort = {
-  column: null,
-  direction: null
+  column: 'data_registro',
+  direction: 'desc',
 };
+
+let denunciaToDelete = null;
+
+let toast;
+
+function showToast(title, message, type = 'success') {
+  const toastEl = document.getElementById('notificationToast');
+  const toastTitle = document.getElementById('toastTitle');
+  const toastMessage = document.getElementById('toastMessage');
+
+  toastEl.classList.add(type);
+
+  toastTitle.textContent = title;
+  toastMessage.textContent = message;
+
+  if (!toast) {
+    toast = new bootstrap.Toast(toastEl, {
+      autohide: true,
+      delay: 5000,
+      animation: true,
+    });
+  } else {
+    toast._config.delay = 5000;
+  }
+
+  toast.show();
+}
 
 function getPaginatedData(data) {
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -297,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.selectpicker').selectpicker('refresh');
   });
 
-  document.querySelectorAll('.custom-table th.sortable').forEach(header => {
+  document.querySelectorAll('.custom-table th.sortable').forEach((header) => {
     header.addEventListener('click', () => {
       const column = header.dataset.sort;
       handleSort(column);
@@ -435,30 +462,40 @@ function clearFilters() {
   const searchInput = document.querySelector('.table-search-input');
   searchInput.value = '';
 
+  currentSort = {
+    column: 'data_registro',
+    direction: 'desc',
+  };
+
+  document.querySelectorAll('.custom-table th.sortable').forEach((header) => {
+    header.classList.remove('asc', 'desc');
+    header.querySelector('.sort-icon').textContent = 'unfold_more';
+  });
+
+  const sortHeader = document.querySelector('th[data-sort="data_registro"]');
+  sortHeader.classList.add('desc');
+  sortHeader.querySelector('.sort-icon').textContent = 'expand_more';
+
   renderTable(allDenunciasFocos);
 
   document
     .querySelector('.table-search-btn[title="Filtrar"]')
     .classList.remove('active');
-
-  currentSort = {
-    column: null,
-    direction: null
-  };
-  
-  document.querySelectorAll('.custom-table th.sortable').forEach(header => {
-    header.classList.remove('asc', 'desc');
-    header.querySelector('.sort-icon').textContent = 'unfold_more';
-  });
 }
 
 function formatDate(dateString) {
   if (!dateString) return 'Não registrado';
   try {
-    const date = new Date(dateString);
+    const date = new Date(dateString + 'T00:00:00');
     if (isNaN(date.getTime())) return 'Data inválida';
-    return date.toLocaleDateString('pt-BR');
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
   } catch (error) {
+    console.error('Error formatting date:', error);
     return 'Data inválida';
   }
 }
@@ -469,10 +506,16 @@ function renderTable(denuncias) {
 
   let dataToRender = denuncias;
   if (currentSort.column) {
-    dataToRender = sortData(denuncias, currentSort.column, currentSort.direction);
+    dataToRender = sortData(
+      denuncias,
+      currentSort.column,
+      currentSort.direction
+    );
   }
 
   const paginatedData = getPaginatedData(dataToRender);
+  const loggedWith = localStorage.getItem('loggedWith');
+
   paginatedData.forEach((denuncia) => {
     const row = document.createElement('tr');
     const dataRegistro = formatDate(denuncia.data_registro);
@@ -496,6 +539,18 @@ function renderTable(denuncias) {
           )}</span>`
       )
       .join(' ');
+
+    const actionButtons = `
+      <button class="action-btn view-btn" data-id="${
+        denuncia.id
+      }" title="Visualizar"><span class="material-icons">visibility</span></button>
+      ${
+        denuncia.email_usuario === loggedWith
+          ? `<button class="action-btn edit-btn" data-id="${denuncia.id}" title="Editar"><span class="material-icons">edit</span></button>
+             <button class="action-btn delete-btn" data-id="${denuncia.id}" title="Excluir"><span class="material-icons">delete</span></button>`
+          : ''
+      }`;
+
     row.innerHTML = `
             <td>${dataRegistro}</td>
             <td>${denuncia.bairro}</td>
@@ -504,11 +559,34 @@ function renderTable(denuncias) {
             <td>${locais}</td>
             <td>${tipos}</td>
             <td class="actions-col">
-                <button class="action-btn" title="Editar"><span class="material-icons">edit</span></button>
-                <button class="action-btn" title="Excluir"><span class="material-icons">delete</span></button>
+                ${actionButtons}
             </td>
         `;
     tableBody.appendChild(row);
+
+    const deleteBtn = row.querySelector('.delete-btn');
+    if (deleteBtn) {
+      deleteBtn.addEventListener('click', () => {
+        denunciaToDelete = denuncia.id;
+        toggleDeleteModal(true);
+      });
+    }
+
+    const viewBtn = row.querySelector('.view-btn');
+    if (viewBtn) {
+      viewBtn.addEventListener('click', () => {
+        localStorage.setItem('viewDenuncia', JSON.stringify(denuncia));
+        window.location.href = '../denuncia/denuncia.html?mode=view';
+      });
+    }
+
+    const editBtn = row.querySelector('.edit-btn');
+    if (editBtn) {
+      editBtn.addEventListener('click', () => {
+        localStorage.setItem('editDenuncia', JSON.stringify(denuncia));
+        window.location.href = '../denuncia/denuncia.html?mode=edit';
+      });
+    }
   });
 
   document.getElementById('resultsCount').textContent = denuncias.length;
@@ -658,8 +736,8 @@ function sortData(data, column, direction) {
 
 function handleSort(column) {
   const headers = document.querySelectorAll('.custom-table th.sortable');
-  
-  headers.forEach(header => {
+
+  headers.forEach((header) => {
     header.classList.remove('asc', 'desc');
     header.querySelector('.sort-icon').textContent = 'unfold_more';
   });
@@ -673,17 +751,86 @@ function handleSort(column) {
 
   const currentHeader = document.querySelector(`th[data-sort="${column}"]`);
   currentHeader.classList.add(currentSort.direction);
-  currentHeader.querySelector('.sort-icon').textContent = 
+  currentHeader.querySelector('.sort-icon').textContent =
     currentSort.direction === 'asc' ? 'expand_less' : 'expand_more';
 
-  const dataToSort = filteredDenunciasFocos.length > 0 ? filteredDenunciasFocos : allDenunciasFocos;
+  const dataToSort =
+    filteredDenunciasFocos.length > 0
+      ? filteredDenunciasFocos
+      : allDenunciasFocos;
   const sortedData = sortData(dataToSort, column, currentSort.direction);
-  
+
   if (filteredDenunciasFocos.length > 0) {
     filteredDenunciasFocos = sortedData;
   } else {
     allDenunciasFocos = sortedData;
   }
-  
+
   renderTable(sortedData);
 }
+
+function toggleDeleteModal(show = true) {
+  const modal = document.getElementById('deleteModal');
+  modal.classList.toggle('show', show);
+}
+
+async function deleteDenuncia(id) {
+  try {
+    let apiUrl;
+    await fetch('../../config.json')
+      .then((response) => response.json())
+      .then((env) => {
+        apiUrl = env.API_URL;
+      });
+
+    const response = await fetch(`${apiUrl}/denuncias-focos/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    allDenunciasFocos = allDenunciasFocos.filter((d) => d.id !== id);
+    filteredDenunciasFocos = filteredDenunciasFocos.filter((d) => d.id !== id);
+
+    renderTable(
+      filteredDenunciasFocos.length > 0
+        ? filteredDenunciasFocos
+        : allDenunciasFocos
+    );
+
+    showToast('Sucesso', 'Denúncia excluída com sucesso!', 'success');
+  } catch (error) {
+    console.error('Error deleting denuncia:', error);
+    showToast(
+      'Erro',
+      'Erro ao excluir denúncia. Por favor, tente novamente.',
+      'error'
+    );
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteModal = document.getElementById('deleteModal');
+  const closeDeleteModal = document.getElementById('closeDeleteModal');
+  const cancelDelete = document.getElementById('cancelDelete');
+  const confirmDelete = document.getElementById('confirmDelete');
+
+  closeDeleteModal.addEventListener('click', () => toggleDeleteModal(false));
+  cancelDelete.addEventListener('click', () => toggleDeleteModal(false));
+
+  confirmDelete.addEventListener('click', async () => {
+    if (denunciaToDelete) {
+      await deleteDenuncia(denunciaToDelete);
+      denunciaToDelete = null;
+      toggleDeleteModal(false);
+    }
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === deleteModal) {
+      toggleDeleteModal(false);
+    }
+  });
+});

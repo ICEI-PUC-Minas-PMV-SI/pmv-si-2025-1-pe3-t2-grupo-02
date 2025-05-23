@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <div class="table-container">
+      <div class="table-container mt-3">
         <div class="table-search-bar">
           <div class="search-input-wrapper">
             <button class="table-search-btn" title="Buscar">
@@ -255,6 +255,25 @@
       </div>
     </div>
 
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteModal">
+      <div class="modal-content" style="max-width: 400px;">
+        <div class="modal-header">
+          <h2>Confirmar Exclusão</h2>
+          <button class="close-modal-btn" id="closeDeleteModal">
+            <span class="material-icons">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja excluir esta denúncia? Esta ação não pode ser desfeita.</p>
+          <div class="modal-actions" style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+            <button class="cancel-delete-btn" id="cancelDelete">Cancelar</button>
+            <button class="confirm-delete-btn" id="confirmDelete">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="suspect-dengue-container">
       <div class="suspect-dengue-content">
         <h1>Suspeita de dengue?</h1>
@@ -267,6 +286,18 @@
     </div>
 
     <app-footer></app-footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container">
+      <div id="notificationToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto" id="toastTitle"></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toastMessage"></div>
+      </div>
+    </div>
+
     <script src="denuncias-focos.js"></script>
     <script src="../../components/outdoorMode/outdoorMode.js" defer></script>
   </body>

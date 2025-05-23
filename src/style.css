@@ -269,7 +269,7 @@ nav ul li a {
 
 /* Estilo dos botões */
 
-.simple-button {
+.header-button {
   color: var(--primary-40);
   background-color: var(--neutral-0);
   border-radius: 16px;
@@ -279,7 +279,7 @@ nav ul li a {
   cursor: pointer;
 }
 
-.highlighted-button {
+.highlighted-main-button {
   color: var(--neutral-0);
   background-color: var(--primary-40);
   border-radius: 16px;
@@ -290,7 +290,7 @@ nav ul li a {
   transition: background-color 0.4s ease;
 }
 
-.highlighted-button:hover {
+.highlighted-main-button:hover {
   background-image: linear-gradient(to right, var(--primary-40), var(--primary-60));
 }
 
