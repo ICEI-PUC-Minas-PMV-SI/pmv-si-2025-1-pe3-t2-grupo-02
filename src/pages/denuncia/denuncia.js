@@ -1,58 +1,117 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const checkboxesLocal = document.querySelectorAll('input[name="local"]');
-  checkboxesLocal.forEach(function (checkbox) {
-    checkbox.addEventListener("click", function () {
-      if (this.checked) {
-        checkboxesLocal.forEach(function (otherCheckbox) {
-          if (otherCheckbox !== checkbox) {
-            otherCheckbox.checked = false;
-          }
-        });
+  const urlParams = new URLSearchParams(window.location.search);
+  const isViewMode = urlParams.get('mode') === 'view';
+  const isEditMode = urlParams.get('mode') === 'edit';
+
+  if (isViewMode || isEditMode) {
+    const denunciaData = JSON.parse(localStorage.getItem(isViewMode ? 'viewDenuncia' : 'editDenuncia'));
+    if (denunciaData) {
+      document.querySelector('.header-report-case h1').textContent = isViewMode ? 'Visualizar Denúncia' : 'Editar Denúncia';
+      
+      const submitButton = document.querySelector('.report-case-button');
+      if (submitButton) {
+        submitButton.style.display = isViewMode ? 'none' : 'block';
+        if (isEditMode) {
+          submitButton.textContent = 'Atualizar';
+        }
       }
 
-      const inputOutroLocal = document.getElementById("outro_local");
-      if (this.value == "outro") {
-        inputOutroLocal.disabled = false;
+      document.getElementById('estado').value = denunciaData.estado;
+      document.getElementById('cidade').value = denunciaData.cidade;
+      document.getElementById('bairro').value = denunciaData.bairro;
+
+      const local = Array.isArray(denunciaData.local) ? denunciaData.local[0] : denunciaData.local;
+      if (local === 'outro') {
+        document.getElementById('outro').checked = true;
+        document.getElementById('outro_local').value = denunciaData.local;
+        document.getElementById('outro_local').disabled = isViewMode;
       } else {
-        inputOutroLocal.disabled = true;
-        inputOutroLocal.value = null;
+        const localCheckbox = document.querySelector(`input[name="local"][value="${local}"]`);
+        if (localCheckbox) {
+          localCheckbox.checked = true;
+        }
+      }
+
+      denunciaData.tipo.forEach(tipo => {
+        if (tipo === 'outros') {
+          document.getElementById('outros').checked = true;
+          document.getElementById('outros_focos').value = tipo;
+          document.getElementById('outros_focos').disabled = isViewMode;
+        } else {
+          const tipoCheckbox = document.querySelector(`input[name="tipo_foco"][value="${tipo}"]`);
+          if (tipoCheckbox) {
+            tipoCheckbox.checked = true;
+          }
+        }
+      });
+
+      if (isViewMode) {
+        const form = document.getElementById('formulario1');
+        const inputs = form.querySelectorAll('input, select');
+        inputs.forEach(input => {
+          input.disabled = true;
+        });
+        form.onsubmit = null;
+      } else if (isEditMode) {
+        localStorage.setItem('editingDenunciaId', denunciaData.id);
+      }
+    }
+  } else {
+    const checkboxesLocal = document.querySelectorAll('input[name="local"]');
+    checkboxesLocal.forEach(function (checkbox) {
+      checkbox.addEventListener("click", function () {
+        if (this.checked) {
+          checkboxesLocal.forEach(function (otherCheckbox) {
+            if (otherCheckbox !== checkbox) {
+              otherCheckbox.checked = false;
+            }
+          });
+        }
+
+        const inputOutroLocal = document.getElementById("outro_local");
+        if (this.value == "outro") {
+          inputOutroLocal.disabled = false;
+        } else {
+          inputOutroLocal.disabled = true;
+          inputOutroLocal.value = null;
+        }
+      });
+    });
+
+    const outrosFocosCheckbox = document.getElementById("outros");
+    const inputOutrosFocos = document.getElementById("outros_focos");
+    outrosFocosCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        inputOutrosFocos.disabled = false;
+      } else {
+        inputOutrosFocos.disabled = true;
+        inputOutrosFocos.value = null;
       }
     });
-  });
 
-  const outrosFocosCheckbox = document.getElementById("outros");
-  const inputOutrosFocos = document.getElementById("outros_focos");
-  outrosFocosCheckbox.addEventListener("change", function () {
-    if (this.checked) {
-      inputOutrosFocos.disabled = false;
-    } else {
-      inputOutrosFocos.disabled = true;
-      inputOutrosFocos.value = null;
-    }
-  });
-
-  const estadoSelect = document.getElementById("estado");
-  const cidadeInput = document.getElementById("cidade");
-  
-  estadoSelect.addEventListener("change", async function() {
-    const estado = this.value;
-    cidadeInput.value = "";
-    citiesList = [];
+    const estadoSelect = document.getElementById("estado");
+    const cidadeInput = document.getElementById("cidade");
     
-    if (estado === "escolher_opcao") {
-      return;
-    }
-    
-    const url = BRAZIL_REGIONS_GEOJSON[estado];
-    try {
-      const response = await fetch(url);
-      const geojson = await response.json();
-      citiesList = geojson.features.map(f => f.properties.name).sort();
-      autocomplete(cidadeInput, citiesList);
-    } catch (error) {
-      console.error("Error loading cities:", error);
-    }
-  });
+    estadoSelect.addEventListener("change", async function() {
+      const estado = this.value;
+      cidadeInput.value = "";
+      citiesList = [];
+      
+      if (estado === "escolher_opcao") {
+        return;
+      }
+      
+      const url = BRAZIL_REGIONS_GEOJSON[estado];
+      try {
+        const response = await fetch(url);
+        const geojson = await response.json();
+        citiesList = geojson.features.map(f => f.properties.name).sort();
+        autocomplete(cidadeInput, citiesList);
+      } catch (error) {
+        console.error("Error loading cities:", error);
+      }
+    });
+  }
 });
 
 function clearFields() {
@@ -80,17 +139,61 @@ async function createDengueFocus(focusInformation) {
     .then((env) => {
       apiUrl = env.API_URL;
     });
-  fetch(`${apiUrl}/denuncias-focos/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(focusInformation),
-  }).then((res) => {
-    console.log(res.json());
+  
+  try {
+    const response = await fetch(`${apiUrl}/denuncias-focos/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(focusInformation),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     showModalSuccess();
     clearFields();
-  });
+    window.location.href = '../listagemDenunciasFocos/denuncias-focos.html';
+  } catch (error) {
+    console.error('Error creating denuncia:', error);
+    showModalError("Erro ao cadastrar denúncia. Por favor, tente novamente.");
+  }
+}
+
+async function updateDengueFocus(focusInformation, id) {
+  let apiUrl;
+  await fetch('../../config.json')
+    .then((response) => response.json())
+    .then((env) => {
+      apiUrl = env.API_URL;
+    });
+  
+  try {
+    focusInformation.data_registro = new Date().toISOString().split("T")[0];
+    
+    const response = await fetch(`${apiUrl}/denuncias-focos/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(focusInformation),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    showModalSuccess();
+    clearFields();
+    localStorage.removeItem('editDenuncia');
+    localStorage.removeItem('editingDenunciaId');
+    window.location.href = '../listagemDenunciasFocos/denuncias-focos.html';
+  } catch (error) {
+    console.error('Error updating denuncia:', error);
+    showModalError("Erro ao atualizar denúncia. Por favor, tente novamente.");
+  }
 }
 
 function handleSubmit(event) {
@@ -154,19 +257,22 @@ function handleSubmit(event) {
     }
   });
 
-  const today = new Date();
-  const parsedToday = today.toISOString().split("T")[0];
-
   const dados = {
     email_usuario: loggedWith,
-    data_registro: parsedToday,
     bairro: document.getElementById('bairro').value,
     cidade: document.getElementById('cidade').value,
     estado,
     local: localSelecionado,
     tipo: tiposSelecionados,
   };
-  createDengueFocus(dados);
+
+  const editingId = localStorage.getItem('editingDenunciaId');
+  if (editingId) {
+    updateDengueFocus(dados, editingId);
+  } else {
+    dados.data_registro = new Date().toISOString().split("T")[0];
+    createDengueFocus(dados);
+  }
 
   return false;
 }
