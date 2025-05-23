@@ -117,3 +117,4 @@ document.getElementById('btnBuscar').addEventListener('click', () => {
 
 filtroAtivo = ''; 
 preencherTabela();
+
