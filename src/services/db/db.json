@@ -43,6 +43,17 @@
       "keys": {
         "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF5WXNtWXgrZHhxUFJjVE95anlxT084UFpKaGduZmh2VzVEY2dKQmFQT0dWY3Bsa3FTdE82c2dMb00wWlllby9HS3NMMVdGUjlUekxrbXBLbU1FaUJGcy9tSnIyeVdWVU9Vcm9FVldGM1NLMkN3WFFWL05zTTlTUGVKMWttclUxQ24zVHpWZmQ1Q0o3L2ZTeWxXU1A0S1NiaGlucHNZSCt6TUVmNGxSUXR0ZU4yWW5kSWZjRE8yQk1QMzEzMll5TGFmUHlYa0hDc1NlWGhqNFBiNmdJYWhDMkJpY2c5STRBNmZGYXArYTZodUJMKzN3dXBWZFpoc1hTTnNtTVJvdG9pN0hnelVQYXV0cGtSRHJTOS9mcCtXRzBSTzZWcC9VSzBpbS9lRUowV2dmYk1zNkkxRmtpSjNNU0FrTWlTUmNnRDNYUlJZSjZ6RFhOYWpNU2VQZVp4QXdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
       }
+    },
+    {
+      "id": "7646bfac-4d17-40a-b84-60a957d38393",
+      "userName": "Arthur",
+      "userNascentDate": "2004-01-12T00:00:00.000Z",
+      "userGender": "masculino",
+      "userEmail": "arthurrguimaraes12@gmail.com",
+      "hashedPassword": "ba36ac02ef75bd72d94a56c68fa68ebd:cf042ea15de4965a4b9dc49847fa7d348d4564d5f265a352fb3f01bfd54b8b96",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFvcEFGMVJ2ZUNSTVVWUDJ2T2pnQlRMMFBvcnhsN1Vnc3NtaE9INWpoaTN6WEQrQWc0aVk5cFJVRDFXZFY4RUo5TkU0SVpuYzZMNDZpY0RNZGZnVWZlbTRQZllOSkNnUTM3djBTTmlsTVJJenVvWFM5Nys5U0VaeGp0UWVXTlYrZmlEcUU1MTJ6NkREelZUYi9YWFl2V0dtNEFScml4RkJESE56MnVtTDFPZDNGRkowcVViejFyOWJRcjBjekx1c3ZaVUxWRFNVc3pYVmdtUnBzVjBYbVpCeW1nYmVjcFJadWFJSW5UaE1ZbDRiaTJOV04yL3owc0liaXBGMStSOU9nSDdMZVZROGg1Qnh4UTI1Wks3emRxWlY5S3lQVGQxU0p2bDQyVnh3bGlBQ1JNTGpMR3BNRVZVUC9XWUxzODRaRHh5Y091MkozOThzNGRTTFltb1UrZVFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
     }
   ],
   "denuncias-casos": [
@@ -299,6 +310,7 @@
   "denuncias-focos": [
     {
       "id": "5641",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-17",
       "bairro": "João XXIII",
       "cidade": "Fortaleza",
@@ -312,11 +324,15 @@
     },
     {
       "id": "5642",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-16",
       "bairro": "Aldeota",
       "cidade": "Fortaleza",
       "estado": "CE",
-      "local": ["quintal", "jardim"],
+      "local": [
+        "quintal",
+        "jardim"
+      ],
       "tipo": [
         "vasos_plantas",
         "piscinas_abandonadas"
@@ -324,6 +340,7 @@
     },
     {
       "id": "5643",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-15",
       "bairro": "Messejana",
       "cidade": "Fortaleza",
@@ -337,11 +354,15 @@
     },
     {
       "id": "5644",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-14",
       "bairro": "Parangaba",
       "cidade": "Fortaleza",
       "estado": "CE",
-      "local": ["telhado", "calha"],
+      "local": [
+        "telhado",
+        "calha"
+      ],
       "tipo": [
         "calhas_entupidas",
         "telhados"
@@ -349,6 +370,7 @@
     },
     {
       "id": "5645",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-13",
       "bairro": "Centro",
       "cidade": "Maracanaú",
@@ -361,11 +383,16 @@
     },
     {
       "id": "5646",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-12",
       "bairro": "Antônio Bezerra",
       "cidade": "Fortaleza",
       "estado": "CE",
-      "local": ["quintal", "jardim", "piscina"],
+      "local": [
+        "quintal",
+        "jardim",
+        "piscina"
+      ],
       "tipo": [
         "piscinas_abandonadas",
         "vasos_plantas",
@@ -374,6 +401,7 @@
     },
     {
       "id": "5647",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-11",
       "bairro": "Mondubim",
       "cidade": "Fortaleza",
@@ -387,11 +415,15 @@
     },
     {
       "id": "5648",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-10",
       "bairro": "Barra do Ceará",
       "cidade": "Fortaleza",
       "estado": "CE",
-      "local": ["calçada", "rua"],
+      "local": [
+        "calçada",
+        "rua"
+      ],
       "tipo": [
         "garrafas_latas",
         "pneus"
@@ -399,6 +431,7 @@
     },
     {
       "id": "5649",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-09",
       "bairro": "Conjunto Ceará",
       "cidade": "Fortaleza",
@@ -411,11 +444,15 @@
     },
     {
       "id": "5650",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-08",
       "bairro": "São Gerardo",
       "cidade": "Fortaleza",
       "estado": "CE",
-      "local": ["quintal", "jardim"],
+      "local": [
+        "quintal",
+        "jardim"
+      ],
       "tipo": [
         "vasos_plantas",
         "piscinas_abandonadas",
@@ -424,6 +461,7 @@
     },
     {
       "id": "5651",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-07",
       "bairro": "Caucaia",
       "cidade": "Caucaia",
@@ -434,6 +472,18 @@
         "pneus",
         "garrafas_latas",
         "caixas_dagua"
+      ]
+    },
+    {
+      "id": "324a",
+      "email_usuario": "arthurrguimaraes12@gmail.com",
+      "data_registro": "2025-05-23",
+      "bairro": "Pampulha",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "local": "imovel_publico",
+      "tipo": [
+        "calhas_lages"
       ]
     }
   ],
