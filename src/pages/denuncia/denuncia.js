@@ -30,6 +30,29 @@ document.addEventListener("DOMContentLoaded", () => {
       inputOutrosFocos.value = null;
     }
   });
+
+  const estadoSelect = document.getElementById("estado");
+  const cidadeInput = document.getElementById("cidade");
+  
+  estadoSelect.addEventListener("change", async function() {
+    const estado = this.value;
+    cidadeInput.value = "";
+    citiesList = [];
+    
+    if (estado === "escolher_opcao") {
+      return;
+    }
+    
+    const url = BRAZIL_REGIONS_GEOJSON[estado];
+    try {
+      const response = await fetch(url);
+      const geojson = await response.json();
+      citiesList = geojson.features.map(f => f.properties.name).sort();
+      autocomplete(cidadeInput, citiesList);
+    } catch (error) {
+      console.error("Error loading cities:", error);
+    }
+  });
 });
 
 function clearFields() {
@@ -135,6 +158,7 @@ function handleSubmit(event) {
   const parsedToday = today.toISOString().split("T")[0];
 
   const dados = {
+    email_usuario: loggedWith,
     data_registro: parsedToday,
     bairro: document.getElementById('bairro').value,
     cidade: document.getElementById('cidade').value,
@@ -179,3 +203,109 @@ const showModalError = (motivo) => {
   modalError.style.display = "block";
   document.getElementById("dynamic-text").textContent = motivo;
 };
+
+const BRAZIL_REGIONS_GEOJSON = {
+  AC: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-12-mun.json',
+  AM: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-13-mun.json',
+  AP: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-16-mun.json',
+  PA: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-15-mun.json',
+  RO: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-11-mun.json',
+  RR: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-14-mun.json',
+  TO: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-17-mun.json',
+  AL: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-27-mun.json',
+  BA: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-29-mun.json',
+  CE: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-23-mun.json',
+  MA: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-21-mun.json',
+  PB: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-25-mun.json',
+  PE: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-26-mun.json',
+  PI: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-22-mun.json',
+  RN: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-24-mun.json',
+  SE: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-28-mun.json',
+  ES: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-32-mun.json',
+  MG: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-31-mun.json',
+  RJ: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-33-mun.json',
+  SP: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-35-mun.json',
+  PR: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-41-mun.json',
+  RS: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-43-mun.json',
+  SC: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-42-mun.json',
+  DF: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-53-mun.json',
+  GO: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-52-mun.json',
+  MT: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-51-mun.json',
+  MS: 'https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-50-mun.json',
+};
+
+let citiesList = [];
+
+function autocomplete(input, cities) {
+  let currentFocus;
+  
+  input.addEventListener("input", function(e) {
+    let val = this.value;
+    closeAllLists();
+    if (!val) {
+      return false;
+    }
+    currentFocus = -1;
+    
+    let a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(a);
+    
+    cities.forEach(city => {
+      if (city.toLowerCase().includes(val.toLowerCase())) {
+        let b = document.createElement("DIV");
+        b.innerHTML = city;
+        b.addEventListener("click", function(e) {
+          input.value = this.innerHTML;
+          closeAllLists();
+        });
+        a.appendChild(b);
+      }
+    });
+  });
+  
+  input.addEventListener("keydown", function(e) {
+    let x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) { // arrow DOWN
+      currentFocus++;
+      addActive(x);
+    } else if (e.keyCode == 38) { // arrow UP
+      currentFocus--;
+      addActive(x);
+    } else if (e.keyCode == 13) { // ENTER
+      e.preventDefault();
+      if (currentFocus > -1) {
+        if (x) x[currentFocus].click();
+      }
+    }
+  });
+  
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  
+  function removeActive(x) {
+    for (let i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  
+  function closeAllLists(elmnt) {
+    let x = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != input) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
