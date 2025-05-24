@@ -13,10 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
   input.min = getTomorrowDate();
 });
 
-// Formata o campo CEP
-const handleZipCode = (event) => {
+// Formata o campo CEP e busca o endereço automaticamente
+const handleZipCode = async (event) => {
   let input = event.target;
   input.value = zipCodeMask(input.value);
+
+  const cep = input.value.replace(/\D/g, "");
+  if (cep.length === 8) {
+    const enderecoInput = document.getElementById("endereco");
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await response.json();
+
+      if (data && !data.erro) {
+        enderecoInput.value = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
+      } else {
+        enderecoInput.value = "";
+        showModalError("CEP não encontrado. Verifique e tente novamente.");
+      }
+    } catch {
+      enderecoInput.value = "";
+      showModalError("Erro ao consultar o CEP. Tente novamente.");
+    }
+  }
 };
 
 const zipCodeMask = (value) => {
@@ -29,7 +48,11 @@ const zipCodeMask = (value) => {
 async function handleSubmit(event) {
   event.preventDefault();
   const loggedWith = localStorage.getItem("loggedWith");
-  if (!loggedWith) return;
+  if (!loggedWith) {
+    showModalError("Você precisa estar logado para solicitar uma visita.");
+    return;
+  }
+
   const dtVisita = document.getElementById("data_visita").value;
   const turno = document.getElementById("turno").value;
   const motivo = document.getElementById("motivo").value;
@@ -48,9 +71,7 @@ async function handleSubmit(event) {
 
   const isValidCep = await validateCep(cep);
   if (!isValidCep) {
-    showModalError(
-      "Erro ao validar CEP. Verifique se ele está correto e tente novamente mais tarde."
-    );
+    showModalError("Erro ao validar CEP. Verifique se ele está correto.");
     return;
   }
 
@@ -74,27 +95,39 @@ async function handleSubmit(event) {
   };
 
   createSolicitacaoVisita(dados);
-  return false;
 }
 
 async function createSolicitacaoVisita(dados) {
   let apiUrl;
-  await fetch('../../config.json')
-    .then((response) => response.json())
-    .then((env) => {
-      apiUrl = env.API_URL;
-    });
+  const env = await (await fetch('../../config.json')).json();
+  apiUrl = env.API_URL;
+
   await fetch(`${apiUrl}/solicitacao-visita/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dados),
-  }).then((res) => {
-    console.log(res.json());
+  }).then(async (res) => {
+    const responseData = await res.json();
+    salvarLocalmente(dados);
     showModalSuccess();
     clearFields();
   });
+}
+
+function salvarLocalmente(dados) {
+  const visitas = JSON.parse(localStorage.getItem('visitas')) || [];
+
+  visitas.push({
+    data: dados.data_visita,
+    endereco: dados.endereco,
+    solicitante: dados.user,
+    motivo: dados.motivo,
+    status: dados.status,
+  });
+
+  localStorage.setItem('visitas', JSON.stringify(visitas));
 }
 
 function clearFields() {
@@ -110,9 +143,7 @@ const validateCep = async (cep) => {
   const numericCep = cep.replace(/\D/g, "");
   if (numericCep.length === 8) {
     try {
-      const response = await fetch(
-        `https://viacep.com.br/ws/${numericCep}/json/`
-      );
+      const response = await fetch(`https://viacep.com.br/ws/${numericCep}/json/`);
       if (!response.ok) {
         isValid = false;
       }
@@ -130,7 +161,7 @@ const validateCep = async (cep) => {
   return isValid;
 };
 
-//MODAL DE SUCESSO E ERRO
+// MODAL DE SUCESSO E ERRO
 let modalSuccess = document.getElementById("solicitar-visita-modal-success");
 let modalError = document.getElementById("solicitar-visita-modal-error");
 
@@ -146,12 +177,8 @@ closeModalError.onclick = function () {
 };
 
 window.onclick = (event) => {
-  if (event.target == modalSuccess) {
-    modalSuccess.style.display = "none";
-  }
-  if (event.target == modalError) {
-    modalError.style.display = "none";
-  }
+  if (event.target == modalSuccess) modalSuccess.style.display = "none";
+  if (event.target == modalError) modalError.style.display = "none";
 };
 
 const showModalSuccess = () => {
