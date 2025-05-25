@@ -185,6 +185,7 @@ const showModalSuccess = () => {
   modalSuccess.style.display = "block";
 };
 
+
 const showModalError = (motivo) => {
   modalError.style.display = "block";
   document.getElementById("dynamic-text").textContent = motivo;
