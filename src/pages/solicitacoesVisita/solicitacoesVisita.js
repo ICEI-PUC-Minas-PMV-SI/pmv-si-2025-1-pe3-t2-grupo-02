@@ -43,7 +43,7 @@ function preencherTabela() {
       <td>${item.status}</td>
       <td>
         <button class="btn-excluir" data-index="${inicio + index}" aria-label="Excluir">
-          <img src="./assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
+          <img src="../assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
         </button>
       </td>
     `;
