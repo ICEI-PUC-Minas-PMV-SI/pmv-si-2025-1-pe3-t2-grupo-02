@@ -8,7 +8,6 @@ function getDadosFiltrados() {
   return dados.filter(item =>
     item.endereco.toLowerCase().includes(filtroAtivo) ||
     item.solicitante.toLowerCase().includes(filtroAtivo) ||
-    item.motivo.toLowerCase().includes(filtroAtivo) ||
     item.status.toLowerCase().includes(filtroAtivo) ||
     item.data.toLowerCase().includes(filtroAtivo)
   );
@@ -41,10 +40,11 @@ function preencherTabela() {
       <td>${item.data}</td>
       <td>${item.endereco}</td>
       <td>${item.solicitante}</td>
-      <td>${item.motivo}</td>
       <td>${item.status}</td>
       <td>
-        <button class="btn-excluir" data-index="${inicio + index}">Excluir</button>
+        <button class="btn-excluir" data-index="${inicio + index}" aria-label="Excluir">
+          <img src="./assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
+        </button>
       </td>
     `;
     tbody.appendChild(tr);
@@ -65,8 +65,10 @@ function criarPaginacao(totalPaginas) {
   btnAnterior.textContent = '<<';
   btnAnterior.disabled = currentPage === 1;
   btnAnterior.addEventListener('click', () => {
-    currentPage--;
-    preencherTabela();
+    if (currentPage > 1) {
+      currentPage--;
+      preencherTabela();
+    }
   });
   paginacao.appendChild(btnAnterior);
 
@@ -85,8 +87,10 @@ function criarPaginacao(totalPaginas) {
   btnProxima.textContent = '>>';
   btnProxima.disabled = currentPage === totalPaginas;
   btnProxima.addEventListener('click', () => {
-    currentPage++;
-    preencherTabela();
+    if (currentPage < totalPaginas) {
+      currentPage++;
+      preencherTabela();
+    }
   });
   paginacao.appendChild(btnProxima);
 }
@@ -94,19 +98,14 @@ function criarPaginacao(totalPaginas) {
 function adicionarEventos() {
   document.querySelectorAll('.btn-excluir').forEach(btn => {
     btn.addEventListener('click', e => {
-      const idx = e.target.dataset.index;
+      const idx = e.currentTarget.dataset.index;
       const confirmar = confirm('Deseja realmente excluir esta solicitação?');
       if (confirmar) {
         dados.splice(idx, 1);
-        salvarDados();
         preencherTabela();
       }
     });
   });
-}
-
-function salvarDados() {
-  localStorage.setItem('visitas', JSON.stringify(dados));
 }
 
 document.getElementById('btnBuscar').addEventListener('click', () => {
@@ -115,6 +114,5 @@ document.getElementById('btnBuscar').addEventListener('click', () => {
   preencherTabela();
 });
 
-filtroAtivo = ''; 
+filtroAtivo = '';
 preencherTabela();
-
