@@ -23,7 +23,6 @@ function getDadosFiltrados() {
   return dados.filter(item =>
     item.endereco.toLowerCase().includes(filtroAtivo) ||
     item.solicitante.toLowerCase().includes(filtroAtivo) ||
-    item.motivo.toLowerCase().includes(filtroAtivo) ||
     item.status.toLowerCase().includes(filtroAtivo) ||
     item.data.toLowerCase().includes(filtroAtivo)
   );
@@ -39,6 +38,7 @@ function preencherTabela() {
   const dadosPagina = dadosFiltrados.slice(inicio, fim);
 
   dadosPagina.forEach((item, index) => {
+<<<<<<< HEAD
     const col = document.createElement('div');
     col.className = 'col-md-6 col-lg-4';
     col.innerHTML = `
@@ -50,6 +50,19 @@ function preencherTabela() {
           <button class="btn btn-sm btn-outline-primary w-100 btn-detalhes" data-index="${inicio + index}">Ver Detalhes</button>
         </div>
       </div>
+=======
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.data}</td>
+      <td>${item.endereco}</td>
+      <td>${item.solicitante}</td>
+      <td>${item.status}</td>
+      <td>
+        <button class="btn-excluir" data-index="${inicio + index}" aria-label="Excluir">
+          <img src="../assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
+        </button>
+      </td>
+>>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
     `;
     container.appendChild(col);
   });
@@ -67,12 +80,25 @@ function renderizarPaginacao(totalItens) {
   const totalPaginas = Math.ceil(totalItens / itemsPerPage);
   if (totalPaginas <= 1) return;
 
+<<<<<<< HEAD
   const criarItem = (label, pagina, desativado = false, ativo = false) => {
     const li = document.createElement('li');
     li.className = `page-item ${desativado ? 'disabled' : ''} ${ativo ? 'active' : ''}`;
     li.innerHTML = `<button class="page-link" data-pagina="${pagina}">${label}</button>`;
     return li;
   };
+=======
+  const btnAnterior = document.createElement('button');
+  btnAnterior.textContent = '<<';
+  btnAnterior.disabled = currentPage === 1;
+  btnAnterior.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      preencherTabela();
+    }
+  });
+  paginacao.appendChild(btnAnterior);
+>>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
 
   paginacao.appendChild(criarItem('Anterior', currentPage - 1, currentPage === 1));
   for (let i = 1; i <= totalPaginas; i++) {
@@ -80,17 +106,40 @@ function renderizarPaginacao(totalItens) {
   }
   paginacao.appendChild(criarItem('Próxima', currentPage + 1, currentPage === totalPaginas));
 
+<<<<<<< HEAD
   paginacao.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
       const novaPagina = parseInt(btn.getAttribute('data-pagina'));
       if (!isNaN(novaPagina) && novaPagina >= 1 && novaPagina <= totalPaginas) {
         currentPage = novaPagina;
+=======
+  const btnProxima = document.createElement('button');
+  btnProxima.textContent = '>>';
+  btnProxima.disabled = currentPage === totalPaginas;
+  btnProxima.addEventListener('click', () => {
+    if (currentPage < totalPaginas) {
+      currentPage++;
+      preencherTabela();
+    }
+  });
+  paginacao.appendChild(btnProxima);
+}
+
+function adicionarEventos() {
+  document.querySelectorAll('.btn-excluir').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const idx = e.currentTarget.dataset.index;
+      const confirmar = confirm('Deseja realmente excluir esta solicitação?');
+      if (confirmar) {
+        dados.splice(idx, 1);
+>>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
         preencherTabela();
       }
     });
   });
 }
 
+<<<<<<< HEAD
 function adicionarEventos() {
   document.querySelectorAll('.btn-detalhes').forEach(btn => {
     btn.addEventListener('click', e => {
@@ -158,6 +207,8 @@ function salvarDados() {
   localStorage.setItem('visitas', JSON.stringify(dados));
 }
 
+=======
+>>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
 document.getElementById('btnBuscar').addEventListener('click', () => {
   filtroAtivo = document.getElementById('search').value.trim().toLowerCase();
   currentPage = 1;
