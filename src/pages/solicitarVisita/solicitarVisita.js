@@ -79,10 +79,13 @@ async function handleSubmit(event) {
 
 async function createSolicitacaoVisita(dados) {
   let apiUrl;
-  await fetch('../../config.json')
+  await fetch("../../config.json")
     .then((response) => response.json())
     .then((env) => {
       apiUrl = env.API_URL;
+    })
+    .catch(() => {
+      showModalError("Erro ao solicitar visita. Tente novamente mais tarde.");
     });
   await fetch(`${apiUrl}/solicitacao-visita/`, {
     method: "POST",
@@ -90,11 +93,15 @@ async function createSolicitacaoVisita(dados) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dados),
-  }).then((res) => {
-    console.log(res.json());
-    showModalSuccess();
-    clearFields();
-  });
+  })
+    .then((res) => {
+      console.log(res.json());
+      showModalSuccess();
+      clearFields();
+    })
+    .catch(() => {
+      showModalError("Erro ao solicitar visita. Tente novamente mais tarde.");
+    });
 }
 
 function clearFields() {
