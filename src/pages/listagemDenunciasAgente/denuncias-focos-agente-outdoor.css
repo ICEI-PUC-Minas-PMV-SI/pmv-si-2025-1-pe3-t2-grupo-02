@@ -1,0 +1,340 @@
+/* Estilos específicos para o modo externo na página de listagem de denúncias para agentes */
+
+/* Ajustes para o dashboard */
+body.outdoor-mode .stats-card {
+  background-color: #222222 !important;
+  border: 2px solid #FFDD00 !important;
+  box-shadow: 0 2px 10px rgba(255, 221, 0, 0.2) !important;
+}
+
+body.outdoor-mode .stats-icon {
+  background-color: #333333 !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .stats-icon .material-icons {
+  color: #FFDD00 !important;
+}
+
+body.outdoor-mode .stats-icon.priority-high {
+  background-color: #441111 !important;
+  border: 1px solid #FF7700 !important;
+}
+
+body.outdoor-mode .stats-icon.priority-high .material-icons {
+  color: #FF7700 !important;
+}
+
+body.outdoor-mode .stats-info h3 {
+  color: #FFFFFF !important;
+}
+
+body.outdoor-mode .stats-info p {
+  color: #CCCCCC !important;
+}
+
+/* Ajustes para containers visuais */
+body.outdoor-mode .visual-container .map-container,
+body.outdoor-mode .visual-container .chart-container {
+  background-color: #222222 !important;
+  border: 2px solid #FFDD00 !important;
+  box-shadow: 0 2px 10px rgba(255, 221, 0, 0.2) !important;
+}
+
+body.outdoor-mode .visual-container h3 {
+  color: #FFDD00 !important;
+}
+
+/* Ajustes para gráficos */
+body.outdoor-mode .chart-container canvas {
+  filter: brightness(1.2) contrast(1.2) !important;
+}
+
+body.outdoor-mode .chart-container .chartjs-render-monitor {
+  filter: brightness(1.2) contrast(1.2) !important;
+}
+
+/* Ajustes para tabelas e legendas */
+body.outdoor-mode .legend-container {
+  background-color: #222222 !important;
+  border: 2px solid #FFDD00 !important;
+  box-shadow: 0 2px 10px rgba(255, 221, 0, 0.2) !important;
+}
+
+body.outdoor-mode .legend-container h3 {
+  color: #FFDD00 !important;
+}
+
+body.outdoor-mode .legend-section h4 {
+  color: #FFFFFF !important;
+}
+
+body.outdoor-mode .legend-item span {
+  color: #FFFFFF !important;
+}
+
+body.outdoor-mode .legend-color-box {
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Ajustes para os controles de filtragem e exportação */
+body.outdoor-mode .table-search-bar,
+body.outdoor-mode .filter-container {
+  background-color: #222222 !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .export-buttons button {
+  background-color: #333333 !important;
+  color: #FFDD00 !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .export-buttons button:hover {
+  background-color: #555555 !important;
+}
+
+/* Ajustes para modais e popups específicos */
+body.outdoor-mode .modal .modal-content .modal-header {
+  background-color: #222222 !important;
+  border: 2px solid #FFDD00 !important;
+}
+
+body.outdoor-mode .modal .modal-header {
+  border-bottom-color: #FFDD00 !important;
+}
+
+body.outdoor-mode .modal .modal-footer {
+  border-top-color: #FFDD00 !important;
+}
+
+body.outdoor-mode .modal .close,
+body.outdoor-mode .modal .btn-close {
+  color: #FFDD00 !important;
+  filter: brightness(1.5) !important;
+}
+
+body.outdoor-mode .modal .modal-body .detail-container {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+}
+
+/* Ajustes para áreas de texto e inputs dentro de modais */
+body.outdoor-mode .modal textarea,
+body.outdoor-mode .modal input,
+body.outdoor-mode .modal select {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Ajustes para botões dentro de modais */
+body.outdoor-mode .modal button.btn-primary,
+body.outdoor-mode .modal button.btn-success {
+  background-color: #FFDD00 !important;
+  color: #000000 !important;
+  border: none !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .modal button.btn-secondary,
+body.outdoor-mode .modal button.btn-info {
+  background-color: #008080 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .modal button.btn-danger {
+  background-color: #881111 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FF7700 !important;
+  font-weight: bold !important;
+}
+
+/* Ajustes para pagination */
+body.outdoor-mode .pagination .page-item .page-link {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border-color: #555555 !important;
+}
+
+body.outdoor-mode .pagination .page-item.active .page-link {
+  background-color: #FFDD00 !important;
+  color: #000000 !important;
+  border-color: #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .pagination .page-item .page-link:hover {
+  background-color: #555555 !important;
+}
+
+/* Ajustes para elementos de status e badges */
+body.outdoor-mode .status-badge {
+  border: 1px solid #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .status-pendente {
+  background-color: #553300 !important;
+  color: #FFDD00 !important;
+}
+
+body.outdoor-mode .status-andamento {
+  background-color: #004455 !important;
+  color: #00DDFF !important;
+}
+
+body.outdoor-mode .status-concluido {
+  background-color: #006622 !important;
+  color: #88FF88 !important;
+}
+
+body.outdoor-mode .priority-alta {
+  background-color: #660000 !important;
+  color: #FF7700 !important;
+}
+
+/* Ajustes para o rodapé da tabela */
+body.outdoor-mode .table-footer,
+body.outdoor-mode tfoot,
+body.outdoor-mode .dataTables_wrapper .dataTables_info,
+body.outdoor-mode .dataTables_wrapper .dataTables_length,
+body.outdoor-mode .dataTables_wrapper .dataTables_paginate {
+  background-color: #222222 !important;
+  color: #FFFFFF !important;
+  border-color: #FFDD00 !important;
+}
+
+body.outdoor-mode .pagination-container {
+  background-color: #222222 !important;
+  border-top: 1px solid #FFDD00 !important;
+  padding: 10px !important;
+}
+
+body.outdoor-mode .results-info {
+  color: #FFFFFF !important;
+}
+
+/* Estilização para os badges de status e prioridade */
+body.outdoor-mode .badge {
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .badge-pendente {
+  background-color: #553300 !important;
+  color: #FFDD00 !important;
+}
+
+body.outdoor-mode .badge-visitado,
+body.outdoor-mode .badge-visita-agendada {
+  background-color: #004455 !important;
+  color: #00DDFF !important;
+}
+
+body.outdoor-mode .badge-concluido,
+body.outdoor-mode .badge-resolvido {
+  background-color: #006622 !important;
+  color: #88FF88 !important;
+}
+
+body.outdoor-mode .badge-alta {
+  background-color: #660000 !important;
+  color: #FF7700 !important;
+}
+
+body.outdoor-mode .badge-media {
+  background-color: #665500 !important;
+  color: #FFDD00 !important;
+}
+
+body.outdoor-mode .badge-baixa {
+  background-color: #006622 !important;
+  color: #88FF88 !important;
+}
+
+/* Estilização para os elementos do modal de detalhes */
+body.outdoor-mode .modal label {
+  color: #FFDD00 !important;
+  font-weight: bold !important;
+}
+
+body.outdoor-mode .modal .form-control[readonly],
+body.outdoor-mode .modal .form-control:disabled, .detail-value, .detail-text{
+  background-color: #333333 !important;
+  color: #CCCCCC !important;
+  border: 1px solid #555555 !important;
+}
+
+/* Estilos para as tags/badges dentro do modal */
+body.outdoor-mode .modal .badge,
+body.outdoor-mode .modal .tag {
+  background-color: #333333 !important;
+  color: #FFDD00 !important;
+  border: 1px solid #FFDD00 !important;
+  margin: 2px !important;
+  padding: 5px 10px !important;
+}
+
+/* Mapa dentro do modal */
+body.outdoor-mode .modal #detailMap {
+  filter: saturate(150%) brightness(110%) contrast(120%) !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Área de notas do agente */
+body.outdoor-mode .modal textarea {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Seletores de data e hora */
+body.outdoor-mode .modal input[type="date"],
+body.outdoor-mode .modal input[type="time"] {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Botões de ação no modal */
+body.outdoor-mode .modal .modal-footer button,
+body.outdoor-mode .modal .action-buttons button {
+  margin: 0 5px !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+}
+
+/* Botão salvar alterações */
+body.outdoor-mode .modal button.salvar-alteracoes,
+body.outdoor-mode .modal button[data-action="save"] {
+  background-color: #FFDD00 !important;
+  color: #000000 !important;
+  border: none !important;
+}
+
+/* Botão agendar visita */
+body.outdoor-mode .modal button.agendar-visita,
+body.outdoor-mode .modal button[data-action="schedule"] {
+  background-color: #008080 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Botão gerar relatório */
+body.outdoor-mode .modal button.gerar-relatorio,
+body.outdoor-mode .modal button[data-action="report"] {
+  background-color: #114466 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+}
+
+/* Botão marcar como resolvido */
+body.outdoor-mode .modal button.marcar-resolvido,
+body.outdoor-mode .modal button[data-action="resolve"] {
+  background-color: #115511 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFDD00 !important;
+}

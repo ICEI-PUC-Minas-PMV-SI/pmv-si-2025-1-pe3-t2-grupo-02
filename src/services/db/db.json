@@ -43,6 +43,39 @@
       "keys": {
         "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF5WXNtWXgrZHhxUFJjVE95anlxT084UFpKaGduZmh2VzVEY2dKQmFQT0dWY3Bsa3FTdE82c2dMb00wWlllby9HS3NMMVdGUjlUekxrbXBLbU1FaUJGcy9tSnIyeVdWVU9Vcm9FVldGM1NLMkN3WFFWL05zTTlTUGVKMWttclUxQ24zVHpWZmQ1Q0o3L2ZTeWxXU1A0S1NiaGlucHNZSCt6TUVmNGxSUXR0ZU4yWW5kSWZjRE8yQk1QMzEzMll5TGFmUHlYa0hDc1NlWGhqNFBiNmdJYWhDMkJpY2c5STRBNmZGYXArYTZodUJMKzN3dXBWZFpoc1hTTnNtTVJvdG9pN0hnelVQYXV0cGtSRHJTOS9mcCtXRzBSTzZWcC9VSzBpbS9lRUowV2dmYk1zNkkxRmtpSjNNU0FrTWlTUmNnRDNYUlJZSjZ6RFhOYWpNU2VQZVp4QXdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
       }
+    },
+    {
+<<<<<<< HEAD
+      "id": "7646bfac-4d17-40a-b84-60a957d38393",
+      "userName": "Arthur",
+      "userNascentDate": "2004-01-12T00:00:00.000Z",
+      "userGender": "masculino",
+      "userEmail": "arthurrguimaraes12@gmail.com",
+      "hashedPassword": "ba36ac02ef75bd72d94a56c68fa68ebd:cf042ea15de4965a4b9dc49847fa7d348d4564d5f265a352fb3f01bfd54b8b96",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFvcEFGMVJ2ZUNSTVVWUDJ2T2pnQlRMMFBvcnhsN1Vnc3NtaE9INWpoaTN6WEQrQWc0aVk5cFJVRDFXZFY4RUo5TkU0SVpuYzZMNDZpY0RNZGZnVWZlbTRQZllOSkNnUTM3djBTTmlsTVJJenVvWFM5Nys5U0VaeGp0UWVXTlYrZmlEcUU1MTJ6NkREelZUYi9YWFl2V0dtNEFScml4RkJESE56MnVtTDFPZDNGRkowcVViejFyOWJRcjBjekx1c3ZaVUxWRFNVc3pYVmdtUnBzVjBYbVpCeW1nYmVjcFJadWFJSW5UaE1ZbDRiaTJOV04yL3owc0liaXBGMStSOU9nSDdMZVZROGg1Qnh4UTI1Wks3emRxWlY5S3lQVGQxU0p2bDQyVnh3bGlBQ1JNTGpMR3BNRVZVUC9XWUxzODRaRHh5Y091MkozOThzNGRTTFltb1UrZVFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+=======
+      "id": "f8d5cb73-c741-4df-b1e-041102405204",
+      "userName": "Guilherme",
+      "userNascentDate": "2002-10-24T00:00:00.000Z",
+      "userGender": "masculino",
+      "userEmail": "guilhermecortez11@outlook.com",
+      "hashedPassword": "0ef95c432d2546c30063c524d594476a:efd171caa4a9bf954fdcb6a4d2035e741b46aa2271406e13d005905fd97d8c9f",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUE0QnZzWmhNM1hYc3ovNUFBSENvL29scTFINU9MUlZaOGt1Z29vVWkwb05pREZINHlLSDVCL0RNd29sUm15eGpoYldmeHVKR3dDdWMwYkJCVm5EdFl3QVczWXA4RlR3MFJjT2pXelBBL3hwZTJJcG5CUWozU01rb0QrQVBGYnVNUEJjRXd3cTBlRDFJTkh6a2lndGpYaGhLMFlaMEExUlkwSURha21DVU05Vk5MMVAvRUd1RWFnVFZHME5aYU5VNHBGMVJMY3lzM2M2UkNlVkhXWFRIdFdmUEUwVkYzdnB2QXJmdUUxYk9SelZLZ1FJTzVRbW05eGRXV0M4M0NtRm5TYUl4d3hhRUxvZGwxTFltMm5tekFsUld0cEJOaEJkZlFoL3pWTFBkZ3FrWkJrMEU2VVk3bDNNYlNURHI3VzZuZzhlSExJQXQ4c1F5VEZPZGJhVXovRFFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
+    },
+    {
+      "id": "42212599-1c80-419-b2f-61d2a7c61f17",
+      "userName": "guilherme 2",
+      "userNascentDate": "2003-10-24T00:00:00.000Z",
+      "userGender": "masculino",
+      "userEmail": "naofufu@hotmail.com",
+      "hashedPassword": "566c1773ba0f3f3cf78d98bea1e435e1:503a1bf59ad26d5743540850f35ef907553efa58f10b621e4dba078e47e42b4c",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFxTGZYZGF4NGdLdEU2ZHZuWXFJMVlWZEpHYXV1YUxTekdya1pRL3lCRFRNOHZvdEZiM0JRakorNmFSU0xwMnNDQWFJVVBGa0I4RjJWMGs4Q0FYemtCellaZDlHQXRlWjFTV0JHQnJzWUxoSVFBYmZwWUJ6c0xwUFpSNS8wMXRvMktGUDZGK29MbmdyWkNQOU01UW9lbzI2eTd4SGtLcGlacUNLRmpkdk1heVZraWgreC9CbGdPTFNDYjI5ZDM3d0dQa2F2dTUrMEFJd1lHL0lJdHdnUmhHbzdkekVONy9lanhXZHJQV2JueFNYeld5a0FyNWZNNGpkUElxckEyd3I0eHdqTmg4TENLVXd0U2dFMFhENUZlNzhHTDQ2bHgzOGlRUkNoU2VEbjV2R3lpVWsvVUxqTWRHZm9DanMvRXlvWHo4WVBIeVczbDY1MW8ydk1QNGdmUndJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+>>>>>>> 4be9a8b (Add GuilhermeCortez)
+      }
     }
   ],
   "denuncias-casos": [
@@ -299,6 +332,7 @@
   "denuncias-focos": [
     {
       "id": "5641",
+      "email_usuario": "teste123456@gmail.com",
       "data_registro": "2024-06-17",
       "bairro": "João XXIII",
       "cidade": "Fortaleza",
@@ -308,6 +342,170 @@
         "entulhos_lixos",
         "garrafas_latas",
         "pneus"
+      ]
+    },
+    {
+      "id": "5642",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-16",
+      "bairro": "Aldeota",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": [
+        "quintal",
+        "jardim"
+      ],
+      "tipo": [
+        "vasos_plantas",
+        "piscinas_abandonadas"
+      ]
+    },
+    {
+      "id": "5643",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-15",
+      "bairro": "Messejana",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "terreno_baldio",
+      "tipo": [
+        "entulhos_lixos",
+        "pneus",
+        "caixas_dagua"
+      ]
+    },
+    {
+      "id": "5644",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-14",
+      "bairro": "Parangaba",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": [
+        "telhado",
+        "calha"
+      ],
+      "tipo": [
+        "calhas_entupidas",
+        "telhados"
+      ]
+    },
+    {
+      "id": "5645",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-13",
+      "bairro": "Centro",
+      "cidade": "Maracanaú",
+      "estado": "CE",
+      "local": "lixeira",
+      "tipo": [
+        "entulhos_lixos",
+        "garrafas_latas"
+      ]
+    },
+    {
+      "id": "5646",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-12",
+      "bairro": "Antônio Bezerra",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": [
+        "quintal",
+        "jardim",
+        "piscina"
+      ],
+      "tipo": [
+        "piscinas_abandonadas",
+        "vasos_plantas",
+        "caixas_dagua"
+      ]
+    },
+    {
+      "id": "5647",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-11",
+      "bairro": "Mondubim",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "terreno_baldio",
+      "tipo": [
+        "entulhos_lixos",
+        "pneus",
+        "garrafas_latas"
+      ]
+    },
+    {
+      "id": "5648",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-10",
+      "bairro": "Barra do Ceará",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": [
+        "calçada",
+        "rua"
+      ],
+      "tipo": [
+        "garrafas_latas",
+        "pneus"
+      ]
+    },
+    {
+      "id": "5649",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-09",
+      "bairro": "Conjunto Ceará",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": "caixa_dagua",
+      "tipo": [
+        "caixas_dagua",
+        "piscinas_abandonadas"
+      ]
+    },
+    {
+      "id": "5650",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-08",
+      "bairro": "São Gerardo",
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "local": [
+        "quintal",
+        "jardim"
+      ],
+      "tipo": [
+        "vasos_plantas",
+        "piscinas_abandonadas",
+        "calhas_entupidas"
+      ]
+    },
+    {
+      "id": "5651",
+      "email_usuario": "teste123456@gmail.com",
+      "data_registro": "2024-06-07",
+      "bairro": "Caucaia",
+      "cidade": "Caucaia",
+      "estado": "CE",
+      "local": "terreno_baldio",
+      "tipo": [
+        "entulhos_lixos",
+        "pneus",
+        "garrafas_latas",
+        "caixas_dagua"
+      ]
+    },
+    {
+      "id": "324a",
+      "email_usuario": "arthurrguimaraes12@gmail.com",
+      "data_registro": "2025-05-23",
+      "bairro": "Pampulha",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "local": "imovel_publico",
+      "tipo": [
+        "calhas_lages"
       ]
     }
   ],
@@ -321,6 +519,39 @@
       "motivo": "Preciso que olhem minha caixa d'agua pois passou umas semanas sem a tampa.",
       "cep": "60822-104",
       "endereco": "Rua Vicente Lopes, n° 545, Cidade dos Funcionários.",
+      "status": "EM_ABERTO"
+    },
+    {
+      "id": "b8d4",
+      "data_registro": "2025-05-23",
+      "user": "guilhermecortez11@outlook.com",
+      "data_visita": "2025-10-30",
+      "turno": "manha",
+      "motivo": "motivo 123",
+      "cep": "37203-886",
+      "endereco": "Rua José Cicarelli, Vale do Sol, Lavras - MG",
+      "status": "EM_ABERTO"
+    },
+    {
+      "id": "d5f4",
+      "data_registro": "2025-05-23",
+      "user": "guilhermecortez11@outlook.com",
+      "data_visita": "2025-10-25",
+      "turno": "manha",
+      "motivo": "motivo",
+      "cep": "37203-886",
+      "endereco": "Rua José Cicarelli, Vale do Sol, Lavras - MG",
+      "status": "EM_ABERTO"
+    },
+    {
+      "id": "7b65",
+      "data_registro": "2025-05-24",
+      "user": "naofufu@hotmail.com",
+      "data_visita": "2025-06-20",
+      "turno": "manha",
+      "motivo": "sa",
+      "cep": "37200-359",
+      "endereco": "Rua José Maria Azevedo, Jardim Fabiana, Lavras - MG",
       "status": "EM_ABERTO"
     }
   ]
