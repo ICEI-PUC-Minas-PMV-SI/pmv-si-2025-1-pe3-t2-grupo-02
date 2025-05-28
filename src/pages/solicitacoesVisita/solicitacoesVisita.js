@@ -4,67 +4,75 @@ let currentPage = 1;
 const itemsPerPage = 10;
 let filtroAtivo = '';
 
-function formatarData(isoDate) {
-  const date = new Date(isoDate);
-  if (isNaN(date)) return isoDate;
-  return date.toLocaleDateString('pt-BR');
-}
-
-function getStatusBadge(status) {
-  const badgeMap = {
-    'EM_ABERTO': '<span class="badge bg-warning text-dark">Em Aberto</span>',
-    'EM_ANDAMENTO': '<span class="badge bg-info text-dark">Em Andamento</span>',
-    'CONCLUÍDO': '<span class="badge bg-success">Concluído</span>',
-  };
-  return badgeMap[status] || '<span class="badge bg-secondary">Desconhecido</span>';
-}
-
 function getDadosFiltrados() {
   return dados.filter(item =>
     item.endereco.toLowerCase().includes(filtroAtivo) ||
     item.solicitante.toLowerCase().includes(filtroAtivo) ||
+    item.turno.toLowerCase().includes(filtroAtivo) ||
+    item.motivo.toLowerCase().includes(filtroAtivo) ||
     item.status.toLowerCase().includes(filtroAtivo) ||
     item.data.toLowerCase().includes(filtroAtivo)
   );
 }
 
 function preencherTabela() {
-  const container = document.getElementById('lista-solicitacoes');
-  container.innerHTML = '';
+  const tbody = document.getElementById('tabela-corpo');
+  tbody.innerHTML = '';
 
   const dadosFiltrados = getDadosFiltrados();
+
+  if (dadosFiltrados.length === 0) {
+    alert('Nenhuma solicitação encontrada');
+    document.getElementById('resultado-texto').textContent = 'Solicitação não encontrada';
+    criarPaginacao(0);
+    return;
+  }
+
+  const totalPaginas = Math.ceil(dadosFiltrados.length / itemsPerPage);
+
+  if (currentPage > totalPaginas) currentPage = totalPaginas || 1;
+
   const inicio = (currentPage - 1) * itemsPerPage;
   const fim = inicio + itemsPerPage;
   const dadosPagina = dadosFiltrados.slice(inicio, fim);
 
   dadosPagina.forEach((item, index) => {
     const tr = document.createElement('tr');
+    const statusClass = {
+      'Pendente': 'status-pendente',
+      'Em andamento': 'status-em-andamento',
+      'Concluído': 'status-concluido'
+    }[item.status] || '';
+
     tr.innerHTML = `
       <td>${item.data}</td>
       <td>${item.endereco}</td>
       <td>${item.solicitante}</td>
-      <td>${item.status}</td>
+      <td>${item.turno}</td>
+      <td>${item.motivo}</td>
+      <td class="${statusClass}">${item.status}</td>
       <td>
+        <button class="btn-editar" data-index="${inicio + index}" aria-label="Editar">
+          <img src="../../assets/icone-editar.png" alt="Editar" width="18" height="18" />
+        </button>
         <button class="btn-excluir" data-index="${inicio + index}" aria-label="Excluir">
-          <img src="../assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
+          <img src="../../assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
         </button>
       </td>
     `;
-    container.appendChild(col);
+    tbody.appendChild(tr);
   });
 
   document.getElementById('resultado-texto').textContent =
     `Mostrando ${dadosFiltrados.length === 0 ? 0 : inicio + 1} a ${Math.min(fim, dadosFiltrados.length)} de ${dadosFiltrados.length} resultados`;
 
-  renderizarPaginacao(dadosFiltrados.length);
+  criarPaginacao(totalPaginas);
   adicionarEventos();
 }
 
-function renderizarPaginacao(totalItens) {
-  const paginacao = document.getElementById('paginacao');
+function criarPaginacao(totalPaginas) {
+  const paginacao = document.querySelector('.paginacao');
   paginacao.innerHTML = '';
-  const totalPaginas = Math.ceil(totalItens / itemsPerPage);
-  if (totalPaginas <= 1) return;
 
   const btnAnterior = document.createElement('button');
   btnAnterior.textContent = '<<';
@@ -77,11 +85,16 @@ function renderizarPaginacao(totalItens) {
   });
   paginacao.appendChild(btnAnterior);
 
-  paginacao.appendChild(criarItem('Anterior', currentPage - 1, currentPage === 1));
   for (let i = 1; i <= totalPaginas; i++) {
-    paginacao.appendChild(criarItem(i, i, false, currentPage === i));
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      currentPage = i;
+      preencherTabela();
+    });
+    paginacao.appendChild(btn);
   }
-  paginacao.appendChild(criarItem('Próxima', currentPage + 1, currentPage === totalPaginas));
 
   const btnProxima = document.createElement('button');
   btnProxima.textContent = '>>';
@@ -96,6 +109,12 @@ function renderizarPaginacao(totalItens) {
 }
 
 function adicionarEventos() {
+  document.querySelectorAll('.btn-editar').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const idx = e.currentTarget.dataset.index;
+      abrirModalEdicao(idx);
+    });
+  });
   document.querySelectorAll('.btn-excluir').forEach(btn => {
     btn.addEventListener('click', e => {
       const idx = e.currentTarget.dataset.index;
