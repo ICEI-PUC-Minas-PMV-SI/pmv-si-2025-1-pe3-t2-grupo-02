@@ -24,4 +24,3 @@ function abrirModalEdicao(idx) {
       fecharModalEdicao();
     }
   };
-  
