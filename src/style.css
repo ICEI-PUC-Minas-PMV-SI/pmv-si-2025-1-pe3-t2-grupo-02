@@ -75,10 +75,18 @@ button, input, optgroup, select, textarea {
 .header-buttons {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
+  align-items: center; 
+  gap: 10px; 
+  margin-left: auto; 
+  margin-right: 15px; 
 }
 
+/* Hamburger menu sempre visível */
+hamburger-menu {
+  display: block;
+}
+
+/* Menu antigo escondido por padrão, mostrado apenas em fallback */
 #menu-button {
   display: none;
 }
@@ -206,6 +214,34 @@ li.first:hover{
 
   .header-buttons {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+  }
+  
+  .header-buttons {
+    display: none;
+  }
+  
+  .header-title h1 {
+    font-size: 24px;
+  }
+  
+  hamburger-menu {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 16px;
+  }
+  
+  .header-title h1 {
+    font-size: 20px;
   }
 }
 

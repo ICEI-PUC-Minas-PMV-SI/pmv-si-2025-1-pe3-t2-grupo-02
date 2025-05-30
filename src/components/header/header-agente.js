@@ -2,20 +2,43 @@ class Header extends HTMLElement {
   constructor() {
     super();
   }
-
   connectedCallback() {
     this.loadRouterScript();
+    this.loadHamburgerMenuScript();
     this.render();
     this.setupEvents();
     this.setupGlobalClick();
   }
-
   loadRouterScript() {
     const path = window.location.pathname;
     const isHome = path === "/src/" || path === "/" || path === "/index.html";
     const script = document.createElement("script");
     script.src = isHome ? "services/router/router.js" : "../../services/router/router.js";
     script.type = "module";
+    document.head.appendChild(script);
+  }
+
+  loadHamburgerMenuScript() {
+    const path = window.location.pathname;
+    const isHome = path === "/src/" || path === "/" || path === "/index.html";
+    let scriptSrc = "components/hamburgerMenu/hamburgerMenu.js";
+    let cssSrc = "components/hamburgerMenu/hamburgerMenu.css";
+    
+    if (!isHome) {
+      scriptSrc = "../../components/hamburgerMenu/hamburgerMenu.js";
+      cssSrc = "../../components/hamburgerMenu/hamburgerMenu.css";
+    }
+    
+    // Load CSS
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = cssSrc;
+    document.head.appendChild(link);
+    
+    // Load JS
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.defer = true;
     document.head.appendChild(script);
   }
 
@@ -77,7 +100,6 @@ class Header extends HTMLElement {
     document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
     location.reload();
   }
-
   render() {
     const primaryLogo = "assets/mosquito.svg";
     const fallbackLogo = "./assets/mosquito.svg";
@@ -91,20 +113,25 @@ class Header extends HTMLElement {
           </a>
         </div>
         <div class="header-buttons">
-          <button class="outline-button" onclick="redirectToPage('denuncia/denuncia.html')">
+          <button class="outline-button" onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')">
             Mapa de Denúncias de Foco
           </button>
           <button id="login-btn" class="filled-button">
             Entrar
           </button>
         </div>
-        <button id="menu-button">
+        
+        <!-- Novo Menu Hamburger -->
+        <hamburger-menu></hamburger-menu>
+        
+        <!-- Menu antigo (mantido como fallback) -->
+        <button id="menu-button" style="display: none;">
           <img src="assets/hamburger.png" alt="Menu" 
             onerror="this.onerror=null; this.src='../../assets/hamburger.png';"/>
         </button>
-        <nav id="menu">
+        <nav id="menu" style="display: none;">
           <ul>
-            <li><a onclick="redirectToPage('denuncia/denuncia.html')">Mapa de Denúncias de Foco</a></li>
+            <li><a onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')">Mapa de Denúncias de Foco</a></li>
             <li id="login-nav-option"><a onclick="redirectToPage('login/login.html')">Entrar</a></li>
             <li><a id="logout-nav-option" href="javascript:void(0)">Sair</a></li>
           </ul>
