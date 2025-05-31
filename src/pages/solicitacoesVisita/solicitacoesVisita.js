@@ -4,90 +4,76 @@ let currentPage = 1;
 const itemsPerPage = 10;
 let filtroAtivo = '';
 
-function formatarData(isoDate) {
-  const date = new Date(isoDate);
-  if (isNaN(date)) return isoDate;
-  return date.toLocaleDateString('pt-BR');
-}
-
-function getStatusBadge(status) {
-  const badgeMap = {
-    'EM_ABERTO': '<span class="badge bg-warning text-dark">Em Aberto</span>',
-    'EM_ANDAMENTO': '<span class="badge bg-info text-dark">Em Andamento</span>',
-    'CONCLUÍDO': '<span class="badge bg-success">Concluído</span>',
-  };
-  return badgeMap[status] || '<span class="badge bg-secondary">Desconhecido</span>';
-}
-
 function getDadosFiltrados() {
   return dados.filter(item =>
     item.endereco.toLowerCase().includes(filtroAtivo) ||
     item.solicitante.toLowerCase().includes(filtroAtivo) ||
+    item.turno.toLowerCase().includes(filtroAtivo) ||
+    item.motivo.toLowerCase().includes(filtroAtivo) ||
     item.status.toLowerCase().includes(filtroAtivo) ||
     item.data.toLowerCase().includes(filtroAtivo)
   );
 }
 
 function preencherTabela() {
-  const container = document.getElementById('lista-solicitacoes');
-  container.innerHTML = '';
+  const tbody = document.getElementById('tabela-corpo');
+  tbody.innerHTML = '';
 
   const dadosFiltrados = getDadosFiltrados();
+
+  if (dadosFiltrados.length === 0) {
+    alert('Nenhuma solicitação encontrada');
+    document.getElementById('resultado-texto').textContent = 'Solicitação não encontrada';
+    criarPaginacao(0);
+    return;
+  }
+
+  const totalPaginas = Math.ceil(dadosFiltrados.length / itemsPerPage);
+
+  if (currentPage > totalPaginas) currentPage = totalPaginas || 1;
+
   const inicio = (currentPage - 1) * itemsPerPage;
   const fim = inicio + itemsPerPage;
   const dadosPagina = dadosFiltrados.slice(inicio, fim);
 
   dadosPagina.forEach((item, index) => {
-<<<<<<< HEAD
-    const col = document.createElement('div');
-    col.className = 'col-md-6 col-lg-4';
-    col.innerHTML = `
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">${item.endereco}</h5>
-          <p class="card-text"><strong>Data:</strong> ${formatarData(item.data)}</p>
-          <p class="card-text"><strong>Status:</strong> ${getStatusBadge(item.status)}</p>
-          <button class="btn btn-sm btn-outline-primary w-100 btn-detalhes" data-index="${inicio + index}">Ver Detalhes</button>
-        </div>
-      </div>
-=======
     const tr = document.createElement('tr');
+    const statusClass = {
+      'Pendente': 'status-pendente',
+      'Em andamento': 'status-em-andamento',
+      'Concluído': 'status-concluido'
+    }[item.status] || '';
+
     tr.innerHTML = `
       <td>${item.data}</td>
       <td>${item.endereco}</td>
       <td>${item.solicitante}</td>
-      <td>${item.status}</td>
+      <td>${item.turno}</td>
+      <td>${item.motivo}</td>
+      <td class="${statusClass}">${item.status}</td>
       <td>
+        <button class="btn-editar" data-index="${inicio + index}" aria-label="Editar">
+          <img src="../../assets/icone-editar.png" alt="Editar" width="18" height="18" />
+        </button>
         <button class="btn-excluir" data-index="${inicio + index}" aria-label="Excluir">
-          <img src="../assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
+          <img src="../../assets/icone-lixeira.png" alt="Excluir" width="18" height="18" />
         </button>
       </td>
->>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
     `;
-    container.appendChild(col);
+    tbody.appendChild(tr);
   });
 
   document.getElementById('resultado-texto').textContent =
     `Mostrando ${dadosFiltrados.length === 0 ? 0 : inicio + 1} a ${Math.min(fim, dadosFiltrados.length)} de ${dadosFiltrados.length} resultados`;
 
-  renderizarPaginacao(dadosFiltrados.length);
+  criarPaginacao(totalPaginas);
   adicionarEventos();
 }
 
-function renderizarPaginacao(totalItens) {
-  const paginacao = document.getElementById('paginacao');
+function criarPaginacao(totalPaginas) {
+  const paginacao = document.querySelector('.paginacao');
   paginacao.innerHTML = '';
-  const totalPaginas = Math.ceil(totalItens / itemsPerPage);
-  if (totalPaginas <= 1) return;
 
-<<<<<<< HEAD
-  const criarItem = (label, pagina, desativado = false, ativo = false) => {
-    const li = document.createElement('li');
-    li.className = `page-item ${desativado ? 'disabled' : ''} ${ativo ? 'active' : ''}`;
-    li.innerHTML = `<button class="page-link" data-pagina="${pagina}">${label}</button>`;
-    return li;
-  };
-=======
   const btnAnterior = document.createElement('button');
   btnAnterior.textContent = '<<';
   btnAnterior.disabled = currentPage === 1;
@@ -98,21 +84,18 @@ function renderizarPaginacao(totalItens) {
     }
   });
   paginacao.appendChild(btnAnterior);
->>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
 
-  paginacao.appendChild(criarItem('Anterior', currentPage - 1, currentPage === 1));
   for (let i = 1; i <= totalPaginas; i++) {
-    paginacao.appendChild(criarItem(i, i, false, currentPage === i));
-  }
-  paginacao.appendChild(criarItem('Próxima', currentPage + 1, currentPage === totalPaginas));
-
-<<<<<<< HEAD
-  paginacao.querySelectorAll('button').forEach(btn => {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add('active');
     btn.addEventListener('click', () => {
-      const novaPagina = parseInt(btn.getAttribute('data-pagina'));
-      if (!isNaN(novaPagina) && novaPagina >= 1 && novaPagina <= totalPaginas) {
-        currentPage = novaPagina;
-=======
+      currentPage = i;
+      preencherTabela();
+    });
+    paginacao.appendChild(btn);
+  }
+
   const btnProxima = document.createElement('button');
   btnProxima.textContent = '>>';
   btnProxima.disabled = currentPage === totalPaginas;
@@ -126,89 +109,24 @@ function renderizarPaginacao(totalItens) {
 }
 
 function adicionarEventos() {
+  document.querySelectorAll('.btn-editar').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const idx = e.currentTarget.dataset.index;
+      abrirModalEdicao(idx);
+    });
+  });
   document.querySelectorAll('.btn-excluir').forEach(btn => {
     btn.addEventListener('click', e => {
       const idx = e.currentTarget.dataset.index;
       const confirmar = confirm('Deseja realmente excluir esta solicitação?');
       if (confirmar) {
         dados.splice(idx, 1);
->>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
         preencherTabela();
       }
     });
   });
 }
 
-<<<<<<< HEAD
-function adicionarEventos() {
-  document.querySelectorAll('.btn-detalhes').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const idx = e.target.dataset.index;
-      abrirModalVisualizacao(idx);
-    });
-  });
-}
-
-function abrirModalVisualizacao(index) {
-  const item = dados[index];
-  document.getElementById('view-data').textContent = formatarData(item.data);
-  document.getElementById('view-endereco').textContent = item.endereco;
-  document.getElementById('view-solicitante').textContent = item.solicitante;
-  document.getElementById('view-motivo').textContent = item.motivo;
-  document.getElementById('view-status').innerHTML = getStatusBadge(item.status);
-
-  document.getElementById('btn-editar-modal').onclick = () => abrirModalEdicao(index);
-  document.getElementById('btn-excluir-modal').onclick = () => {
-    if (confirm('Deseja realmente excluir esta solicitação?')) {
-      dados.splice(index, 1);
-      salvarDados();
-      preencherTabela();
-      const modal = bootstrap.Modal.getInstance(document.getElementById('modal-visualizacao'));
-      modal.hide();
-    }
-  };
-
-  const modal = new bootstrap.Modal(document.getElementById('modal-visualizacao'));
-  modal.show();
-}
-
-function abrirModalEdicao(index) {
-  const item = dados[index];
-  document.getElementById("edit-index").value = index;
-  document.getElementById("edit-data").value = item.data;
-  document.getElementById("edit-endereco").value = item.endereco;
-  document.getElementById("edit-solicitante").value = item.solicitante;
-  document.getElementById("edit-motivo").value = item.motivo;
-  document.getElementById("edit-status").value = item.status;
-
-  const modal = new bootstrap.Modal(document.getElementById('modal-edicao'));
-  modal.show();
-}
-
-document.getElementById("form-edicao").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const index = document.getElementById("edit-index").value;
-
-  dados[index] = {
-    data: document.getElementById("edit-data").value,
-    endereco: document.getElementById("edit-endereco").value,
-    solicitante: document.getElementById("edit-solicitante").value,
-    motivo: document.getElementById("edit-motivo").value,
-    status: document.getElementById("edit-status").value,
-  };
-
-  salvarDados();
-  preencherTabela();
-  const modal = bootstrap.Modal.getInstance(document.getElementById("modal-edicao"));
-  modal.hide();
-});
-
-function salvarDados() {
-  localStorage.setItem('visitas', JSON.stringify(dados));
-}
-
-=======
->>>>>>> 2dd3bef2d7517648e9beb134126a343b586f9c0f
 document.getElementById('btnBuscar').addEventListener('click', () => {
   filtroAtivo = document.getElementById('search').value.trim().toLowerCase();
   currentPage = 1;

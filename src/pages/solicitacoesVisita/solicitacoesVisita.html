@@ -1,104 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../../assets/mosquito.svg" type="image/x-icon" />
   <title>Dengue Status - Solicitações</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
   <link rel="stylesheet" href="./solicitacoesVisita.css" />
+
+  <script src="../../components/header/header-agente.js" defer></script>
+  <script src="../../components/footer/footer.js" defer></script>
 </head>
-<body class="bg-light">
 
-  <main class="container py-5">
-    <h1 class="mb-4 text-center">Solicitações de Visita</h1>
+<body>
+  <app-header></app-header>
 
-    <div class="input-group mb-4">
-      <input type="text" id="search" class="form-control" placeholder="Pesquisar solicitação" />
-      <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-    </div>
+  <main class="principal">
+    <h1>Solicitações de visita</h1>
 
-    <div id="lista-solicitacoes" class="row gy-3"></div>
-
-    <div id="resultado-texto" class="text-end text-muted">Mostrando 0 de 0 resultados</div>
-
-    <nav>
-      <ul id="paginacao" class="pagination justify-content-center mt-3"></ul>
-    </nav>
-
-    <!-- Modal de visualização -->
-    <div class="modal fade" id="modal-visualizacao" tabindex="-1" aria-labelledby="visualizacaoLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="visualizacaoLabel">Detalhes da Solicitação</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-          </div>
-          <div class="modal-body">
-            <p><strong>Data:</strong> <span id="view-data"></span></p>
-            <p><strong>Endereço:</strong> <span id="view-endereco"></span></p>
-            <p><strong>Solicitante:</strong> <span id="view-solicitante"></span></p>
-            <p><strong>Motivo:</strong> <span id="view-motivo"></span></p>
-            <p><strong>Status:</strong> <span id="view-status"></span></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-primary" id="btn-editar-modal">Editar</button>
-            <button type="button" class="btn btn-outline-danger" id="btn-excluir-modal">Excluir</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          </div>
-        </div>
+    <div class="busca-box">
+      <input type="text" id="search" placeholder="Pesquisar solicitação" />
+      <div class="busca-icones">
+        <button id="btnBuscar" type="button" aria-label="Buscar">
+          <img src="../../assets/icone-lupa.png" alt="Buscar" />
+        </button>
       </div>
     </div>
 
-    <!-- Modal de edição -->
-    <div class="modal fade" id="modal-edicao" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <form id="form-edicao">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalLabel">Editar Solicitação</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-              <input type="hidden" id="edit-index" />
-              <div class="mb-3">
-                <label for="edit-data" class="form-label">Data</label>
-                <input type="date" id="edit-data" class="form-control" required />
-              </div>
-              <div class="mb-3">
-                <label for="edit-endereco" class="form-label">Endereço</label>
-                <input type="text" id="edit-endereco" class="form-control" required />
-              </div>
-              <div class="mb-3">
-                <label for="edit-solicitante" class="form-label">Solicitante</label>
-                <input type="text" id="edit-solicitante" class="form-control" required />
-              </div>
-              <div class="mb-3">
-                <label for="edit-motivo" class="form-label">Motivo</label>
-                <textarea id="edit-motivo" class="form-control" rows="3" required></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="edit-status" class="form-label">Status</label>
-                <select id="edit-status" class="form-select" required>
-                  <option value="EM_ABERTO">Em Aberto</option>
-                  <option value="EM_ANDAMENTO">Em Andamento</option>
-                  <option value="CONCLUÍDO">Concluído</option>
-                </select>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-success">Salvar</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            </div>
-          </form>
+    <div class="tabela-container">
+      <table class="tabela-visitas">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Endereço</th>
+            <th>Solicitante</th>
+            <th>Turno</th>
+            <th>Motivo</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+        </tbody>
+      </table>
+
+      <div class="modal-overlay" id="modal-editar">
+        <div class="modal">
+          <h2>Atualizar Status</h2>
+          <label for="status-select">Status:</label>
+          <select id="status-select">
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+          </select>
+          <div class="modal-buttons">
+            <button id="salvar-edicao" class="filled-button">Salvar</button>
+            <button id="cancelar-edicao" class="outline-button">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabela-footer">
+        <span id="resultado-texto">Mostrando 0 de 0 resultados</span>
+        <div class="paginacao">
+          <button>&lt;</button>
+          <button class="active">1</button>
+          <button>&gt;</button>
         </div>
       </div>
     </div>
-
   </main>
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./solicitacoesVisita.js"></script>
+  <app-footer></app-footer>
+
+  <script src="./solicitacoesVisita.js" defer></script>
+  <script src="./modal-solicitacoes.js" defer></script>
 </body>
+
 </html>

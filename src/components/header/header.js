@@ -5,6 +5,7 @@ class Header extends HTMLElement {
 
   connectedCallback() {
     this.loadRouterScript();
+    this.loadHamburgerMenuScript();
     this.render();
     this.setupEvents();
 
@@ -47,6 +48,30 @@ class Header extends HTMLElement {
     const script = document.createElement("script");
     script.src = scriptSrc;
     script.type = "module";
+    document.head.appendChild(script);
+  }
+
+  loadHamburgerMenuScript() {
+    const path = window.location.pathname;
+    const isHome = path === "/src/" || path === "/" || path === "/index.html";
+    let scriptSrc = "components/hamburgerMenu/hamburgerMenu.js";
+    let cssSrc = "components/hamburgerMenu/hamburgerMenu.css";
+    
+    if (!isHome) {
+      scriptSrc = "../../components/hamburgerMenu/hamburgerMenu.js";
+      cssSrc = "../../components/hamburgerMenu/hamburgerMenu.css";
+    }
+    
+    // Load CSS
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = cssSrc;
+    document.head.appendChild(link);
+    
+    // Load JS
+    const script = document.createElement("script");
+    script.src = scriptSrc;
+    script.defer = true;
     document.head.appendChild(script);
   }
 
@@ -113,20 +138,19 @@ class Header extends HTMLElement {
         </a>
       </div>
       <div class="header-buttons">
-        <button class="header-button" onclick="redirectToPage('caseForm/caseForm.html')">Reportar Caso</button>
-        <button class="header-button" onclick="redirectToPage('denuncia/denuncia.html')">Denunciar Foco</button>
-        <button id="visit-request-btn" class="header-button" style="display: none;" onclick="redirectToPage('solicitarVisita/solicitarVisita.html')">Solicitar Visita</button>
         <button id="login-btn" class="highlighted-main-button" onclick="redirectToPage('login/login.html')">Entrar</button>
         <button id="header-outdoor-mode-button" class="header-button outdoor-mode-button">${outdoorModeActive ? 'Modo padrão' : 'Modo externo'}</button>
       </div>
-      <button id="menu-button">
+      
+      <!-- Novo Menu Hamburger -->
+      <hamburger-menu></hamburger-menu>
+      
+      <!-- Menu antigo (mantido como fallback) -->
+      <button id="menu-button" style="display: none;">
         <img id="image-hamburger" src="assets/hamburger.png" alt="Menu" onerror="this.onerror=null; this.src='../../assets/hamburger.png';"/>
       </button>
-      <nav id="menu">
+      <nav id="menu" style="display: none;">
       <ul>
-        <li class="first"><a onclick="redirectToPage('caseForm/caseForm.html')">Reportar Caso</a></li>
-        <li class="middle"><a onclick="redirectToPage('denuncia/denuncia.html')">Denunciar Foco</a></li>
-        <li id="visit-menu-option" class="middle" style="display: none;"><a onclick="redirectToPage('solicitarVisita/solicitarVisita.html')">Solicitar Visita</a></li>
         <li class="middle"><a href="javascript:void(0)" id="menu-outdoor-mode-button" class="outdoor-mode-button">${outdoorModeActive ? 'Modo padrão' : 'Modo externo'}</a></li>
         <li id="login-nav-option"class="last"><a onclick="redirectToPage('login/login.html')">Entrar</a></li>
         <li class="last"><a id="logout-nav-option" href="javascript:void(0)">Sair</a></li>
@@ -138,18 +162,6 @@ class Header extends HTMLElement {
     const loggedWith = localStorage.getItem("loggedWith");
     if (loggedWith) {
       this.setLogout();
-      this.showLoggedHeaderOptions();
-    }
-  }
-
-  showLoggedHeaderOptions() {
-    const visitBtn = this.querySelector("#visit-request-btn");
-    if (visitBtn) {
-      visitBtn.style.display = "inline-block";
-    }
-    const visitMenuOption = this.querySelector("#visit-menu-option");
-    if (visitMenuOption) {
-      visitMenuOption.style.display = "block";
     }
   }
 

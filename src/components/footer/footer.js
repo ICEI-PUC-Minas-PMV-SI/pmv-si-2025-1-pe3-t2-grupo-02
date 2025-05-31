@@ -17,13 +17,13 @@ class Footer extends HTMLElement {
       <ul>
         <li><a onclick="redirectToPage('index.html')">Home</a></li>
         <li><a onclick="redirectToPage('dengueCasesMap/dengueCasesMap.html')">Mapa focos da dengue</a></li>
-        <li><a onclick="redirectToPage('healthPostsMap/healthPostsMap.html')">Mapa postos de sade</a></li>
+        <li><a onclick="redirectToPage('healthPostsMap/healthPostsMap.html')">Mapa postos de saúde</a></li>
 
       </ul>
       <ul>
         <li><a onclick="redirectToPage('caseForm/caseForm.html')">Reportar caso</a></li>
-        <li><a onclick="redirectToPage('informacoes/informacoes.html')">Informaçes e ajuda no combate</a></li>
-        <li><a onclick="redirectToPage('denuncia/denuncia.html')">Denncia de foco</a></li>
+        <li><a onclick="redirectToPage('informacoes/informacoes.html')">Informações e ajuda no combate</a></li>
+        <li><a onclick="redirectToPage('denuncia/denuncia.html')">Denuncia de foco</a></li>
       </ul>
     </nav>
     <p class="copyright">© 2024 Dengue Status | PUC Minas | v1.0.0</p>
