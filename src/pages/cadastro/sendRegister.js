@@ -1,5 +1,40 @@
 import RegisterManager from "../../services/registerService/registerManager.mjs";
 
+// MODAL DE SUCESSO E ERRO
+let modalSuccess = document.getElementById("new-user-modal-success");
+let modalError = document.getElementById("new-user-modal-error");
+
+let closeModalSuccess = document.getElementById("close-modal-success");
+let closeModalError = document.getElementById("close-modal-error");
+
+if (closeModalSuccess && modalSuccess) {
+  closeModalSuccess.onclick = function () {
+    modalSuccess.style.display = "none";
+  };
+}
+
+if (closeModalError && modalError) {
+  closeModalError.onclick = function () {
+    modalError.style.display = "none";
+  };
+}
+
+window.addEventListener = (event) => {
+  if (event.target == modalSuccess) modalSuccess.style.display = "none";
+  if (event.target == modalError) modalError.style.display = "none";
+};
+
+const showModalSuccess = () => {
+  modalSuccess.style.display = "block";
+};
+
+const showModalError = (motivo) => {
+  console.log("AQUI")
+  modalError.style.display = "block";
+  document.getElementById("dynamic-text").textContent = motivo;
+};
+
+// HABILITAÇÃO DO CAMPO CNES
 const checkboxHealthAgent = document.getElementById("checkbox-health-agent");
 const cnesInput = document.getElementById("cnes");
 
@@ -19,7 +54,6 @@ function toggleCnesInput() {
   }
 }
 
-// Executa ao carregar a página e ao alterar o checkbox
 checkboxHealthAgent.addEventListener("change", toggleCnesInput);
 window.addEventListener("DOMContentLoaded", toggleCnesInput);
 cnesInput.addEventListener("input", () => {
@@ -65,13 +99,13 @@ form.addEventListener("submit", async function (event) {
   if (isHealthAgent) {
     const isValidCnes = await validateCnes(cnesInput.value);
     if (!isValidCnes) {
-      alert("Não conseguimos validar seu CNES. Por favor, verifique e tente novamente.");
+      showModalError("Não conseguimos validar seu CNES. Por favor, verifique e tente novamente.");
       return;
     }
   }
 
   try {
-    await sendRegister.makeRegister({
+    const response = await sendRegister.makeRegister({
       userName: userName,
       userNascentDate: userNascentDate,
       userGender: userGender,
@@ -83,10 +117,10 @@ form.addEventListener("submit", async function (event) {
       userCnes: isHealthAgent ? cnesInput.value : ""
     });
     window.location.href = "../login/login.html";
-    alert("Cadastro realizado com sucesso!\nVocê já pode fazer login");
+    showModalSuccess();
   } catch (error) {
     console.log(error);
-    alert(
+    showModalError(
       "Ocorreu um erro ao realizar o cadastro. Por favor, tente novamente."
     );
   }

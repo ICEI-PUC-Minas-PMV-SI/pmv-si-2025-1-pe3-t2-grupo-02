@@ -34,7 +34,7 @@
   <body>
     <app-header></app-header>
 
-    <div class="modal" id="cadastro-conta-modal">
+    <div class="modal" id="new-user-modal-success">
       <div class="modal-content">
         <div class="modal-header">
           <div>
@@ -48,10 +48,33 @@
           </div>
         </div>
         <div class="modal-body">
-          <p>Conta cadastrada com<br />sucesso!</p>
+          <p>Nova conta cadastrada com<br />sucesso!</p>
         </div>
         <div class="modal-footer">
           <button class="close-button" id="closeModal">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="new-user-modal-error">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <a class="header-title">
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
+              <h1>Dengue Status</h1>
+            </a>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Visita não solicitada!</p>
+        </div>
+        <p id="dynamic-text"></p>
+        <div class="modal-footer">
+          <button class="close-button" id="close-modal-error">OK</button>
         </div>
       </div>
     </div>
