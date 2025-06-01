@@ -101,6 +101,19 @@
       "userEmail": "fulane@comum.com",
       "hashedPassword": "ec19f887f8ac86241da9ab3517b6cebe:2893dfe9a566e001b36121952f6cb552eb0f54cb86f9c9b17a5a19890938ee63",
       "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF4U2dDdGxtVkFuZ0dwdkIrTkR2cWUxWmNCOFM4bE5LcmV6OWUxbzI3OENKeGpPcVY1MUhFY1RyS3NXWkxXeDZXRHY2em5tZGxvT05ETjdLK0pmaTltSlpiYm9rMmxoSFpjNTNuUXUzWk5NSXBFUDRjTTZKT2MxN2VSL2c3MmtLT1pCa3l3ZkYxVitZNHRxTEdSbXpmejd1bW85Q0JDY0VOSVoxVlZuNTJLTGxwVm1WV0JyZGcvN0cxK3g3TE9xRmcxT084c2tpV1dvRS9kayt4Szh6K29lbDVwZWM5SEk0OCt1YjdVb3NOejcwUURKaE10REpadzRHN2JOTFo1amF0dmlGV2lRRGYwRkV0Y3VkaXJvUGx3SWhxdFhVcHlrVVNOYjh0dk0zN2J0NzQxaWdLWVZlRTRvbkRxa0NJcVlDcWM4aGVydWEvQU9hWkhRUzNKVGhNTndJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
+    },
+    {
+      "id": "cf929f13-379e-4a9-89e-7182cf831cbd",
+      "userName": "Hello world",
+      "userNascentDate": "2000-01-01T00:00:00.000Z",
+      "userGender": "nao_responder",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
+      "userEmail": "testinho@tes.com",
+      "hashedPassword": "44d19626ba63b2842dd28d704414a9aa:c6ce7a6b01224ab7a82a8dc436584ab0233435579034684f473c16bd0dc74e90",
+      "keys": {
         "publicKey": ""
       }
     }
