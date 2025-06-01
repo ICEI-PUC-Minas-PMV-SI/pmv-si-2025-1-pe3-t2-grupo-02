@@ -57,7 +57,7 @@ class HamburgerMenu extends HTMLElement {
             </li>
             <li><a onclick="redirectToPage('caseForm/caseForm.html')" href="#">📋 Reportar Caso</a></li>
             <li><a onclick="redirectToPage('denuncia/denuncia.html')" href="#">🚨 Denunciar Foco</a></li>
-            <li id="visit-menu-option" style="display: ${loggedWith ? 'block' : 'none'};"><a onclick="redirectToPage('solicitarVisita/solicitarVisita.html')" href="#">📅 Solicitar Visita</a></li>
+            <li id="visit-menu-option" style="display: none;"><a onclick="redirectToPage('solicitarVisita/solicitarVisita.html')" href="#">📅 Solicitar Visita</a></li>
             
             <!-- Área do Agente (apenas para usuários logados) -->
             <li class="menu-section agent-section" style="display: none;">
@@ -250,6 +250,10 @@ class HamburgerMenu extends HTMLElement {
         option.style.display = isHealthAgent ? 'block' : 'none';
       }
     });
+
+    if (visitMenuOption) {
+      visitMenuOption.style.display = isHealthAgent ? 'none' : 'block';
+    }
     
     if (loginMenuOption) {
       loginMenuOption.style.display = loggedWith ? 'none' : 'block';
