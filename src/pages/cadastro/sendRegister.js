@@ -29,7 +29,6 @@ const showModalSuccess = () => {
 };
 
 const showModalError = (motivo) => {
-  console.log("AQUI")
   modalError.style.display = "block";
   document.getElementById("dynamic-text").textContent = motivo;
 };
