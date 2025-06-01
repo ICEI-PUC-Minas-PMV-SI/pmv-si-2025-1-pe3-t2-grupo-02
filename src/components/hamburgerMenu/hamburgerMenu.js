@@ -18,7 +18,7 @@ class HamburgerMenu extends HTMLElement {
     });
   }
 
-  render() {
+  async render() {
     const loggedWith = localStorage.getItem("loggedWith");
     const outdoorModeActive = localStorage.getItem('outdoorMode') === 'true';
     
@@ -60,12 +60,12 @@ class HamburgerMenu extends HTMLElement {
             <li id="visit-menu-option" style="display: ${loggedWith ? 'block' : 'none'};"><a onclick="redirectToPage('solicitarVisita/solicitarVisita.html')" href="#">📅 Solicitar Visita</a></li>
             
             <!-- Área do Agente (apenas para usuários logados) -->
-            <li class="menu-section agent-section" style="display: ${loggedWith ? 'block' : 'none'};">
+            <li class="menu-section agent-section" style="display: none;">
               <span class="section-title">Área do Agente</span>
             </li>
-            <li class="agent-option" style="display: ${loggedWith ? 'block' : 'none'};"><a onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')" href="#">📊 Denúncias de Focos</a></li>
-            <li class="agent-option" style="display: ${loggedWith ? 'block' : 'none'};"><a onclick="redirectToPage('listagemDenunciasAgente/denuncias-focos-agente.html')" href="#">🔍 Gerenciar Denúncias</a></li>
-            <li class="agent-option" style="display: ${loggedWith ? 'block' : 'none'};"><a onclick="redirectToPage('solicitacoesVisita/solicitacoesVisita.html')" href="#">📋 Solicitações de Visita</a></li>
+            <li class="agent-option" style="display: none;"><a onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')" href="#">📊 Denúncias de Focos</a></li>
+            <li class="agent-option" style="display: none;"><a onclick="redirectToPage('listagemDenunciasAgente/denuncias-focos-agente.html')" href="#">🔍 Gerenciar Denúncias</a></li>
+            <li class="agent-option" style="display: none;"><a onclick="redirectToPage('solicitacoesVisita/solicitacoesVisita.html')" href="#">📋 Solicitações de Visita</a></li>
             
             <!-- Informações -->
             <li class="menu-section">
@@ -226,7 +226,7 @@ class HamburgerMenu extends HTMLElement {
     this.closeMenu();
   }
 
-  updateMenuVisibility() {
+  async updateMenuVisibility() {
     const loggedWith = localStorage.getItem("loggedWith");
     const visitMenuOption = this.querySelector('#visit-menu-option');
     const agentSection = this.querySelector('.agent-section');
@@ -235,17 +235,19 @@ class HamburgerMenu extends HTMLElement {
     const registerMenuOption = this.querySelector('#register-menu-option');
     const logoutMenuOption = this.querySelector('#logout-menu-option');
 
+    const isHealthAgent = loggedWith ? await this.checkIdHealthAgent(loggedWith) : false;
+
     if (visitMenuOption) {
       visitMenuOption.style.display = loggedWith ? 'block' : 'none';
     }
     
     if (agentSection) {
-      agentSection.style.display = loggedWith ? 'block' : 'none';
+      agentSection.style.display = isHealthAgent ? 'block' : 'none';
     }
     
     agentOptions.forEach(option => {
       if (option) {
-        option.style.display = loggedWith ? 'block' : 'none';
+        option.style.display = isHealthAgent ? 'block' : 'none';
       }
     });
     
@@ -259,6 +261,24 @@ class HamburgerMenu extends HTMLElement {
     
     if (logoutMenuOption) {
       logoutMenuOption.style.display = loggedWith ? 'block' : 'none';
+    }
+  }
+
+  async checkIdHealthAgent(loggedWith) {
+    try {
+      const configResponse = await fetch('../../config.json');
+      const { API_URL } = await configResponse.json();
+
+      const usersResponse = await fetch(`${API_URL}/usuarios`);
+      if (!usersResponse.ok) return false;
+
+      const users = await usersResponse.json();
+      const loggedUser = users.find(user => user.userEmail === loggedWith);
+
+      return loggedUser?.userRole === "AGENTE_SAUDE";
+    } catch (error) {
+      console.error("Erro ao verificar papel do usuário:", error);
+      return false;
     }
   }
 }
