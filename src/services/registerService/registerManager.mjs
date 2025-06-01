@@ -19,7 +19,8 @@ class RegisterManager {
    * @param {string} userData.userEmail - Email do usuário.
    * @param {string} userData.userConfirmationEmail - Email de confirmação do usuário.
    * @param {string} userData.userPassword - Senha do usuário.
-   * @param {string} userData.userConfirmationPassword - Senha de confirmação do usuário.
+   * @param {string} userData.userRole - Papel do usuário USUARIO_COMUM | AGENTE_SAUDE.
+   * @param {string} userData.userCnes- Número da CNES.
    * @returns {Object} Dados do usuário registrado.
    */
   async makeRegister(userData) {
@@ -45,6 +46,8 @@ class RegisterManager {
       userName: userData.userName,
       userNascentDate: new Date(userData.userNascentDate),
       userGender: userData.userGender,
+      userRole: userData.userRole || 'USUARIO_COMUM',
+      userCnes: userData.userCnes || '',
       userEmail: userData.userEmail,
       hashedPassword: hashedWithSaltPassword,
       keys: {publicKey: ''}

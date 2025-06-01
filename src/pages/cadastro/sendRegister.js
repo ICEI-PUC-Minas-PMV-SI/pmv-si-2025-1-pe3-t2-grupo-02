@@ -1,33 +1,93 @@
-import RegisterManager from '../../services/registerService/registerManager.mjs';
+import RegisterManager from "../../services/registerService/registerManager.mjs";
 
-const form = document.getElementById('registrationForm');
+const checkboxHealthAgent = document.getElementById("checkbox-health-agent");
+const cnesInput = document.getElementById("cnes");
 
-form.addEventListener('submit', async function(event) {
-  event.preventDefault(); 
-  const sendRegister              = new RegisterManager();
-  const userName                  = document.getElementById('userName').value;
-  const userNascentDate           = document.getElementById('userNascentDate').value;
-  const userGender                = document.getElementById('userGender').value || 'Prefiro não informar';
-  const userEmail                 = document.getElementById('userEmail').value;
-  const userConfirmationEmail     = document.getElementById('userConfirmationEmail').value;
-  const userPassword              = document.getElementById('userPassword').value;
-  const userConfirmationPassword  = document.getElementById('userConfirmationPassword').value;
+function toggleCnesInput() {
+  if (checkboxHealthAgent.checked) {
+    cnesInput.disabled = false;
+    cnesInput.setAttribute("required", "required");
+    cnesInput.setAttribute("title", "Até 8 dígitos");
+  } else {
+    cnesInput.disabled = true;
+    cnesInput.removeAttribute("required");
+    cnesInput.setAttribute(
+      "title",
+      "Selecione a opção 'Sou Agente de Saúde' para preencher este campo"
+    );
+    cnesInput.value = "";
+  }
+}
+
+// Executa ao carregar a página e ao alterar o checkbox
+checkboxHealthAgent.addEventListener("change", toggleCnesInput);
+window.addEventListener("DOMContentLoaded", toggleCnesInput);
+cnesInput.addEventListener("input", () => {
+  cnesInput.value = cnesInput.value.replace(/\D/g, "").slice(0, 8);
+});
+
+const validateCnes = async (cnes) => {
+  let isValid = true;
+  const numericCnes = cnes.replace(/\D/g, "");
 
   try {
-    const registerData = await sendRegister.makeRegister({ 
-      userName:                   userName, 
-      userNascentDate:            userNascentDate, 
-      userGender:                 userGender, 
-      userEmail:                  userEmail, 
-      userConfirmationEmail:      userConfirmationEmail, 
-      userPassword:               userPassword,
-      userConfirmationPassword:   userConfirmationPassword
-    }); 
-    window.location.href = '../login/login.html';
-    alert('Cadastro realizado com sucesso!\nVocê já pode fazer login');
+    const response = await fetch(
+      `https://apidadosabertos.saude.gov.br/cnes/estabelecimentos/${numericCnes}`
+    );
+    if (!response.ok) {
+      isValid = false;
+    }
+  } catch {
+    isValid = false;
+  }
+
+  return isValid;
+};
+
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  const sendRegister = new RegisterManager();
+  const userName = document.getElementById("userName").value;
+  const userNascentDate = document.getElementById("userNascentDate").value;
+  const userGender =
+    document.getElementById("userGender").value || "Prefiro não informar";
+  const userEmail = document.getElementById("userEmail").value;
+  const userConfirmationEmail = document.getElementById(
+    "userConfirmationEmail"
+  ).value;
+  const userPassword = document.getElementById("userPassword").value;
+  const userConfirmationPassword = document.getElementById(
+    "userConfirmationPassword"
+  ).value;
+  const isHealthAgent = checkboxHealthAgent.checked;
+  if (isHealthAgent) {
+    const isValidCnes = await validateCnes(cnesInput.value);
+    if (!isValidCnes) {
+      alert("Não conseguimos validar seu CNES. Por favor, verifique e tente novamente.");
+      return;
+    }
+  }
+
+  try {
+    await sendRegister.makeRegister({
+      userName: userName,
+      userNascentDate: userNascentDate,
+      userGender: userGender,
+      userEmail: userEmail,
+      userConfirmationEmail: userConfirmationEmail,
+      userPassword: userPassword,
+      userConfirmationPassword: userConfirmationPassword,
+      userRole: isHealthAgent ? "AGENTE_SAUDE" : "USUARIO_COMUM",
+      userCnes: isHealthAgent ? cnesInput.value : ""
+    });
+    window.location.href = "../login/login.html";
+    alert("Cadastro realizado com sucesso!\nVocê já pode fazer login");
   } catch (error) {
     console.log(error);
-    alert('Ocorreu um erro ao realizar o cadastro. Por favor, tente novamente.');
+    alert(
+      "Ocorreu um erro ao realizar o cadastro. Por favor, tente novamente."
+    );
   }
-}) 
-
+});
