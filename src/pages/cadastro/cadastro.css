@@ -104,6 +104,62 @@ form {
   max-width: 100%;
 }
 
+.cnes-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cnes-label span {
+  align-self: center;
+}
+
+.info-icon {
+  display: inline-block;
+  cursor: pointer;
+  color: #007bff;
+  font-weight: bold;
+  border: none;
+  background: none;
+  font-size: 1em;
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  transition: opacity 0.3s;
+  font-size: 1em;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.info-icon:hover .tooltip,
+.info-icon:focus .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* Media query para telas menores que 1200px */
 
 @media screen and (max-width: 1200px) {

@@ -21,6 +21,10 @@
       rel="stylesheet"
       href="../../components/successModal/successModal.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=info"
+    />
     <script src="./centerSelectArrow.js" defer></script>
     <script src="../../components/header/header.js" defer></script>
     <script src="../../components/footer/footer.js" defer></script>
@@ -97,19 +101,39 @@
                 type="checkbox"
                 id="checkbox-health-agent"
                 class="checkbox-input"
-                name="autorregistro"
+                name="health-agent"
               />
               <label for="checkbox-health-agent" class="checkbox-button">
                 <img src="../../assets/check.svg" alt="check" />
               </label>
             </div>
-            <label for="checkbox-health-agent">É um agente de saúde?</label>
+            <label for="checkbox-health-agent">Sou agente de saúde</label>
           </div>
           <div class="mid-input-container">
-            <label for="cnes"
-              >Informe CNES <span class="required">*</span></label
-            >
-            <input type="text" id="cnes" name="cnes" required minlength="3" />
+            <label for="cnes" class="cnes-label">
+              <span>Informe CNES</span>
+              <button type="button" class="info-icon" aria-label="Informação">
+                <span
+                  class="material-symbols-outlined"
+                  style="color: var(--primary-40)"
+                >
+                  info
+                </span>
+                <span class="tooltip">
+                  Número do Cadastro Nacional de Estabelecimentos de Saúde é
+                  obrigatório somente para agentes de saúde.
+                </span>
+              </button>
+            </label>
+            <input
+              type="text"
+              id="cnes"
+              name="cnes"
+              disabled
+              maxlength="8"
+              pattern="^\d{1,8}$"
+              inputmode="numeric"
+            />
           </div>
         </div>
 
