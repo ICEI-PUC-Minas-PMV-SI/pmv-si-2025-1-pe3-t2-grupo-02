@@ -5,6 +5,8 @@
       "userName": "Jhonata",
       "userNascentDate": "2004-10-30T00:00:00.000Z",
       "userGender": "masculino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
       "userEmail": "jhon.augustosilva@gmail.com",
       "hashedPassword": "0adb6d1e470bf371716b9bff0733bf46:75e0ae7d1d88147da9bd49b2d65494e4d881fa7317fbf64428870ccde53756fb",
       "keys": {
@@ -16,6 +18,8 @@
       "userName": "alan tavares",
       "userNascentDate": "1980-03-03T00:00:00.000Z",
       "userGender": "masculino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
       "userEmail": "alan.tavares@gmail.com",
       "hashedPassword": "721cfa4da2d23d1dc244b7170d07a074:7098aee18d798fa9e11152097fb3e7b62f848416d491fcdb6db99e3dc1a188df",
       "keys": {
@@ -27,6 +31,8 @@
       "userName": "Meu Teste ",
       "userNascentDate": "2024-06-03T00:00:00.000Z",
       "userGender": "feminino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
       "userEmail": "teste123456@gmail.com",
       "hashedPassword": "c7ba46e41009686d21f1f60db16e37c3:1c814bb57ec1269ea55f362a10e1f5929e0ec44f8fc94296b5f70b2aa1c6d3ca",
       "keys": {
@@ -38,6 +44,8 @@
       "userName": "Ádria Tavares",
       "userNascentDate": "1995-12-28T00:00:00.000Z",
       "userGender": "feminino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
       "userEmail": "adria.tavares28@gmail.com",
       "hashedPassword": "271d57f7127387af005f109aaac09c53:5b78be972b762574c34f4b75eef442836fba230fd8d081a3b1ed2f219c18ea71",
       "keys": {
@@ -45,20 +53,12 @@
       }
     },
     {
-<<<<<<< HEAD
-      "id": "7646bfac-4d17-40a-b84-60a957d38393",
-      "userName": "Arthur",
-      "userNascentDate": "2004-01-12T00:00:00.000Z",
-      "userGender": "masculino",
-      "userEmail": "arthurrguimaraes12@gmail.com",
-      "hashedPassword": "ba36ac02ef75bd72d94a56c68fa68ebd:cf042ea15de4965a4b9dc49847fa7d348d4564d5f265a352fb3f01bfd54b8b96",
-      "keys": {
-        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFvcEFGMVJ2ZUNSTVVWUDJ2T2pnQlRMMFBvcnhsN1Vnc3NtaE9INWpoaTN6WEQrQWc0aVk5cFJVRDFXZFY4RUo5TkU0SVpuYzZMNDZpY0RNZGZnVWZlbTRQZllOSkNnUTM3djBTTmlsTVJJenVvWFM5Nys5U0VaeGp0UWVXTlYrZmlEcUU1MTJ6NkREelZUYi9YWFl2V0dtNEFScml4RkJESE56MnVtTDFPZDNGRkowcVViejFyOWJRcjBjekx1c3ZaVUxWRFNVc3pYVmdtUnBzVjBYbVpCeW1nYmVjcFJadWFJSW5UaE1ZbDRiaTJOV04yL3owc0liaXBGMStSOU9nSDdMZVZROGg1Qnh4UTI1Wks3emRxWlY5S3lQVGQxU0p2bDQyVnh3bGlBQ1JNTGpMR3BNRVZVUC9XWUxzODRaRHh5Y091MkozOThzNGRTTFltb1UrZVFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
-=======
       "id": "f8d5cb73-c741-4df-b1e-041102405204",
       "userName": "Guilherme",
       "userNascentDate": "2002-10-24T00:00:00.000Z",
       "userGender": "masculino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
       "userEmail": "guilhermecortez11@outlook.com",
       "hashedPassword": "0ef95c432d2546c30063c524d594476a:efd171caa4a9bf954fdcb6a4d2035e741b46aa2271406e13d005905fd97d8c9f",
       "keys": {
@@ -70,11 +70,51 @@
       "userName": "guilherme 2",
       "userNascentDate": "2003-10-24T00:00:00.000Z",
       "userGender": "masculino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
       "userEmail": "naofufu@hotmail.com",
       "hashedPassword": "566c1773ba0f3f3cf78d98bea1e435e1:503a1bf59ad26d5743540850f35ef907553efa58f10b621e4dba078e47e42b4c",
       "keys": {
         "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFxTGZYZGF4NGdLdEU2ZHZuWXFJMVlWZEpHYXV1YUxTekdya1pRL3lCRFRNOHZvdEZiM0JRakorNmFSU0xwMnNDQWFJVVBGa0I4RjJWMGs4Q0FYemtCellaZDlHQXRlWjFTV0JHQnJzWUxoSVFBYmZwWUJ6c0xwUFpSNS8wMXRvMktGUDZGK29MbmdyWkNQOU01UW9lbzI2eTd4SGtLcGlacUNLRmpkdk1heVZraWgreC9CbGdPTFNDYjI5ZDM3d0dQa2F2dTUrMEFJd1lHL0lJdHdnUmhHbzdkekVONy9lanhXZHJQV2JueFNYeld5a0FyNWZNNGpkUElxckEyd3I0eHdqTmg4TENLVXd0U2dFMFhENUZlNzhHTDQ2bHgzOGlRUkNoU2VEbjV2R3lpVWsvVUxqTWRHZm9DanMvRXlvWHo4WVBIeVczbDY1MW8ydk1QNGdmUndJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
->>>>>>> 4be9a8b (Add GuilhermeCortez)
+      }
+    },
+    {
+      "id": "e318ed00-fec7-471-8ea-0ad0c7a1c03d",
+      "userName": "Fulano da Saúde",
+      "userNascentDate": "1960-03-03T00:00:00.000Z",
+      "userGender": "masculino",
+      "userRole": "AGENTE_SAUDE",
+      "userCnes": "4987",
+      "userEmail": "fulano@postinho.com",
+      "hashedPassword": "8193de9c45b762ced2cd01d773d789cc:12a7a5c211b5f9caa16162f1d073877b66be0f1459be21ff81f708683e692633",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFwY2lFb3grYU10N1dHS0kxcjhPeDErVVZuTU1yQnNRQTQ0YnQwS2tOQ1pIbUowbWxZRWNmNWRkb2xYU2tVVGVpbTZBTlNWOE9VcnlSWndQeDhpbFBzd3JwTEJMc3J2QlJrbE9GOUpCY0NKVmw1c0pPMjU0a1BIS1NKTkYxTVJNRzVGYmtZTm5ydG1zb1VMTnN6SnpPeVFTVjdSRXhUTlZOWERkNzZJbCtrVkhHeTRRUG1ZSmZLWnVrU3FYUzh1RkExQ1h0bkIrMG9wcFAyKzVpR3Q1Ym95dkhUUTFlak85ZC9DalpDdE5QQXRQdHZDb2NzZndOdDlJcFVzYy9rR08wQXVPZW5MZmw0NUU0VXNwVzlDY29henNoSS9MT3VwRVNpTlJMeC9MVFB4aTlrK3JZWG4wd29DaXVKd1ZHa1Jrc3FlYVMxVVBVejZ1UXhVMzVmMnJCeFFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
+    },
+    {
+      "id": "507fb1fa-550a-4f4-b76-98eb0b109b3f",
+      "userName": "Fulane Comum",
+      "userNascentDate": "1980-06-03T00:00:00.000Z",
+      "userGender": "nao_responder",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
+      "userEmail": "fulane@comum.com",
+      "hashedPassword": "ec19f887f8ac86241da9ab3517b6cebe:2893dfe9a566e001b36121952f6cb552eb0f54cb86f9c9b17a5a19890938ee63",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUExUXVDWUpHdmlqQlZaQzV1OEc5WkJyM2tNTG5YZFAvbUpvd0RYUHNSWDI2SnBSeFdSdE42aDhFaURNcTYrNWhmdVRVTWZGaDdaTC9xK3JCL1h2Q2d0UUcrVjR3TG5VaUFaTE0wcmpnRmNKdXRSankzMzA4dlJaREUzcStuakR0bkhUQjZUbnZJZHR0YzRaL3VxcjR5N1VJeHdDbXVPc3BRL0h4VHVLWWdua0xNdEFYSXhONHpQd2VkQUJlbkxBelY5Y0FuV1E0U2RwM3hwNTlHVnVvaStnTGc5bmFDd0FqejBRaW1MVEJZdUY4aU55dFRqNjAyTVp2cGJ1R0RSNHBWYndIb04zK3hISjBjbkhQSXZGeW54dml6OWhMMUlIcFdoWStBTTlGaEFIQjlzbWpWUmJkSWdVVzZvb2YzN1M5WHZVdTJJZkMxV1VRUHU1UHM5ZG5PUXdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
+    },
+    {
+      "id": "cf929f13-379e-4a9-89e-7182cf831cbd",
+      "userName": "Hello world",
+      "userNascentDate": "2000-01-01T00:00:00.000Z",
+      "userGender": "nao_responder",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
+      "userEmail": "testinho@tes.com",
+      "hashedPassword": "44d19626ba63b2842dd28d704414a9aa:c6ce7a6b01224ab7a82a8dc436584ab0233435579034684f473c16bd0dc74e90",
+      "keys": {
+        "publicKey": ""
       }
     }
   ],
@@ -552,6 +592,17 @@
       "motivo": "sa",
       "cep": "37200-359",
       "endereco": "Rua José Maria Azevedo, Jardim Fabiana, Lavras - MG",
+      "status": "EM_ABERTO"
+    },
+    {
+      "id": "9bd8",
+      "data_registro": "2025-06-01",
+      "user": "fulano@postinho.com",
+      "data_visita": "2025-06-02",
+      "turno": "tarde",
+      "motivo": "O agente sanitário passou na minha rua quando tinha ninguém na minha casa.",
+      "cep": "60822-104",
+      "endereco": "Rua Vicente Lopes, Cidade dos Funcionários, Fortaleza - CE",
       "status": "EM_ABERTO"
     }
   ]

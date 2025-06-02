@@ -83,6 +83,11 @@
   color: var(--neutral-0);
 }
 
+.modal #dynamic-text {
+  margin: 24px 0;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .modal-content {
     width: 60%;

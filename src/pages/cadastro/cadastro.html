@@ -1,122 +1,224 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Criar Conta</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="../../components/inputs/inputs.css">
-  <link rel="stylesheet" href="./cadastro.css">
-  <link rel="stylesheet" href="../../components/outdoorMode/outdoorMode.css" />
-  <link rel="stylesheet" href="../../components/successModal/successModal.css">
-  <script src="./centerSelectArrow.js" defer></script>
-  <script src="../../components/header/header.js" defer></script>
-  <script src="../../components/footer/footer.js" defer></script>
-  <script src="../../components/successModal/handle.js" defer></script>
-  <script src="./sendRegister.js" type="module"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../components/inputs/inputs.css" />
+    <link rel="stylesheet" href="./cadastro.css" />
+    <link
+      rel="stylesheet"
+      href="../../components/outdoorMode/outdoorMode.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../components/successModal/successModal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=info"
+    />
+    <script src="./centerSelectArrow.js" defer></script>
+    <script src="../../components/header/header.js" defer></script>
+    <script src="../../components/footer/footer.js" defer></script>
+    <script src="../../components/successModal/handle.js" defer></script>
+    <script src="./sendRegister.js" type="module"></script>
+  </head>
   <body>
     <app-header></app-header>
 
-    <div class="modal" id="cadastro-conta-modal">
+    <div class="modal" id="new-user-modal-success">
       <div class="modal-content">
         <div class="modal-header">
           <div>
             <a class="header-title">
-              <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
               <h1>Dengue Status</h1>
             </a>
           </div>
         </div>
         <div class="modal-body">
-          <p>Conta cadastrada com<br>sucesso!</p>
+          <p>Nova conta cadastrada com<br />sucesso!</p>
         </div>
         <div class="modal-footer">
-          <button class="close-button" id="closeModal" >OK</button>
+          <button class="close-button" id="closeModal">OK</button>
         </div>
       </div>
     </div>
-    
-      <div id="cadastroconta" class="cadastrar-conta-container">
-        <form id="registrationForm">
-          
-          <div class="header-criar-conta">
-           <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti"/>
-           <h1>Criar conta</h1>
-          </div>
-    
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="nome">Nome <span class="required">*</span></label>
-              <input type="text" id="userName" name="nome">
-            </div>
-          </div>
-          
-          <div class="column-inputs-container">
-            <div class="row-inputs-container">
-            
-              <div class="input-date-container left-identation">
-                <label for="data_nascimento">Data de nascimento <span class="required">*</span></label>
-                <input type="date" id="userNascentDate" name="data_nascimento">
-              </div>
-    
-              <div class="select gener-input-container">
-                <div class="custom-select-wrapper">
-                  <label>Gênero <span class="required">*</span></label>
-                  <select id="userGender" name="genero">
-                    <option value="masculino">Escolha uma opção</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="nao_responder">Prefiro não responder</option>
-                  </select>
-                  <div class="custom-arrow"></div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="email">E-mail: <span class="required">*</span></label>
-              <input id="userEmail" type="email" name="email" required>
-            </div>
+    <div class="modal" id="new-user-modal-error">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <a class="header-title">
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
+              <h1>Dengue Status</h1>
+            </a>
           </div>
-
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="email">Confirmar e-mail: <span class="required">*</span></label>
-              <input id="userConfirmationEmail" type="email" name="email" required>
-            </div>
-          </div>
-
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="email">Senha: <span class="required">*</span></label>
-              <input id="userPassword" type="password" name="senha" required>
-            </div>
-          </div>
-
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="email"> Confirmar senha: <span class="required">*</span></label>
-              <input id="userConfirmationPassword" type="password" name="senha" required>
-            </div>
-          </div> 
-          
-          <div class="openModal">
-           <button type="submit" class="highlighted-main-button submit-button" id="openModal">Cadastrar</button>
-          </div>
-
-          <div class="entrar-conta-content">
-            <p> Já possui uma conta?<a href="./../login/login.html"> Entrar </a> </p> 
-          </div>
-        </form>
+        </div>
+        <div class="modal-body">
+          <p>Visita não solicitada!</p>
+        </div>
+        <p id="dynamic-text"></p>
+        <div class="modal-footer">
+          <button class="close-button" id="close-modal-error">OK</button>
+        </div>
       </div>
+    </div>
+
+    <div id="cadastroconta" class="cadastrar-conta-container">
+      <form id="registrationForm">
+        <div class="header-criar-conta">
+          <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+          <h1>Criar conta</h1>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="nome">Nome <span class="required">*</span></label>
+            <input type="text" id="userName" name="nome" />
+          </div>
+        </div>
+
+        <div class="column-inputs-container">
+          <div class="row-inputs-container">
+            <div class="input-date-container left-identation">
+              <label for="data_nascimento"
+                >Data de nascimento <span class="required">*</span></label
+              >
+              <input type="date" id="userNascentDate" name="data_nascimento" />
+            </div>
+
+            <div class="select gener-input-container">
+              <div class="custom-select-wrapper">
+                <label>Gênero <span class="required">*</span></label>
+                <select id="userGender" name="genero">
+                  <option value="masculino">Escolha uma opção</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="nao_responder">Prefiro não responder</option>
+                </select>
+                <div class="custom-arrow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="health-agent-container">
+            <div class="checkbox-line">
+              <input
+                type="checkbox"
+                id="checkbox-health-agent"
+                class="checkbox-input"
+                name="health-agent"
+              />
+              <label for="checkbox-health-agent" class="checkbox-button">
+                <img src="../../assets/check.svg" alt="check" />
+              </label>
+            </div>
+            <label for="checkbox-health-agent">Sou agente de saúde</label>
+          </div>
+          <div class="mid-input-container">
+            <label for="cnes" class="cnes-label">
+              <span>Informe CNES</span>
+              <button type="button" class="info-icon" aria-label="Informação">
+                <span
+                  class="material-symbols-outlined"
+                  style="color: var(--primary-40)"
+                >
+                  info
+                </span>
+                <span class="tooltip">
+                  Número do Cadastro Nacional de Estabelecimentos de Saúde é
+                  obrigatório somente para agentes de saúde.
+                </span>
+              </button>
+            </label>
+            <input
+              type="text"
+              id="cnes"
+              name="cnes"
+              disabled
+              maxlength="8"
+              pattern="^\d{1,8}$"
+              inputmode="numeric"
+            />
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email">E-mail: <span class="required">*</span></label>
+            <input id="userEmail" type="email" name="email" required />
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email"
+              >Confirmar e-mail: <span class="required">*</span></label
+            >
+            <input
+              id="userConfirmationEmail"
+              type="email"
+              name="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email">Senha: <span class="required">*</span></label>
+            <input id="userPassword" type="password" name="senha" required />
+          </div>
+        </div>
+
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email">
+              Confirmar senha: <span class="required">*</span></label
+            >
+            <input
+              id="userConfirmationPassword"
+              type="password"
+              name="senha"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="openModal">
+          <button
+            type="submit"
+            class="highlighted-main-button submit-button"
+            id="openModal"
+          >
+            Cadastrar
+          </button>
+        </div>
+
+        <div class="entrar-conta-content">
+          <p>
+            Já possui uma conta?<a href="./../login/login.html"> Entrar </a>
+          </p>
+        </div>
+      </form>
+    </div>
     <app-footer></app-footer>
     <script src="../../components/outdoorMode/outdoorMode.js" defer></script>
   </body>

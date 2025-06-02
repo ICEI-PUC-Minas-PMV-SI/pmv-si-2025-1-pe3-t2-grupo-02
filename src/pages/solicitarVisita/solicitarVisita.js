@@ -113,7 +113,9 @@ async function createSolicitacaoVisita(dados) {
     salvarLocalmente(dados);
     showModalSuccess();
     clearFields();
-  });
+  }).catch(() => {
+      showModalError("Erro ao solicitar visita. Tente novamente mais tarde.");
+    });;
 }
 
 function salvarLocalmente(dados) {
