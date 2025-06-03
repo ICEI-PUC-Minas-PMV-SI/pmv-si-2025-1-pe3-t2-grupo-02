@@ -39,7 +39,7 @@ fs.readFile(templatePath, 'utf8', (err, data) => {
 });
 
 // Use JSON Server for the API
-app.use('/api', jsonServer.router('db.json'));
+app.use('/api', jsonServer.router('src/services/db/db.json'));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
