@@ -102,7 +102,7 @@ class Header extends HTMLElement {
   }
   render() {
     const primaryLogo = "assets/mosquito.svg";
-    const fallbackLogo = "./assets/mosquito.svg";
+    const fallbackLogo = "../../assets/mosquito.svg";
 
     this.innerHTML = `
       <header class="header">
