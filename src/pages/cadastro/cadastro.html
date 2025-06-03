@@ -89,7 +89,7 @@
         <div class="row-inputs-container">
           <div class="input-full-container">
             <label for="nome">Nome <span class="required">*</span></label>
-            <input type="text" id="userName" name="nome" />
+            <input type="text" id="userName" name="nome" required />
           </div>
         </div>
 
@@ -99,13 +99,18 @@
               <label for="data_nascimento"
                 >Data de nascimento <span class="required">*</span></label
               >
-              <input type="date" id="userNascentDate" name="data_nascimento" />
+              <input
+                type="date"
+                id="userNascentDate"
+                name="data_nascimento"
+                required
+              />
             </div>
 
             <div class="select gener-input-container">
               <div class="custom-select-wrapper">
                 <label>Gênero <span class="required">*</span></label>
-                <select id="userGender" name="genero">
+                <select id="userGender" name="genero" required>
                   <option value="masculino">Escolha uma opção</option>
                   <option value="masculino">Masculino</option>
                   <option value="feminino">Feminino</option>

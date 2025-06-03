@@ -1,63 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="../../components/inputs/inputs.css">
-  <link rel="stylesheet" href="./login.css">
-  <link rel="stylesheet" href="../../components/successModal/successModal.css">
-  <link rel="stylesheet" href="../../components/outdoorMode/outdoorMode.css">
-  <script src="../../components/header/header.js" defer></script>
-  <script src="../../components/footer/footer.js" defer></script>
-  <script src="../../components/successModal/handle.js" defer></script>
-  <script src="./sendLogin.js" type="module"></script>
-
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../components/inputs/inputs.css" />
+    <link rel="stylesheet" href="./login.css" />
+    <link
+      rel="stylesheet"
+      href="../../components/successModal/successModal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../components/outdoorMode/outdoorMode.css"
+    />
+    <script src="../../components/header/header.js" defer></script>
+    <script src="../../components/footer/footer.js" defer></script>
+    <script src="../../components/successModal/handle.js" defer></script>
+    <script src="./sendLogin.js" type="module"></script>
+  </head>
   <body>
     <app-header></app-header>
 
-      <div id="loginconta" class="login-conta-container">
-        <form id="loginForm">
+    <div id="loginconta" class="login-conta-container">
+      <form id="loginForm">
+        <div class="header-entrar-conta">
+          <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+          <h1>Entrar</h1>
+        </div>
 
-          <div class="header-entrar-conta">
-           <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti"/>
-           <h1>Entrar</h1>
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email">E-mail: <span class="required">*</span></label>
+            <input id="email" type="email" name="email" required />
           </div>
+        </div>
 
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="email">E-mail: <span class="required">*</span></label>
-              <input id="email" type="email" name="email" required>
-            </div>
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email">Senha: <span class="required">*</span></label>
+            <input id="senha" type="password" name="senha" required />
           </div>
+        </div>
 
-          <div class="row-inputs-container">
-            <div class="input-full-container">
-              <label for="email">Senha: <span class="required">*</span></label>
-              <input id="senha" type="password" name="senha" required>
-            </div>
-          </div>
+        <button type="submit" class="highlighted-main-button submit-button">
+          Entrar
+        </button>
 
-          <button type="submit" class="highlighted-main-button submit-button">Entrar</button>
-    
-          <div class="cadastrar-conta-content">
-           <p> Ainda não possui cadastro? <a href="./../cadastro/cadastro.html"> Cadastrar </a> </p>
-          </div>
+        <div class="cadastrar-conta-content">
+          <p>
+            Ainda não possui cadastro?
+            <a href="./../cadastro/cadastro.html"> Cadastrar </a>
+          </p>
+        </div>
 
-          <div class="recuperar-senha-content">
-           <p> Esqueceu a senha?<a href="./../esqueciSenha/esqueciSenha.html"> Recuperar acesso </a> </p> 
-          </div>
-          
-        </form>
-      </div>
-    <app-footer></app-footer>  
+        <div class="recuperar-senha-content">
+          <p>
+            Esqueceu a senha?<a href="./../esqueciSenha/esqueciSenha.html">
+              Recuperar acesso
+            </a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <app-footer></app-footer>
     <script src="../../components/outdoorMode/outdoorMode.js" defer></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dengue Status</title>
+    <title>Esqueci a senha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,43 +11,50 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="../../style.css" />
+    <link rel="stylesheet" href="../../components/inputs/inputs.css" />
     <link rel="stylesheet" type="text/css" href="./esqueciSenha.css" />
     <script src="../../components/header/header.js" defer></script>
     <script src="../../components/footer/footer.js" defer></script>
     <script src="esqueciSenha.js" type="module"></script>
 
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-    (function(){
-      emailjs.init({
-        publicKey: "vjql13ZlsuQ94N8Vd",
-      });
-    })();
+      (function () {
+        emailjs.init({
+          publicKey: "vjql13ZlsuQ94N8Vd",
+        });
+      })();
     </script>
-    <link rel="stylesheet" href="../../components/outdoorMode/outdoorMode.css">
+    <link
+      rel="stylesheet"
+      href="../../components/outdoorMode/outdoorMode.css"
+    />
   </head>
   <body>
     <app-header></app-header>
 
     <div id="recoverPassword" class="recover-password-container">
       <form id="sendRecoverPassword">
-
         <div class="header-recover-password">
-          <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti"/>
-          <h2>Esqueceu a senha?</h2>
-        </div>
-  
-  
-        <div class="input-email">
-          <label for="email">E-mail:</label>
-            <input id="email" type="email" name="email" required>
-        </div>
-        <button type="submit" class="highlighted-main-button submit-button">Enviar</button>
-      </form>
+          <img src="../../assets/mosquito.svg" alt="Mosquito Aedis Aegypti" />
+          <h1>Esqueceu a senha?</h1>
         </div>
 
+        <div class="row-inputs-container">
+          <div class="input-full-container">
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" name="email" required />
+          </div>
+        </div>
+
+        <button type="submit" class="highlighted-main-button submit-button">
+          Enviar
+        </button>
+      </form>
+    </div>
     <app-footer></app-footer>
     <script src="../../components/outdoorMode/outdoorMode.js" defer></script>
   </body>
