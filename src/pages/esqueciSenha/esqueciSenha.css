@@ -1,97 +1,145 @@
-.header-recover-password img {
-    display: block;
-    margin: 0 auto;
-    width: 250px;
-    height: 150px;
-    margin-top: 25px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .recover-password-container {
-    width: 120vw;
-    max-width: 60%;
-    min-width: 300px;
-    height: 650px;
-    margin: 0 auto;
-    padding: 10px 70px 20px 70px;
-    background: rgba(243, 243, 243, 0.1);
-    border: 1px solid #B3B3B3;
-    border-radius: 20px;
-    margin-bottom: 10rem;
-    
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 11rem;
+  position: relative;
 }
 
-.recover-password-container h2 {
-    text-align: left;
-    margin-top: 25px;
-    margin-bottom: 5px;
-    color: var(--primary-40);
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 2rem;
-   
+.header-recover-password {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-direction: column;
 }
 
-label {
-    display: block;
-    margin: 0.5rem 0;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+.header-recover-password h1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--primary-40);
+  text-align: left;
+  align-self: left;
 }
 
-input{
-    text-align: center;
-    margin: 5px 0 0 0;
-    width: 100%;
-    min-height: 2em;
+.header-recover-password img {
+  width: 233px;
+  height: 214px;
+  flex-shrink: 0;
+  align-self: center;
 }
 
-input[type="email"] {
-    text-align: left;
-    border-radius: 10px; 
-    padding: 10px; 
-    border: 1px solid #ccc;
-
+form {
+  margin: 0 auto;
+  padding: 28px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border: 1px solid var(--neutral-50);
+  border-radius: 8px;
+  width: 52vw;
+  margin-bottom: 1rem;
 }
+
+.row-inputs-container {
+  width: 100%;
+  margin: 12px 0px;
+}
+
 .submit-button {
-    display: block;
+  display: block;
+  margin: 0 auto;
+  margin-top: 12px;
+  width: 200px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .recover-password-container {
     margin: 0 auto;
-    margin-top: 300px;
-    width: 15vw;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 800px;
-    font-size: 50px;
-    margin-top: 100px;
+    width: 65vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form {
+    padding: 32px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .submit-button {
+    padding: 8px 16px;
+    font-size: 20px;
+  }
 }
-.footer {
+
+@media screen and (max-width: 768px) {
+  .recover-password-container {
+    width: 75vw;
+    margin: 2rem auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form {
+    padding: 32px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer {
     bottom: auto;
+  }
 }
 
-@media (max-width : 1000px) {
+@media screen and (min-width: 260px) and (max-width: 620px) {
+  .recover-password-container {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
 
-    .recover-password-container h2 {
-        margin-bottom: 35px;
-    }
+  form {
+    width: 100%;
+    padding: 32px;
+    margin: 4px;
+  }
 
-    .recover-password-container {
-        padding: 15px;
-        height: 50vh;
-        padding-bottom: 50vw;
-    }
+  .row-inputs-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 12px;
+  }
 
-    input{
-        width: 90%;
-    }
+  .submit-button {
+    padding: 8px 16px;
+    height: 42px;
+    width: 162px;
+    font-size: 18px;
+  }
 
-    .submit-button {
-        margin-top: 70px;
-        width: 70%;
-    }
-
-    .footer {
-        bottom: auto;
-    }
-    
+  .footer {
+    bottom: auto;
+  }
 }
