@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="./solicitarVisita.css" />
     <script src="../../components/header/header.js" defer></script>
     <script src="../../components/footer/footer.js" defer></script>
+    <script src="./submitVisita.js" type="module"></script>
   </head>
   <body>
     <app-header></app-header>
@@ -65,6 +66,30 @@
         <p id="dynamic-text"></p>
         <div class="modal-footer">
           <button class="close-button" id="close-modal-error">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="case-form-unauthenticated-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <a class="header-title">
+              <img
+                src="../../assets/mosquito.svg"
+                alt="Mosquito Aedis Aegypti"
+              />
+              <h1>Dengue Status</h1>
+            </a>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Você precisa fazer login para realizar essa ação</p>
+        </div>
+        <div class="modal-footer">
+          <button class="close-button" id="close-unauthenticated-modal">
+            OK
+          </button>
         </div>
       </div>
     </div>
@@ -126,7 +151,6 @@
               pattern="\d{5}-?\d{3}"
               maxlength="9"
               placeholder="00000-000"
-              onkeyup="handleZipCode(event)"
             />
           </div>
 

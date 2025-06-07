@@ -65,7 +65,7 @@ const validateCnes = async (cnes) => {
 
   try {
     const response = await fetch(
-      `https://apidadosabertos.saude.gov.br/cnes/estabelecimentos/${numericCnes}`
+      `https://corsproxy.io/?url=https://apidadosabertos.saude.gov.br/cnes/estabelecimentos/${numericCnes}`
     );
     if (!response.ok) {
       isValid = false;
