@@ -8,11 +8,6 @@ function getTomorrowDate() {
   return `${year}-${month}-${day}`;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const input = document.getElementById("data_visita");
-  input.min = getTomorrowDate();
-});
-
 // Formata o campo CEP e busca o endereço automaticamente
 const handleZipCode = async (event) => {
   let input = event.target;
@@ -27,13 +22,9 @@ const handleZipCode = async (event) => {
 
       if (data && !data.erro) {
         enderecoInput.value = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
-      } else {
-        enderecoInput.value = "";
-        showModalError("CEP não encontrado. Verifique e tente novamente.");
       }
-    } catch {
-      enderecoInput.value = "";
-      showModalError("Erro ao consultar o CEP. Tente novamente.");
+    } catch (error) {
+      console.log(error);
     }
   }
 };
@@ -45,13 +36,16 @@ const zipCodeMask = (value) => {
   return value;
 };
 
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("data_visita");
+  input.min = getTomorrowDate();
+  document.getElementById("cep").addEventListener("keyup", handleZipCode);
+});
+
 async function handleSubmit(event) {
   event.preventDefault();
   const loggedWith = localStorage.getItem("loggedWith");
-  if (!loggedWith) {
-    showModalError("Você precisa estar logado para solicitar uma visita.");
-    return;
-  }
+  if (!loggedWith) return;
 
   const dtVisita = document.getElementById("data_visita").value;
   const turno = document.getElementById("turno").value;
@@ -99,7 +93,7 @@ async function handleSubmit(event) {
 
 async function createSolicitacaoVisita(dados) {
   let apiUrl;
-  const env = await (await fetch('../../config.json')).json();
+  const env = await (await fetch("../../config.json")).json();
   apiUrl = env.API_URL;
 
   await fetch(`${apiUrl}/solicitacao-visita/`, {
@@ -108,18 +102,20 @@ async function createSolicitacaoVisita(dados) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dados),
-  }).then(async (res) => {
-    const responseData = await res.json();
-    salvarLocalmente(dados);
-    showModalSuccess();
-    clearFields();
-  }).catch(() => {
+  })
+    .then(async (res) => {
+      const responseData = await res.json();
+      salvarLocalmente(dados);
+      showModalSuccess();
+      clearFields();
+    })
+    .catch(() => {
       showModalError("Erro ao solicitar visita. Tente novamente mais tarde.");
-    });;
+    });
 }
 
 function salvarLocalmente(dados) {
-  const visitas = JSON.parse(localStorage.getItem('visitas')) || [];
+  const visitas = JSON.parse(localStorage.getItem("visitas")) || [];
 
   visitas.push({
     data: dados.data_visita,
@@ -129,7 +125,7 @@ function salvarLocalmente(dados) {
     status: dados.status,
   });
 
-  localStorage.setItem('visitas', JSON.stringify(visitas));
+  localStorage.setItem("visitas", JSON.stringify(visitas));
 }
 
 function clearFields() {
@@ -145,7 +141,9 @@ const validateCep = async (cep) => {
   const numericCep = cep.replace(/\D/g, "");
   if (numericCep.length === 8) {
     try {
-      const response = await fetch(`https://viacep.com.br/ws/${numericCep}/json/`);
+      const response = await fetch(
+        `https://viacep.com.br/ws/${numericCep}/json/`
+      );
       if (!response.ok) {
         isValid = false;
       }
@@ -186,7 +184,6 @@ window.onclick = (event) => {
 const showModalSuccess = () => {
   modalSuccess.style.display = "block";
 };
-
 
 const showModalError = (motivo) => {
   modalError.style.display = "block";
