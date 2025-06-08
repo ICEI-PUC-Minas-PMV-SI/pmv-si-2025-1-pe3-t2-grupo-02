@@ -129,6 +129,19 @@
       "keys": {
         "publicKey": ""
       }
+    },
+    {
+      "id": "d0866446-1f01-42d-aac-8ee1274f0d6c",
+      "userName": "test",
+      "userNascentDate": "2000-05-04T00:00:00.000Z",
+      "userGender": "masculino",
+      "userRole": "USUARIO_COMUM",
+      "userCnes": "",
+      "userEmail": "test@tsts.com",
+      "hashedPassword": "a10e9e3efac91d4bc8148d0d70b000c2:43ec5edca7b933c668bc68aa3a112450368957369ef48eeb542cfef3b6d1d364",
+      "keys": {
+        "publicKey": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFsVUNoVWFhK1BjeldxdGFxejJzVFZONy9TL2VSd0sxdVpFcG1kb0VlUmZ6RTdDb3JhKzhIRkZzWFUzSlRRc2tTSXRUMU9CcWpCOHJ2a2w2ZTVybkovU1hHckltRUkzWDNWazdid1U0cThQbUJ4ZnMwSm9RRXV2YVVobURzcGRQRUtCK1BabCs3dU50cDRkbEwxbUFRS2JmSGZwd0NGdldMNXIwaG0vdWlld3ZRUkx3WmtPV2dSWkd6SkhKU3k1S2hTaFBmZHJSQlNrQnUyTFlHN2JSakd2RXh5d2I1VWFobmJHU0lYSUdCeFovVGZ1K1ppdkg1b1E3T0tZOGVxY3BuMlI4U2tnWFFXQWw5N1ArS3hqeUZzMWlBWEJYbURxMU1GZVdoYVVmdDNraS9RV2IrU2RPdTBhOWpqWGI2M0NycGs4ckpLT2locDkxMmt1RlNxNnRlT3dJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t"
+      }
     }
   ],
   "denuncias-casos": [
@@ -638,6 +651,17 @@
       "motivo": "A vigilância sanitária passou na minha rua e ninguém estava em casa. Gostaria de receber a visita.",
       "cep": "60510-196",
       "endereco": "Rua Porto Velho, Henrique Jorge, Fortaleza - CE",
+      "status": "EM_ABERTO"
+    },
+    {
+      "id": "4259",
+      "data_registro": "2025-06-08",
+      "user": "test@tsts.com",
+      "data_visita": "2025-10-16",
+      "turno": "manha",
+      "motivo": "teste",
+      "cep": "25010-005",
+      "endereco": "Rua Capitão Pereira Lago, Parque Laguna e Dourados, Duque de Caxias - RJ",
       "status": "EM_ABERTO"
     }
   ]
