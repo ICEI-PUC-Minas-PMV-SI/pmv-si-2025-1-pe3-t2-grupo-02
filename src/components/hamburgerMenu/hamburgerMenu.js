@@ -58,7 +58,8 @@ class HamburgerMenu extends HTMLElement {
             <li><a onclick="redirectToPage('caseForm/caseForm.html')" href="#">📋 Reportar Caso</a></li>
             <li><a onclick="redirectToPage('denuncia/denuncia.html')" href="#">🚨 Denunciar Foco</a></li>
             <li id="visit-menu-option"><a onclick="redirectToPage('solicitarVisita/solicitarVisita.html')" href="#">📅 Solicitar Visita</a></li>
-            
+            <li id="my-visits-menu-option" style="display: none;"><a onclick="redirectToPage('solicitacoesVisita/solicitacoesVisita.html')" href="#">📂 Minhas Solicitações</a></li>
+
             <!-- Área do Agente (apenas para usuários logados) -->
             <li class="menu-section agent-section" style="display: none;">
               <span class="section-title">Área do Agente</span>
@@ -229,6 +230,7 @@ class HamburgerMenu extends HTMLElement {
   async updateMenuVisibility() {
     const loggedWith = localStorage.getItem("loggedWith");
     const visitMenuOption = this.querySelector('#visit-menu-option');
+    const myVisitsMenuOption = this.querySelector('#my-visits-menu-option');
     const agentSection = this.querySelector('.agent-section');
     const agentOptions = this.querySelectorAll('.agent-option');
     const loginMenuOption = this.querySelector('#login-menu-option');
@@ -239,6 +241,10 @@ class HamburgerMenu extends HTMLElement {
 
     if (visitMenuOption) {
       visitMenuOption.style.display = isHealthAgent ? 'none' : 'block';
+    }
+    
+    if (myVisitsMenuOption) {
+      myVisitsMenuOption.style.display = (loggedWith && !isHealthAgent) ? 'block' : 'none';
     }
     
     if (agentSection) {
