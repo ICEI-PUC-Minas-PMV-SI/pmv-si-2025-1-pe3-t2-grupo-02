@@ -74,39 +74,31 @@ async function carregarSolicitacoes() {
     const jsonData = await response.json();
     let solicitacoesDoDb = jsonData["solicitacao-visita"] || [];
 
+    dados = solicitacoesDoDb.map(item => ({...item}));
+
     if (usuarioLogado.role === "USUARIO_COMUM") {
       solicitacoesDoDb = solicitacoesDoDb.filter(
         (item) => item.user === usuarioLogado.email
       );
     }
 
-    dados = solicitacoesDoDb.map((item) => ({
-      id: item.id,
-      data: item.data_visita,
-      endereco: item.endereco,
-      solicitante: item.user,
-      turno: item.turno,
-      motivo: item.motivo,
-      status: mapStatusFromDb(item.status),
-    }));
-
-    preencherTabela();
+    preencherTabela(solicitacoesDoDb);
   } catch (error) {
     console.error("Erro ao carregar solicitações:", error);
   }
 }
 
-function preencherTabela() {
+function preencherTabela(solicitacoes) {
   const tbody = document.getElementById("tabela-corpo");
   tbody.innerHTML = "";
 
   const dadosFiltrados = filtroAtivo
-    ? dados.filter((item) =>
+    ? solicitacoes.filter((item) =>
         Object.values(item).some((val) =>
           String(val).toLowerCase().includes(filtroAtivo)
         )
       )
-    : dados;
+    : solicitacoes;
 
   if (dadosFiltrados.length === 0) {
     tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">Nenhuma solicitação encontrada.</td></tr>`;
@@ -128,15 +120,15 @@ function preencherTabela() {
         'Pendente': 'status-pendente',
         'Em andamento': 'status-em-andamento',
         'Concluído': 'status-concluido'
-    }[item.status] || '';
+    }[mapStatusFromDb(item.status)] || '';
 
     tr.innerHTML = `
-        <td>${item.data || ""}</td>
+        <td>${item.data_visita || ""}</td>
         <td>${item.endereco || ""}</td>
-        <td>${item.solicitante || ""}</td>
+        <td>${item.user || ""}</td>
         <td>${item.turno || ""}</td>
         <td>${item.motivo || ""}</td>
-        <td class="${statusClass}">${item.status || ""}</td>
+        <td class="${statusClass}">${mapStatusFromDb(item.status) || ''}</td>
         <td>
             <button class="btn-editar" data-id="${item.id}" aria-label="Editar">
                 <img src="../../assets/icone-editar.png" alt="Editar" width="18" height="18" />
@@ -156,6 +148,26 @@ function preencherTabela() {
     dadosFiltrados.length
   } resultados`;
   criarPaginacao(totalPaginas);
+}
+
+async function handleEditClick(itemId) {
+  const usuarioLogado = await getAuthenticatedUser();
+  if (!usuarioLogado) return;
+
+  const itemParaEditar = dados.find(item => item.id === itemId);
+  if (!itemParaEditar) {
+    console.error("Item para edição não encontrado:", itemId);
+    return;
+  }
+  
+  if (usuarioLogado.role === 'AGENTE_SAUDE') {
+    // Se for agente, chama o modal de status (função de modal-solicitacoes.js)
+    abrirModalEdicao(itemId);
+  } else if (usuarioLogado.role === 'USUARIO_COMUM') {
+    // Se for usuário comum, salva os dados e redireciona
+    localStorage.setItem('editVisitData', JSON.stringify(itemParaEditar));
+    window.location.href = '../solicitarVisita/solicitarVisita.html';
+  }
 }
 
 
@@ -178,18 +190,35 @@ function criarPaginacao(totalPaginas) {
     paginacaoContainer.appendChild(criarBotao('&gt;', currentPage + 1, currentPage === totalPaginas));
 }
 
-document.getElementById('btnBuscar').addEventListener('click', () => {
-    filtroAtivo = document.getElementById('search').value.trim().toLowerCase();
-    currentPage = 1;
-    preencherTabela();
-});
-document.getElementById('search').addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-      filtroAtivo = event.target.value.trim().toLowerCase();
-      currentPage = 1;
-      preencherTabela();
+document.addEventListener('DOMContentLoaded', () => {
+  carregarSolicitacoes();
+
+  const tbody = document.getElementById('tabela-corpo');
+  tbody.addEventListener('click', (event) => {
+    const target = event.target;
+    const editButton = target.closest('.btn-editar');
+    const deleteButton = target.closest('.btn-excluir');
+
+    if (editButton) {
+      const itemId = editButton.dataset.id;
+      handleEditClick(itemId);
     }
+
+    if (deleteButton) {
+      // Lógica de exclusão pode ser adicionada aqui
+      console.log('Botão de excluir clicado para o item:', deleteButton.dataset.id);
+    }
+  });
+
+  // Eventos de busca
+  document.getElementById('btnBuscar').addEventListener('click', () => {
+    filtroAtivo = document.getElementById('search').value.trim().toLowerCase();
+    carregarSolicitacoes();
+  });
+  document.getElementById('search').addEventListener('keyup', (event) => {
+      if (event.key === 'Enter') {
+        filtroAtivo = event.target.value.trim().toLowerCase();
+        carregarSolicitacoes();
+      }
+  });
 });
-
-
-document.addEventListener("DOMContentLoaded", carregarSolicitacoes);

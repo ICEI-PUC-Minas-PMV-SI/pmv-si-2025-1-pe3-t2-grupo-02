@@ -40,6 +40,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("data_visita");
   input.min = getTomorrowDate();
   document.getElementById("cep").addEventListener("keyup", handleZipCode);
+
+  // Verifica se está em modo de edição
+  const editDataString = localStorage.getItem("editVisitData");
+  if (editDataString) {
+    const visitData = JSON.parse(editDataString);
+    
+    document.querySelector('.header-visita h1').textContent = 'Editar Solicitação de Visita';
+    document.querySelector('.submit-button').textContent = 'Atualizar Solicitação';
+
+    document.getElementById('data_visita').value = visitData.data_visita;
+    document.getElementById('turno').value = visitData.turno;
+    document.getElementById('motivo').value = visitData.motivo;
+    document.getElementById('cep').value = zipCodeMask(visitData.cep);
+    document.getElementById('endereco').value = visitData.endereco;
+    
+    localStorage.setItem('editingVisitId', visitData.id);
+    localStorage.removeItem('editVisitData');
+  }
 });
 
 async function handleSubmit(event) {
@@ -88,7 +106,13 @@ async function handleSubmit(event) {
     status: "EM_ABERTO",
   };
 
-  createSolicitacaoVisita(dados);
+  // Verifica se está editando ou criando
+  const editingId = localStorage.getItem('editingVisitId');
+  if (editingId) {
+    updateSolicitacaoVisita(dados, editingId);
+  } else {
+    createSolicitacaoVisita(dados);
+  }
 }
 
 async function createSolicitacaoVisita(dados) {
@@ -111,6 +135,38 @@ async function createSolicitacaoVisita(dados) {
     })
     .catch(() => {
       showModalError("Erro ao solicitar visita. Tente novamente mais tarde.");
+    });
+}
+
+async function updateSolicitacaoVisita(dados, id) {
+  let apiUrl;
+  try {
+    const env = await (await fetch("../../config.json")).json();
+    apiUrl = env.API_URL;
+  } catch (e) {
+    apiUrl = 'http://localhost:3000';
+  }
+
+  delete dados.status; 
+  delete dados.data_registro;
+
+  await fetch(`${apiUrl}/solicitacao-visita/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dados),
+  })
+    .then(async (res) => {
+      if (!res.ok) throw new Error('Falha ao atualizar');
+      showModalSuccess("Visita atualizada com sucesso!");
+      localStorage.removeItem('editingVisitId');
+      setTimeout(() => {
+         window.location.href = '../solicitacoesVisita/solicitacoesVisita.html';
+      }, 1500);
+    })
+    .catch(() => {
+      showModalError("Erro ao atualizar visita. Tente novamente mais tarde.");
     });
 }
 
