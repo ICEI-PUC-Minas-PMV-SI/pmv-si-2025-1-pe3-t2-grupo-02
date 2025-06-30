@@ -47,6 +47,18 @@ header.header {
   align-items: center;
 }
 
+.menu-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-buttons-group hamburger-menu {
+  /* Ajuste para garantir que o menu sanduíche não expanda além do necessário */
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
 .header-buttons {
   display: flex;
   align-items: center;

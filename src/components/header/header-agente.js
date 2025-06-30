@@ -2,6 +2,7 @@ class Header extends HTMLElement {
   constructor() {
     super();
   }
+
   connectedCallback() {
     this.loadRouterScript();
     this.loadHamburgerMenuScript();
@@ -9,6 +10,7 @@ class Header extends HTMLElement {
     this.setupEvents();
     this.setupGlobalClick();
   }
+
   loadRouterScript() {
     const path = window.location.pathname;
     const isHome = path === "/src/" || path === "/" || path === "/index.html";
@@ -23,19 +25,17 @@ class Header extends HTMLElement {
     const isHome = path === "/src/" || path === "/" || path === "/index.html";
     let scriptSrc = "components/hamburgerMenu/hamburgerMenu.js";
     let cssSrc = "components/hamburgerMenu/hamburgerMenu.css";
-    
+
     if (!isHome) {
       scriptSrc = "../../components/hamburgerMenu/hamburgerMenu.js";
       cssSrc = "../../components/hamburgerMenu/hamburgerMenu.css";
     }
-    
-    // Load CSS
+
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = cssSrc;
     document.head.appendChild(link);
-    
-    // Load JS
+
     const script = document.createElement("script");
     script.src = scriptSrc;
     script.defer = true;
@@ -49,10 +49,14 @@ class Header extends HTMLElement {
       const loginBtn = this.querySelector("#login-btn");
       const loginOptions = document.querySelector("#login-options");
 
-
       if (menu && event.target !== menuButton && !menu.contains(event.target) &&
           event.target !== menuButton.firstElementChild) {
         menu.style.display = "none";
+
+        const headerButtons = this.querySelector(".header-buttons");
+        if (headerButtons) {
+          headerButtons.style.display = "flex";
+        }
       }
 
       if (loginOptions && event.target !== loginBtn && !loginOptions.contains(event.target)) {
@@ -100,10 +104,11 @@ class Header extends HTMLElement {
     document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
     location.reload();
   }
+
   render() {
     const primaryLogo = "assets/mosquito.svg";
     const fallbackLogo = "../../assets/mosquito.svg";
-
+  
     this.innerHTML = `
       <header class="header">
         <div class="logo-section">
@@ -112,19 +117,20 @@ class Header extends HTMLElement {
             <h1>Dengue Status</h1>
           </a>
         </div>
-        <div class="header-buttons">
-          <button class="outline-button" onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')">
-            Mapa de Denúncias de Foco
-          </button>
-          <button id="login-btn" class="filled-button">
-            Entrar
-          </button>
+  
+        <div class="menu-buttons-group">
+          <div class="header-buttons">
+            <button class="outline-button" onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')">
+              Mapa de Denúncias de Foco
+            </button>
+            <button id="login-btn" class="filled-button">
+              Entrar
+            </button>
+          </div>
+  
+          <hamburger-menu></hamburger-menu>
         </div>
-        
-        <!-- Novo Menu Hamburger -->
-        <hamburger-menu></hamburger-menu>
-        
-        <!-- Menu antigo (mantido como fallback) -->
+  
         <button id="menu-button" style="display: none;">
           <img src="assets/hamburger.png" alt="Menu" 
             onerror="this.onerror=null; this.src='../../assets/hamburger.png';"/>
@@ -138,14 +144,14 @@ class Header extends HTMLElement {
         </nav>
       </header>
     `;
-
+  
     if (localStorage.getItem("loggedWith")) {
       this.setLogout();
     } else {
       const logoutNav = this.querySelector("#logout-nav-option");
       if (logoutNav) logoutNav.style.display = "none";
     }
-  }
+  }  
 
   setupEvents() {
     const menuButton = this.querySelector("#menu-button");
@@ -173,7 +179,14 @@ class Header extends HTMLElement {
 
   toggleMenu() {
     const menu = this.querySelector("#menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    const headerButtons = this.querySelector(".header-buttons");
+
+    const isOpen = menu.style.display === "block";
+    menu.style.display = isOpen ? "none" : "block";
+
+    if (headerButtons) {
+      headerButtons.style.display = isOpen ? "flex" : "none";
+    }
 
     const loggedWith = localStorage.getItem("loggedWith");
     const loginOption = this.querySelector("#login-nav-option");
