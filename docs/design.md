@@ -5,19 +5,19 @@
 
 Nesta seção serão documentadas as personas do projeto.
 
-![Figura 8: Persona estudante de biomedicina interessada sobre os focos do mosquito Aedes aegypty.](#)  
+![Figura 8: Persona estudante de biomedicina interessada sobre os focos do mosquito Aedes aegypty.](https://github.com/user-attachments/assets/67b5f033-780f-4b65-9f43-1843a4fea645)  
 *Fonte: Autores, 2025.*
 
-![Figura 9: Persona professora interessada na incidência de casos.](#)  
+![Figura 9: Persona professora interessada na incidência de casos.](https://github.com/user-attachments/assets/3ad654eb-deff-4929-aab9-26253a5a6187)  
 *Fonte: Autores, 2025.*
 
-![Figura 10: Persona usuário idoso solicitante da visita de agentes da saúde.](#)  
+![Figura 10: Persona usuário idoso solicitante da visita de agentes da saúde.](https://github.com/user-attachments/assets/bb0a7c76-5f02-4760-8441-f821e73fa5a7)  
 *Fonte: Autores, 2025.*
 
-![Figura 11: Persona agente de saúde executante da visita.](#)  
+![Figura 11: Persona agente de saúde executante da visita.](https://github.com/user-attachments/assets/bc7e1642-d5ca-4fa7-9d1d-755f4e8fb3f8)
 *Fonte: Autores, 2025.*
 
-![Figura 12: Persona agente de saúde interessado em monitorar as informações sobre a dengue.](#)  
+![Figura 12: Persona agente de saúde interessado em monitorar as informações sobre a dengue.](https://github.com/user-attachments/assets/6697dc8a-cabf-4774-9125-6bef6e69c520) 
 *Fonte: Autores, 2025.*
 
 ---
@@ -26,19 +26,19 @@ Nesta seção serão documentadas as personas do projeto.
 
 Nesta seção serão documentados os mapas de empatia de cada persona apresentada no projeto.
 
-![Figura 13: Mapa de empatia da persona estudante de biomedicina interessada sobre os focos do mosquito Aedes aegypty](#)  
+![Figura 13: Mapa de empatia da persona estudante de biomedicina interessada sobre os focos do mosquito Aedes aegypty](https://github.com/user-attachments/assets/62731fbb-5336-47c1-a999-a331f7ffa6ed)
 *Fonte: Autores, 2025.*
 
-![Figura 14: Mapa de empatia da persona professora interessada na incidência de casos.](#)  
+![Figura 14: Mapa de empatia da persona professora interessada na incidência de casos.](https://github.com/user-attachments/assets/0eb17f8d-6820-4884-842b-751396e65c4b)
 *Fonte: Autores, 2025.*
 
-![Figura 15: Mapa de empatia da persona idoso solicitante da visita de agentes da saúde.](#)  
+![Figura 15: Mapa de empatia da persona idoso solicitante da visita de agentes da saúde.](https://github.com/user-attachments/assets/c1396c4f-aff2-45b5-a455-6241a8cd0da6)
 *Fonte: Autores, 2025.*
 
-![Figura 16: Mapa de empatia da persona agente comunitário de saúde.](#)  
+![Figura 16: Mapa de empatia da persona agente comunitário de saúde.](https://github.com/user-attachments/assets/994a4ca2-518f-4b91-8f04-489210ef09cd)
 *Fonte: Autores, 2025.*
 
-![Figura 17: Mapa de empatia da persona agente de saúde interessado em monitorar as informações sobre a dengue.](#)  
+![Figura 17: Mapa de empatia da persona agente de saúde interessado em monitorar as informações sobre a dengue.](https://github.com/user-attachments/assets/920f56a0-9cf1-46aa-bc6b-404936c2faca)
 *Fonte: Autores, 2025.*
 
 ---
@@ -59,13 +59,16 @@ No que se refere aos princípios Gestálticos, os formulários aplicam os concei
 
 Um exemplo específico pode ser visto na página Criar Conta, onde o checkbox "Sou agente de saúde" e o campo "Informe CNES" estão dispostos na mesma linha. Essa distribuição espacial comunica de forma clara que eles estão relacionados e que o preenchimento do CNES só é necessário caso o usuário se identifique como agente de saúde.
 
-![Figura 18: Página de Criar Conta](#)
+![Figura 18: Página de Criar Conta](https://github.com/user-attachments/assets/ae81a453-b24c-433c-b5cb-831376d68acf)
 
-![Figura 19: Página de Criar Conta com modal de Sucesso](#)
 
-![Figura 20: Página de Entrar](#)
+![Figura 19: Página de Criar Conta com modal de Sucesso](https://github.com/user-attachments/assets/8aa144bd-bed0-4571-826a-12a0875e4ce4)
 
-![Figura 21: Esqueci a senha](#)
+
+![Figura 20: Página de Entrar](https://github.com/user-attachments/assets/99f7fad4-0d7a-4b0b-86a2-d77a1cc97020)
+
+
+![Figura 21: Esqueci a senha](https://github.com/user-attachments/assets/effbf793-29cb-4e02-8ec7-7b264f54c541)
 
 ---
 
@@ -81,9 +84,11 @@ Quanto às Regras de Ouro de Shneiderman, a página mantém consistência visual
 
 Ainda, a funcionalidade de modo de alto contraste atende especificamente às preferências de Lorena por "opções para ajustar contrastes de cores em mapas" e "modo exterior para uso sob sol". A Figura 11 demonstra a implementação desta funcionalidade, onde o esquema de cores é alterado para tons mais saturados e contrastantes: o fundo escuro com elementos destacados em amarelo e ciano melhora a legibilidade em condições de luminosidade variada, seja durante análises prolongadas em ambiente interno ou consultas rápidas em campo durante campanhas de prevenção.
 
-![Figura 22: Página de mapa de casos e focos de dengue](#)
+![Figura 22: Página de mapa de casos e focos de dengue](https://github.com/user-attachments/assets/76953a1a-468e-4246-912b-3da229825a3a)
 
-![Figura 23: Página de mapa de casos e focos de dengue em modo externo](#)
+
+![Figura 23: Página de mapa de casos e focos de dengue em modo externo](https://github.com/user-attachments/assets/17731d58-ba53-4a7a-a75f-827161c6c76e)
+
 
 ---
 
@@ -115,19 +120,23 @@ A página de solicitar visita segue princípios Gestálticos e Regras de Ouro do
 
 Quanto às Regras de Ouro de Shneiderman, a página de solicitar visitas segue o mesmo padrão de interface e interação em relação às demais páginas de formulário de forma consistente. O formulário possui caixas de diálogo indicando quando a visita é solicitada com sucesso e/ou quando ocorreu falha na solicitação. Além disso, o sistema possui feedbacks informativos quando o usuário tenta solicitar visitas com campos não preenchidos, data inválida e CEP fora do formato (000000-00) e possui prevenção de erros informando ao usuário qual campo que precisa de correção, como apresentado na Figura 9.
 
-![Figura 24: Página de Solicitar Visita Web e Mobile](#)
+![Figura 24: Página de Solicitar Visita Web e Mobile](https://github.com/user-attachments/assets/5df97320-2f4a-4faa-ac48-28e0e11d3dbb)
 
-![Figura 25: Página de Solicitar com diálogo informando erro no campo CEP](#)
+![Figura 25: Página de Solicitar com diálogo informando erro no campo CEP](https://github.com/user-attachments/assets/ba21d3b2-c330-4dc8-80dd-bd8d102b0b6a)
+
 
 ---
 
 ### 4.3.5 Solicitações de visita (agente de saúde)
 
-![Figura 26: Tabela de solicitações de visita](#)
+![Figura 26: Tabela de solicitações de visita](https://github.com/user-attachments/assets/1384f875-1955-4b46-a9be-735db1d5b98f)
 
-![Figura 27: Tabela de solicitações de visita](#)
 
-![Figura 28: Edição do status de solicitações de visita](#)
+![Figura 27: Tabela de solicitações de visita](https://github.com/user-attachments/assets/618b50e1-95ce-4f27-84ff-d553455ff7d3)
+
+
+![Figura 28: Edição do status de solicitações de visita](https://github.com/user-attachments/assets/827db15f-0e63-4011-9927-63fedf07e2e8)
+
 
 Esta página foi projetada para atender às necessidades dos agentes de saúde, oferecendo uma interface intuitiva e funcional para a gestão das solicitações de visitas realizadas pelos cidadãos. O principal objetivo é fornecer uma visão clara e organizada das demandas, facilitando o acompanhamento e a execução das visitas de forma eficiente.
 
