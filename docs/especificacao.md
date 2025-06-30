@@ -118,6 +118,7 @@ Conforme evidenciado no diagrama de casos da Figura 1, o usuário logado (e some
 Figura 1: Diagrama de Casos de Uso da Entidade Foco de Dengue. 
 
 ![diagrama-foco-dengue](https://github.com/user-attachments/assets/4185cc95-bd52-4a12-9438-978608ab3530)
+
 Fonte: Autores, 2025 
 
 3.4.1.2 Casos de uso da entidade caso de dengue 
@@ -127,6 +128,7 @@ A Figura 2 apresenta o diagrama de casos de uso relacionados ao registro e geren
 Figura 2: Diagrama de Casos de Uso - Gerenciamento de casos de dengue. 
 
 ![diagrama-caso-dengue](https://github.com/user-attachments/assets/7ebe79c0-a475-49ba-b7f3-e5401ab652ff)
+
 Fonte: Autores, 2025 
 
 3.4.1.3 Casos de uso da entidade usuário comum 
@@ -136,6 +138,7 @@ A Figura 3 apresenta o diagrama de casos de uso relacionados ao usuário comum. 
 Figura 3: Diagrama de Casos de Uso do Usuário Comum. 
 
 ![diagrama-usuario-comum](https://github.com/user-attachments/assets/67f9d8e4-30fe-4e05-b89f-1ab2c14d20aa)
+
 Fonte: Autores, 2025 
 
 3.4.1.4 Casos de uso da entidade agente de saúde 
@@ -156,6 +159,7 @@ Este diagrama evidencia a arquitetura funcional do sistema, destacando as princi
 Figura 4: Diagrama de Casos de Uso do Agente de Saúde.
 
 ![diagrama-agente-saude](https://github.com/user-attachments/assets/172cddc3-e975-4455-863e-ca6d103d9c19)
+
 Fonte: Autores, 2025 
 
 3.4.1.5 Casos de uso da entidade solicitação de visita 
@@ -165,6 +169,7 @@ A Figura 5 apresenta o diagrama de casos de uso relacionados às visitas de agen
 Figura 5: Diagrama de Casos de Uso - Gerenciamento de visitas de agentes de saúde. 
 
 ![diagrama-visita-saude](https://github.com/user-attachments/assets/102bc944-be85-4b4a-889a-6f3e54ff26f2)
+
 Fonte: Autores, 2025
 
 

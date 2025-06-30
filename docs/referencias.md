@@ -1,4 +1,4 @@
-# REFERÊNCIAS
+REFERÊNCIAS 
 
 ALENCAR, Márcio Aurélio dos Santos; CORREA, Nazivaldo Caciocley Camelo; SOUZA, Saymon Erickson. Telemonitoramento de Agravos como Estratégia na Atenção Primária à Saúde. In: SIMPÓSIO BRASILEIRO DE COMPUTAÇÃO APLICADA À SAÚDE (SBCAS), 24., 2024, Goiânia/GO. Anais [...]. Porto Alegre: Sociedade Brasileira de Computação, 2024. p. 639-644. ISSN 2763-8952. DOI: https://doi.org/10.5753/sbcas.2024.2164. 
 
@@ -7,6 +7,8 @@ ARAUJO, Igor Ferreira; CEDRIM, Douglas. Arbolytics: Monitoramento de dados de ar
 BATISTA, Ewerthon Dyego de Araújo; ARAÚJO, Wellington Candeia de; LIRA, Romeryto Vieira; BATISTA, Laryssa Izabel de Araújo. Utilização de técnicas de Machine Learning e de Deep Learning para a predição de casos de internações causadas por dengue em municípios da Paraíba. In: ESCOLA REGIONAL DE COMPUTAÇÃO DO CEARÁ, MARANHÃO E PIAUÍ (ERCEMAPI), 9. , 2021, Quixadá/CE. Anais [...]. Porto Alegre: Sociedade Brasileira de Computação, 2021 . p. 107-114. DOI: https://doi.org/10.5753/ercemapi.2021.17914.  
 
 B.A. Seixas J, Giovanni Luz K, Pinto Junior V. Clinical Update on Diagnosis, Treatment and Prevention of Dengue. Acta Med Port [Internet]. 2024 Feb. 1 [cited 2025 Mar. 9];37(2):126-35. Available from: https://www.actamedicaportuguesa.com/ revista/index.php/amp/article/view/20569 
+
+BRASIL, 2025. Brasil registra redução de aproximadamente 60% nos casos de dengue em 2025. Disponível em: https://www.gov.br/saude/pt-br/assuntos/noticias/2025/fevereiro/brasil-registra-reducao-de-aproximadamente-60-nos-casos-de-dengue-em-2025#:~:text=Brasil%20registra%20redu%C3%A7%C3%A3o%20de%20aproximadamente%2060%25%20nos%20casos%20de%20dengue%20em%202025,-Segundo%20painel%20de&text=Nas%20primeiras%20seis%20semanas%20de,arboviroses%20do%20Minist%C3%A9rio%20da%20Sa%C3%BAde. Acesso: 19 mar. 2025. 
 
 CAMARA, Tamara Nunes Lima. A dengue é produto do meio: uma abordagem sobre os impactos do ambiente no mosquito Aedes aegypti e nos casos da doença. Revista Brasileira de Epidemiologia, 2024. DOI: 10.1590/1980-549720240048.2. Disponível em: https://www.scielo.br/j/rbepid/a/tScn3zQV4kWqYrh35fKYWdM/?lang=pt. Acesso em: 9 mar. 2025.  
 
@@ -44,4 +46,4 @@ Sood, S.K., Sood, V., Mahajan, I. et al. An intelligent healthcare system for pr
 
 World Health Organization. (2009). Dengue: guidelines for diagnosis, treatment, prevention and control. World Health Organization. ISBN: 978-92-4-154787-1. Disponível em https://www.who.int/publications/i/item/9789241547871. Acesso em: 9 mar. 2025. 
 
-Yi, C.; Vajdi, A.; Ferdousi, T.; Cohnstaedt, L.W.; Scoglio, C. PICTUREE—Aedes: A Web Application for Dengue Data Visualization and Case Prediction. Pathogens 2023, 12, 771. https://doi.org/10.3390/pathogens12060771 
+Yi, C.; Vajdi, A.; Ferdousi, T.; Cohnstaedt, L.W.; Scoglio, C. PICTUREE—Aedes: A Web Application for Dengue Data Visualization and Case Prediction. Pathogens 2023, 12, 771. https://doi.org/10.3390/pathogens12060771
