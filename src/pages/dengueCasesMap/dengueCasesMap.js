@@ -342,8 +342,8 @@ function getCasesReportsByLocation(location, casesReports, locationFilterType) {
       (locationFilterType === 'state'
         ? report.estado
         : report.cidade
-      ).toLowerCase() === locationLower
-  ).length;
+      )?.toLowerCase() === locationLower
+  )?.length;
 }
 
 function getOutbreakReportsByLocation(
