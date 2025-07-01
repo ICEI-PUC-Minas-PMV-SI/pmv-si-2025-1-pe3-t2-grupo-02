@@ -147,6 +147,7 @@
   "denuncias-casos": [
     {
       "id": "af5e",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -160,6 +161,7 @@
     },
     {
       "id": "135f",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -173,6 +175,7 @@
     },
     {
       "id": "3d76",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -186,6 +189,7 @@
     },
     {
       "id": "e70f",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -199,6 +203,7 @@
     },
     {
       "id": "5d60",
+      "data_registro": "2025-07-01",
       "nome": "asd",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -212,6 +217,7 @@
     },
     {
       "id": "706b",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -225,6 +231,7 @@
     },
     {
       "id": "9a80",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -238,6 +245,7 @@
     },
     {
       "id": "6f00",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -251,6 +259,7 @@
     },
     {
       "id": "4c8a",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -264,6 +273,7 @@
     },
     {
       "id": "4031",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -277,6 +287,7 @@
     },
     {
       "id": "f0ca",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -290,6 +301,7 @@
     },
     {
       "id": "7022",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -303,6 +315,7 @@
     },
     {
       "id": "b538",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -316,6 +329,7 @@
     },
     {
       "id": "b59c",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -329,6 +343,7 @@
     },
     {
       "id": "139b",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -342,6 +357,7 @@
     },
     {
       "id": "e2cc",
+      "data_registro": "2025-07-01",
       "nome": "Jhonata",
       "data_nascimento": "2004-10-30",
       "genero": "masculino",
@@ -381,7 +397,7 @@
     },
     {
       "id": "b5a2",
-      "data_registro": "2024-06-16",
+      "data_registro": "2025-07-01",
       "nome": "Ádria Tavares",
       "data_nascimento": "1995-12-28",
       "genero": "feminino",
@@ -399,7 +415,7 @@
     {
       "id": "5641",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-17",
+      "data_registro": "2025-07-01",
       "bairro": "João XXIII",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -413,7 +429,7 @@
     {
       "id": "5642",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-16",
+      "data_registro": "2025-07-01",
       "bairro": "Aldeota",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -429,7 +445,7 @@
     {
       "id": "5643",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-15",
+      "data_registro": "2025-07-01",
       "bairro": "Messejana",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -443,7 +459,7 @@
     {
       "id": "5644",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-14",
+      "data_registro": "2025-07-01",
       "bairro": "Parangaba",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -459,7 +475,7 @@
     {
       "id": "5645",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-13",
+      "data_registro": "2025-07-01",
       "bairro": "Centro",
       "cidade": "Maracanaú",
       "estado": "CE",
@@ -472,7 +488,7 @@
     {
       "id": "5646",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-12",
+      "data_registro": "2025-07-01",
       "bairro": "Antônio Bezerra",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -490,7 +506,7 @@
     {
       "id": "5647",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-11",
+      "data_registro": "2025-07-01",
       "bairro": "Mondubim",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -504,7 +520,7 @@
     {
       "id": "5648",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-10",
+      "data_registro": "2025-07-01",
       "bairro": "Barra do Ceará",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -520,7 +536,7 @@
     {
       "id": "5649",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-09",
+      "data_registro": "2025-07-01",
       "bairro": "Conjunto Ceará",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -533,7 +549,7 @@
     {
       "id": "5650",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-08",
+      "data_registro": "2025-07-01",
       "bairro": "São Gerardo",
       "cidade": "Fortaleza",
       "estado": "CE",
@@ -550,7 +566,7 @@
     {
       "id": "5651",
       "email_usuario": "teste123456@gmail.com",
-      "data_registro": "2024-06-07",
+      "data_registro": "2025-07-01",
       "bairro": "Caucaia",
       "cidade": "Caucaia",
       "estado": "CE",
@@ -565,7 +581,7 @@
     {
       "id": "324a",
       "email_usuario": "arthurrguimaraes12@gmail.com",
-      "data_registro": "2025-05-23",
+      "data_registro": "2025-07-01",
       "bairro": "Pampulha",
       "cidade": "Belo Horizonte",
       "estado": "MG",
@@ -578,7 +594,7 @@
   "solicitacao-visita": [
     {
       "id": "6d09",
-      "data_registro": "2025-05-23",
+      "data_registro": "2025-07-01",
       "user": "adria.tavares28@gmail.com",
       "data_visita": "2025-05-26",
       "turno": "tarde",
@@ -589,7 +605,7 @@
     },
     {
       "id": "b8d4",
-      "data_registro": "2025-05-23",
+      "data_registro": "2025-07-01",
       "user": "guilhermecortez11@outlook.com",
       "data_visita": "2025-10-30",
       "turno": "manha",
@@ -600,7 +616,7 @@
     },
     {
       "id": "d5f4",
-      "data_registro": "2025-05-23",
+      "data_registro": "2025-07-01",
       "user": "guilhermecortez11@outlook.com",
       "data_visita": "2025-10-25",
       "turno": "manha",
@@ -611,7 +627,7 @@
     },
     {
       "id": "7b65",
-      "data_registro": "2025-05-24",
+      "data_registro": "2025-07-01",
       "user": "naofufu@hotmail.com",
       "data_visita": "2025-06-20",
       "turno": "manha",
@@ -622,7 +638,7 @@
     },
     {
       "id": "9bd8",
-      "data_registro": "2025-06-01",
+      "data_registro": "2025-07-01",
       "user": "fulano@postinho.com",
       "data_visita": "2025-06-02",
       "turno": "tarde",
@@ -633,7 +649,7 @@
     },
     {
       "id": "ceb3",
-      "data_registro": "2025-06-07",
+      "data_registro": "2025-07-01",
       "user": "fulane@comum.com",
       "data_visita": "2025-06-11",
       "turno": "tarde",
@@ -644,7 +660,7 @@
     },
     {
       "id": "a4f5",
-      "data_registro": "2025-06-07",
+      "data_registro": "2025-07-01",
       "user": "fulane@comum.com",
       "data_visita": "2025-06-17",
       "turno": "manha",
@@ -655,7 +671,7 @@
     },
     {
       "id": "4259",
-      "data_registro": "2025-06-08",
+      "data_registro": "2025-07-01",
       "user": "test@tsts.com",
       "data_visita": "2025-10-16",
       "turno": "manha",
