@@ -44,7 +44,7 @@ class HamburgerMenu extends HTMLElement {
           <ul class="hamburger-menu-list">
             <!-- Páginas Principais -->
             <li class="menu-section">
-              <span class="section-title">Navegação Principal</span>
+              <span class="section-title-hamburger">Navegação Principal</span>
             </li>
             <li><a onclick="redirectToPage('index.html')" href="#">🏠 Home</a></li>
             <li><a onclick="redirectToPage('dengueCasesMap/dengueCasesMap.html')" href="#">🗺️ Mapa Casos de Dengue</a></li>
@@ -53,7 +53,7 @@ class HamburgerMenu extends HTMLElement {
             
             <!-- Ações do Usuário -->
             <li class="menu-section">
-              <span class="section-title">Ações</span>
+              <span class="section-title-hamburger">Ações</span>
             </li>
             <li><a onclick="redirectToPage('caseForm/caseForm.html')" href="#">📋 Reportar Caso</a></li>
             <li><a onclick="redirectToPage('denuncia/denuncia.html')" href="#">🚨 Denunciar Foco</a></li>
@@ -62,7 +62,7 @@ class HamburgerMenu extends HTMLElement {
 
             <!-- Área do Agente (apenas para usuários logados) -->
             <li class="menu-section agent-section" style="display: none;">
-              <span class="section-title">Área do Agente</span>
+              <span class="section-title-hamburger">Área do Agente</span>
             </li>
             <li class="agent-option" style="display: none;"><a onclick="redirectToPage('listagemDenunciasFocos/denuncias-focos.html')" href="#">📊 Denúncias de Focos</a></li>
             <li class="agent-option" style="display: none;"><a onclick="redirectToPage('listagemDenunciasAgente/denuncias-focos-agente.html')" href="#">🔍 Gerenciar Denúncias</a></li>
@@ -70,19 +70,19 @@ class HamburgerMenu extends HTMLElement {
             
             <!-- Informações -->
             <li class="menu-section">
-              <span class="section-title">Informações</span>
+              <span class="section-title-hamburger">Informações</span>
             </li>
             <li><a onclick="redirectToPage('sobreNos/sobreNos.html')" href="#">👥 Sobre Nós</a></li>
             
             <!-- Configurações -->
             <li class="menu-section">
-              <span class="section-title">Configurações</span>
+              <span class="section-title-hamburger">Configurações</span>
             </li>
             <li><a href="javascript:void(0)" id="outdoor-mode-toggle" class="outdoor-mode-button">${outdoorModeActive ? 'Modo Padrão' : '☀️ Modo Externo'}</a></li>
             
             <!-- Login/Logout -->
             <li class="menu-section">
-              <span class="section-title">Conta</span>
+              <span class="section-title-hamburger">Conta</span>
             </li>
             <li id="login-menu-option" style="display: ${loggedWith ? 'none' : 'block'};"><a onclick="redirectToPage('login/login.html')" href="#">🔑 Entrar</a></li>
             <li id="register-menu-option" style="display: ${loggedWith ? 'none' : 'block'};"><a onclick="redirectToPage('cadastro/cadastro.html')" href="#">📝 Cadastrar</a></li>
