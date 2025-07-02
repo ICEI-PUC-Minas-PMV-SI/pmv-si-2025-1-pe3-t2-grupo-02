@@ -207,7 +207,7 @@ function searchHealthPosts(location) {
     const request = {
       location: searchLocation,
       radius: 5000,
-      type: 'health', // Use string instead of array
+      keyword: 'posto de saúde'
     };
 
     console.log('Places request:', request);
@@ -217,10 +217,11 @@ function searchHealthPosts(location) {
       console.log('Places API response - Results:', results);
       
       if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-        console.log(`Found ${results.length} health posts`);
-        results.forEach((healthUnit) => {
-          addMarker(healthUnit);
-        });
+        // Filter for only places matching the desired names
+        const filtered = results.filter(place =>
+          /centro de saúde|unidade de pronto atendimento|ubs|upa|sms|cms/i.test(place.name)
+        );
+        filtered.forEach(addMarker);
       } else {
         console.error('Google Places API error:', status);
         // Handle specific error cases
