@@ -26,7 +26,7 @@ class Footer extends HTMLElement {
         <li><a onclick="redirectToPage('denuncia/denuncia.html')">Denuncia de foco</a></li>
       </ul>
     </nav>
-    <p class="copyright">© 2024 Dengue Status | PUC Minas | v1.0.0</p>
+    <p class="copyright">© 2024 Dengue Status | PUC Minas | v2.0.0</p>
   </footer>
       `;
   }
